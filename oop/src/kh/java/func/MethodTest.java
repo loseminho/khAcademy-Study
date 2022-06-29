@@ -8,6 +8,8 @@ public class MethodTest {
 		mt2.test3();
 		test2();
 		System.out.println("test1 메소드 입니다.");
+		int num = test4();
+		System.out.println(num);
 		test2();
 	}
 	private void test2() {
@@ -15,6 +17,6 @@ public class MethodTest {
 	}
 	
 	public int test4() {
-		
+		return 100;
 	}
 }
