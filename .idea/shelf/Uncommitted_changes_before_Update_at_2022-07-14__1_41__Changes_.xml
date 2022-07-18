@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_2022-07-14_오후_1_41_[Changes]" date="1657773698284" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-07-14_오후_1_41_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2022-07-14 오후 1:41 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="inputOutput/test.gif" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-07-14_오후_1_41_[Changes]/test.gif" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="academy.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-07-14_오후_1_41_[Changes]/academy.zip" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="array/bin/kh/java/func/ArrayTest.class" />
+    <option name="AFTER_PATH" value="array/bin/kh/java/func/ArrayTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-07-14_오후_1_41_[Changes]/ArrayTest.class" />
+  </binary>
+</changelist>
