@@ -451,5 +451,194 @@ FROM EMPLOYEE
 JOIN JOB USING (JOB_CODE)
 WHERE BONUS IS NULL AND JOB_NAME IN ('차장','사원');
 
+------------------------------------------------------------------------------------------------------------------------
+
+--UNION :  SELECT문을 집합연산, 이후 정렬까지 진행.
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE='D5'
+UNION
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+--UNION ALL : 합집합이지만 정렬을 해주지 않음. 중복 제거 하지않음.
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE='D5'
+UNION ALL
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+--INTERSECT : 두 조회 결과의 교집합. 겹친부분만 출력
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE='D5'
+INTERSECT
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+--MINUS : 위 조회 결과에서 아래 조회 결과를 빼줌 = 첫번째 조회문에서 두번쨰 조회문과 겹치는부분 제거
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE DEPT_CODE='D5'
+MINUS
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+FROM EMPLOYEE
+WHERE SALARY > 3000000;
+
+------------------------------------------------------------------------------------------------
+--서브쿼리
+
+--전 직원의 평균 급여보다 많은 급여를 받는 직원의 사번, 이름, 급여 조회
+--1. 전직원의 평균 급여를 조회
+SELECT FLOOR(AVG(SALARY)) FROM EMPLOYEE; --3047662
+--2. 1에서 조회된 결과를 이용하여 쿼리문 작성
+SELECT EMP_ID, EMP_NAME, SALARY
+FROM EMPLOYEE
+WHERE SALARY > (SELECT FLOOR(AVG(SALARY)) FROM EMPLOYEE);
+
+--전지연 직원의 관리자 이름을 출력
+--1. 전지연 직원의 관리자 사번(MANAGER_ID) 조회
+--2. 1의 조회 결과로 관리자 이름 ㅊ출력
+SELECT * FROM EMPLOYEE;
+SELECT MANAGER_ID FROM EMPLOYEE WHERE EMP_NAME='전지연';
+
+SELECT EMP_NAME 
+FROM EMPLOYEE 
+WHERE EMP_ID=
+(SELECT MANAGER_ID FROM EMPLOYEE WHERE EMP_NAME='전지연');
+
+SELECT E2.EMP_NAME
+FROM EMPLOYEE E1
+JOIN EMPLOYEE E2 ON (E1.MANAGER_ID = E2.EMP_ID)
+WHERE E1.EMP_NAME='전지연';
+
+--1. 윤은해와 급여가 같은 사원들의 사원번호,이름 급여를 출력
+--단, 윤은해는 출력X
+SELECT * FROM EMPLOYEE;
+SELECT EMP_ID "사원번호", EMP_NAME "이름", SALARY "급여"
+FROM EMPLOYEE
+WHERE SALARY =(SELECT SALARY FROM EMPLOYEE WHERE EMP_NAME='윤은해')AND EMP_NAME != '윤은해';
+
+
+--2. EMPLOYEE 테이블에서 급여가 가장 많은 사람과, 가장 적은 사람의
+--사번 이름 급여 출력
+SELECT EMP_ID "사원번호", EMP_NAME "이름", SALARY "급여"
+FROM EMPLOYEE
+WHERE SALARY = (SELECT MAX(SALARY) FROM EMPLOYEE) 
+OR SALARY = (SELECT MIN(SALARY) FROM EMPLOYEE);
+--WHERE SALARY IN ((SELECT  MAX(SALARY) FROM EMPLOYEE),(SELECT MIN(SALARY) FORM EMPLOYEE));
+
+--3. D1,D2 부서에서 근무하는 사원들 중 급여가, D5부서 직원들의
+--평균급여보다 많은 사람들의 이름 부서코드 급여 출력
+SELECT EMP_NAME "이름", DEPT_CODE  "부서코드", SALARY "급여"
+FROM  EMPLOYEE
+WHERE DEPT_CODE IN ('D1','D2')
+AND
+SALARY > (SELECT AVG(SALARY) FROM EMPLOYEE WHERE DEPT_CODE='D5');
+
+
+--- 다중행 서브쿼리
+-- 각 부서별 최고급여를 받는 직원의 이름, 부서코드, 급여 출력
+SELECT EMP_NAME, DEPT_CODE , SALARY
+FROM EMPLOYEE
+WHERE SALARY IN (SELECT MAX(SALARY)
+    FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+-- 비교값 > ANY() -> ()조건 값 중에서 최소 값보다 큰 값 전부 출력.
+SELECT EMP_NAME, DEPT_CODE , SALARY
+FROM EMPLOYEE
+WHERE SALARY > ANY (SELECT MAX(SALARY)
+FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+-- 비교값 < ANY() -> ()조건 값 중에서 최대값 보다 작은 값 전부 출력
+SELECT EMP_NAME, DEPT_CODE , SALARY
+FROM EMPLOYEE
+WHERE SALARY < ANY (SELECT MAX(SALARY)
+FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+-- 비교값 = ANY() -> IN과 같은 효과
+
+-- 비교값 > ALL -> ()조건 값 중 최대값보다 크면
+SELECT EMP_NAME, DEPT_CODE , SALARY
+FROM EMPLOYEE
+WHERE SALARY > ALL (SELECT MAX(SALARY)
+FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+-- 비교값 < ALL -> ()조건 값 중 최솟값보다 작으면
+SELECT EMP_NAME, DEPT_CODE , SALARY
+FROM EMPLOYEE
+WHERE SALARY > ALL (SELECT MAX(SALARY)
+FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+-- 다중열 서브쿼리
+-- 퇴사한 직원의 부서, 직급을 조회 -> ENT_YN = 'Y'
+-- 퇴사한 직원과 같은부서, 같은 직급에 해당하는 사원 이름, 부서 직급코드
+SELECT DEPT_CODE, JOB_CODE FROM EMPLOYEE WHERE ENT_YN='Y';
+
+SELECT EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE                                                                                                                                                                                                                                                                                                                                            
+WHERE 
+(DEPT_CODE, JOB_CODE) IN (SELECT DEPT_CODE, JOB_CODE FROM EMPLOYEE WHERE ENT_YN='Y');
+--DEPT_CODE = 'D8' AND JOB_CODE = 'J6';
+
+--상관 쿼리(상호연관 서브쿼리)
+--메인쿼리 값을 서브쿼리에 주고 서브 쿼리를 수행 한 후 메인 쿼리를 수행
+SELECT EMP_ID, EMP_NAME, DEPT_CODE, MANAGER_ID
+FROM EMPLOYEE E1
+WHERE EXISTS 
+(SELECT EMP_ID FROM EMPLOYEE E2 
+WHERE E1.MANAGER_ID = E2.EMP_ID);
+
+--스칼라 서브쿼리 : 상호연관 서브쿼리이면서 결과값이 1개인 서브쿼리
+-- 스칼라서브쿼리 중, (SELECT절 사용)
+--모든 사원의 사번, 이름, 관리자번호, 관리자이름 조회
+SELECT EMP_ID, EMP_NAME, MANAGER_ID,
+(SELECT E2.EMP_NAME FROM EMPLOYEE E2 WHERE E2.EMP_ID = E1.MANAGER_ID) AS 관리자명
+FROM EMPLOYEE E1;
+
+
+--사원명, 부서코드, 소속부서의 평균임금을 스칼라 서브쿼리로 출력
+SELECT EMP_NAME , DEPT_CODE,
+FLOOR(
+(SELECT AVG(SALARY) FROM EMPLOYEE E2
+WHERE E2.DEPT_CODE=E1.DEPT_CODE)
+)
+AS 평균임금
+FROM EMPLOYEE E1;
+
+-- 인라인 뷰
+-- 뷰 : 가상의 테이블
+-- 인라인뷰 : FROM 절에서 사용하는 서브쿼리
+-- TOP-N 분석
+-- 회사에서 급여가 가장 높은 직원 5명의 이름, 부서코드, 급여 출력
+SELECT ROWNUM, EMP_NAME, DEPT_CODE, SALARY 
+FROM (SELECT EMP_NAME, DEPT_CODE, SALARY 
+FROM EMPLOYEE ORDER BY SALARY DESC) WHERE ROWNUM <6;
+--RANK() OVER : 중복 등수는 동일 등수 처리 후 등수는 그만큼 밀어서 등수 처리,
+SELECT EMP_NAME, SALARY, RANK() OVER(ORDER BY SALARY DESC) FROM EMPLOYEE;
+-- DENSE RANK() OVER : 중복 등수는 동일 등수처리, 후 등수 밀지 않고 등수처리
+SELECT EMP_NAME, SALARY, DENSE_RANK() OVER(ORDER BY SALARY DESC) FROM EMPLOYEE;
+--ROW_NUMBER() OVER : 중복 값도 오름차순에 따라 등수 처리를 나눔
+SELECT EMP_NAME, SALARY, ROW_NUMBER() OVER(ORDER BY SALARY DESC) FROM EMPLOYEE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
