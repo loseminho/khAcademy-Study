@@ -1,0 +1,14 @@
+package kh.java.func;
+
+public class ListTest {
+	public void listTest1() {
+		//길이가 3인 문자열 배열 선언
+		String[] arr = new String[3];
+		arr[0] = "hi";
+		arr[1] = "hello";
+		arr[2] = "bye";
+		
+		
+		
+	}
+}

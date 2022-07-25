@@ -1,0 +1,5 @@
+package kr.or.student.vo;
+
+public class Student {
+
+}

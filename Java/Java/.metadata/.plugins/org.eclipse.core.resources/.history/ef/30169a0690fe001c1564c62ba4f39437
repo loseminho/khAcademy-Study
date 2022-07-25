@@ -1,0 +1,51 @@
+package point.controller;
+
+import java.awt.Point;
+import java.util.ArrayList;
+
+import point.view.PointView;
+
+public class PointController {
+	private ArrayList<Point> points;
+	private PointView view;
+	
+	public PointController() {
+		super();
+		points = new ArrayList<Point>();
+		view = new PointView();
+		
+	}
+	
+	public void main() {
+		while(true) {
+			int sel = view.showMenu();
+			switch(sel) {
+			case 1:
+				insertMember();
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				
+				return;
+			}
+		}
+	}
+
+	public void insertMember() {
+		Point p = view.insertPoint();
+		
+		
+	}
+	
+}

@@ -1,0 +1,84 @@
+package kr.or.student.controller;
+import java.util.ArrayList;
+import kr.or.student.view.StudentView;
+import kr.or.student.vo.Student;
+
+public class StudentController {
+	private Student[] student1;
+	private int index;
+	private ArrayList<Student> students;
+	private StudentView view;
+
+	public StudentController() {
+		super();
+		student1 = new Student[10];
+		students = new ArrayList<Student>();
+		view = new StudentView();
+	}
+	public void main() {
+		while(true) {
+			int sel = view.showMenu();
+			switch(sel) {
+			case 1:
+				insertStudent();
+				break;
+			case 2:
+				printAllStudent();
+				break;
+			case 3:
+				printOneStudent();
+				break;
+			case 4:
+				updateStudent();
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				
+				return;
+
+			}
+		}
+	}
+	private void updateStudent() {
+		
+		
+	}
+	public void printOneStudent() {
+		String name = view.getName("조회");
+		int searchIndex = searchStudent(name);
+		if(searchIndex == -1) {
+			view.noSearchStudent();
+		}else {
+//			Student s = student1[searchIndex];
+			Student s = students.get(searchIndex);
+			view.printOneStudent(s);
+		}
+	}
+	public int searchStudent(String name) {
+//		for(int i=0;i<index;i++) {
+//			Student s = student1[i];
+//			if(name.equals(s.getName())) {
+//				return i;
+//			}
+//		}
+		for(int i =0;i<students.size();i++) {
+			Student s = students.get(i);
+			if(name.equals(s.getName())) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	public void printAllStudent() {
+//		view.printAllStudent(student1,index);
+		view.printAllStudent(students);	
+	}
+	public void insertStudent() {
+		Student s = view.insertStudent();
+//		student1[index] = s;
+//		index++;
+		students.add(s);//list 가장 뒤에 추가
+	}
+}

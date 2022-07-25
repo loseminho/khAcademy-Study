@@ -1,0 +1,97 @@
+package kh.java.func;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class StudentMgr {
+	private ArrayList<Student> students;
+	private Scanner sc;
+	public StudentMgr() {
+		super();
+		students = new ArrayList<Student>();
+		sc = new Scanner(System.in);
+	}
+	public void main() {
+		while(true) {
+			System.out.println("1. 학생 정보 등록");
+			System.out.println("2. 전체 조회");
+			System.out.println("선택 >");
+			int sel = sc.nextInt();
+			switch(sel) {
+			case 1:
+				insertStudent();
+				break;
+			case 2:
+				printAllStudent();
+				break;
+			}
+		}
+	}
+	public void printAllStudent() {
+		ObjectInputStream ois = null;
+		FileInputStream fis;
+		try {
+			fis = new FileInputStream("students.txt");
+			ois = new ObjectInputStream(fis);
+			Student s = (Student)ois.readObject();
+			System.out.println(s.getName());
+			System.out.println(s.getAge());
+			System.out.println(s.getAddr());
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	public void insertStudent() {
+		System.out.println("등록 할 이름 : ");
+		String name = sc.next();
+		System.out.println("등록 할 나이 : ");
+		int age = sc.nextInt();
+		System.out.println("등록 할 주소 : ");
+		sc.nextLine();
+		String addr = sc.nextLine();
+		Student s = new Student(name,age,addr);
+		students.add(s);
+		ObjectOutputStream oos = null;
+		
+		FileOutputStream fis;
+		try {
+			fis = new FileOutputStream("student.txt");
+			oos = new ObjectOutputStream(fis);
+			
+			oos.writeObject(students);
+			System.out.println("등록 완료");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				oos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+}

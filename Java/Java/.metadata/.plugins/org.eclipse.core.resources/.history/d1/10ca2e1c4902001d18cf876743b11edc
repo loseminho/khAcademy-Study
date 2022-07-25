@@ -1,0 +1,12 @@
+package kh.java.func;
+
+import java.util.Scanner;
+
+public class TcpServer {
+	public void tcpServer() {
+		Scanner sc = new Scanner(System.in);
+		//1. 서버에서 사용할 포트 번호 지정
+		//0~65535 번호 사이에 1개를 사용
+		int port = 7777;
+	}
+}	

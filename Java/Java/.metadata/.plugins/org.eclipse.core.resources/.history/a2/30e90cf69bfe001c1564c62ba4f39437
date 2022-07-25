@@ -1,0 +1,39 @@
+package point.vo;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exam {
+	public void listExam() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("사용하실 캐시 사이즈를 입력하세요.");
+		int cacheSize= sc.nextInt();
+		String [] arr1 = new String[cacheSize];	
+		ArrayList<String> city = new ArrayList<String>();
+		int cachehit = 1;
+		int cachemiss = 5;
+		
+		
+		
+	}
+
+	
+	
+	
+	
+
+	
+	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
+//	String [] arr = {"Jeju", "Pangyo", "NewYork", "newyork"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};	
+
+	
+	
+	
+	
+	
+	
+	
+}

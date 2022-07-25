@@ -1,0 +1,10 @@
+package kh.java.func;
+
+import java.util.HashSet;
+
+public class setTest {
+	public void SetTest() {
+		HashSet<Integer> set = new HashSet<Integer>();
+		System.out.println("set의 길이 : "+set.size());
+	}
+}

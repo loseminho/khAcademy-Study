@@ -1,0 +1,40 @@
+package kh.java.func;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class SetTest {
+	public void SetTest() {
+		//set의 특징
+		//1)순서 없이 아무 위치에 삽입됨.
+		//2)중복 값은 삽입이 되지 않는다.
+		HashSet<Integer> set = new HashSet<Integer>();
+		System.out.println("set의 길이 : "+set.size());
+		set.add(10);
+		System.out.println("set의 길이 : "+set.size());
+		System.out.println(set);
+		set.add(20);
+		System.out.println(set);
+		set.add(30);//데이터 추가를 시도하고 그 결과를 리턴
+		System.out.println(set);
+		boolean bool1 = set.add(20);
+		System.out.println(bool1); //이미 삽입이 되어있는 값을 삽입한 경우 (false)가 출력됨.
+		set.remove(20);//매개변수로 받은 데이터와 일치하는 value를 찾아 삭제
+		
+		//set은 index로 관리하지 않기 때문에 꺼내는 방법이 필요
+		//1. foreach
+		for(Integer num : set) {
+			System.out.println(num);
+		}
+		//2. ArrayList를 이용한 방법
+		//set에 저장된 데이터와 동일한 타입을 저장할 수 있는 ArrayList를 생성(순서가 생겨남)
+		ArrayList<Integer> list = new ArrayList<Integer>(set);
+		System.out.println(list);
+		//3. 반복자(iterator)를 이용한 방법
+		Iterator<Integer> iter = set.iterator();
+		//hasNext() : 꺼내올 값이 남아있으면 true 없으면 false 리턴
+		//next() : 값 한개를 꺼내옴.
+		
+	}
+}

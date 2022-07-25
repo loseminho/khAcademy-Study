@@ -1,0 +1,11 @@
+package kr.or.point.controller;
+import java.util.HashMap;
+
+import kr.or.point.view.PointView;
+import kr.or.point.vo.Point;
+
+public class PointController {
+	private HashMap<String, Point> point;
+	private PointView view;
+	
+}

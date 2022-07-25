@@ -1,0 +1,52 @@
+package kh.java.func;
+
+import java.util.Random;
+
+public class StringClass {
+	public void test1() {
+		//문자열 변경을 위한 StringBuffer 사용
+		//import 안하는 조건
+		//1) 같은 패키지 내부의 클래스인경우
+		//2) java.lang패키지 소속의 클래스인경우
+		StringBuffer sb = new StringBuffer();
+		System.out.println("문자열 길이 : "+sb.length());
+		sb.append("hi");//현재 저장된 문자열에 매개변수로 전달한 문자를 추가
+		System.out.println(sb.toString());
+		sb.append(" 안녕");
+		System.out.println(sb.toString());
+		System.out.println("문자열 길이 : "+sb.length());
+		sb.append(" test");
+		System.out.println(sb.toString());
+		sb.insert(3, "삽입구문");//첫번째 매개변수(3) 위치에, 두번째 매개변수 값을 삽입
+		System.out.println(sb.toString());
+		sb.insert(7,  "여기");
+		System.out.println(sb.toString());
+		sb.replace(0, 2, "수정구문");//문자열 중 0번째부터 2번째 앞까지 "수정구문"으로 대체
+		System.out.println(sb.toString());
+		sb.delete(5, 8);//5번째부터 8번째 앞까지 삭제
+		System.out.println(sb.toString());
+		sb.reverse();//전체 뒤집음
+		System.out.println(sb.toString());
+		sb.reverse();//전체 뒤집음
+		System.out.println(sb.toString());
+		
+		Random r = new Random();
+		StringBuffer joinCode = new StringBuffer();
+		for(int i=0; i<6; i++) {
+			int num = r.nextInt(10);
+			joinCode.append(num);
+		}
+		System.out.println("회원가입 코드 ["+joinCode.toString()+"]");
+	}
+	public void test2() {
+		String str = "이윤수/서울/강사";
+		String[] arr = str.split("/");
+		System.out.println("배열길이 : "+ arr.length);
+	}
+}
+
+
+
+
+
+

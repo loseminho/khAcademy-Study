@@ -1,0 +1,80 @@
+package kh.java.word.controller;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
+import kh.java.word.view.WordView;
+
+public class WordController {
+	private ArrayList<String> words;
+	private WordView view;
+	private Random r;
+	private int win;
+	private int lose;
+
+	public WordController() {
+		super();
+		words = new ArrayList<String>();
+		getWordFile();
+		view = new WordView();
+		r = new Random();
+	}
+
+	public void main() {
+		while (true) {
+			int sel = view.showMenu();
+			switch (sel) {
+			case 1:
+				startGame();
+				break;
+			case 2:
+
+				break;
+			case 0:
+				System.out.println("프로그램을 종료합니다.");
+				return;
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			}
+		}
+	}
+
+	public void startGame() {
+		//1. words리스트에서 랜덤 단어 1개 추출
+		int random = r.nextInt(words.size());
+		String word = words.get(random);
+		
+	}
+
+	public void getWordFile() {
+		// words 파일을 연결, 연결하기 위해서는 읽어와야함.
+		BufferedReader br = null;
+		try {
+			FileReader fr = new FileReader("words.txt");
+			// 보조 스트림 생성
+			br = new BufferedReader(fr);
+			while (true) {
+				String word = br.readLine();// 한줄 읽어와서 word로 저장
+				if (word == null) {
+					break;
+				}
+				words.add(word);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

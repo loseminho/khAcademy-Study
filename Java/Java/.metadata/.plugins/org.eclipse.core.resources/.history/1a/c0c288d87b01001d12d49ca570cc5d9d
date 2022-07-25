@@ -1,0 +1,55 @@
+package kh.java.func;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ByteStreamTest {
+	private Scanner sc;
+
+	public ByteStreamTest() {
+		super();
+		sc = new Scanner(System.in);
+	}
+	public void primaryStream() {
+		//1. 스트림 생성
+		//2. 메소드를 통한 입/출력
+		//3. 자원 반환
+		
+		System.out.print("저장할 파일명 입력 : ");
+		String filename = sc.nextLine();
+		
+		FileOutputStream fos = null;
+		try {
+			//입력 받은 파일 명으로 파일 생성
+			//생성된 파일과 프로그램이 stream 연결
+			fos = new FileOutputStream("C:\\Users\\user1\\Desktop\\"+filename);
+			System.out.println("["+filename+"]파일에 저장될 내용을 입력하세요");
+	         System.out.println("종료는 exit를 입력하세요.");
+	         while(true) {
+	            System.out.print("내용입력 : ");
+	            String str =sc.nextLine();
+	            if(str.equals("exit")) {
+	               break;
+	            }
+	            byte[] arr = str.getBytes();
+	         }
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				fos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}

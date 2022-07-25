@@ -1,0 +1,7 @@
+package kh.java.func;
+
+public class Calc {
+	public void div(int num1, int num2) {
+		
+	}
+}

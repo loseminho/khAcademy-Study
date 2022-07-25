@@ -1,0 +1,14 @@
+package kh.java.func;
+
+import java.util.Scanner;
+
+public class ByteStreamTest {
+	private Scanner sc;
+
+	public ByteStreamTest() {
+		super();
+		sc = new Scanner(System.in);
+	}
+	
+	
+}

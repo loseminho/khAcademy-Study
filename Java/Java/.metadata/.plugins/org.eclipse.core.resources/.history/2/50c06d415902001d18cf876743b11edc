@@ -1,0 +1,13 @@
+package java.start;
+
+import java.func.TcpServer;
+
+public class Start {
+
+	public static void main(String[] args) {
+		TcpServer ts = new TcpServer();
+		ts.main();
+
+	}
+
+}

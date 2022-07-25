@@ -1,0 +1,14 @@
+package kh.java.exception;
+
+public class UserException2 extends Exception{
+
+	
+	public UserException2(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	
+}

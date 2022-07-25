@@ -1,0 +1,7 @@
+package kh.java.func;
+
+public class UserMgr {
+	public void test1() {
+		
+	}
+}

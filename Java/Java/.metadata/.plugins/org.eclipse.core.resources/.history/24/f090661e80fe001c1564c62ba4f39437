@@ -1,0 +1,12 @@
+package kr.or.student.controller;
+import java.util.ArrayList;
+import kr.or.student.view.StudentView;
+import kr.or.student.vo.Student;
+
+public class StudentController {
+	private Student[] student1;
+	private int index;
+	private ArrayList<Student> students;
+	private StudentView view;
+	
+}

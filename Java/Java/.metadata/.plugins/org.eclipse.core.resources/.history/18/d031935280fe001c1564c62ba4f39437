@@ -1,0 +1,14 @@
+package kr.or.student.view;
+
+import java.util.Scanner;
+
+public class StudentView {
+	private Scanner sc;
+
+	public StudentView() {
+		super();
+		sc = new Scanner(System.in);
+		
+	}
+	
+}

@@ -1,0 +1,35 @@
+package kh.java.func;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.Scanner;
+
+public class TcpServer {
+	public void tcpServer() {
+		Scanner sc = new Scanner(System.in);
+		//1. 서버에서 사용할 포트 번호 지정
+		//0~65535 번호 사이에 1개를 사용
+		//보통 1000번 이후의 포트 사용
+		int port = 7777;
+		//반환할 객체 미리 선언
+		//서버에서 포트를 열기 위한 객체
+		ServerSocket server = null;
+		//데이터 주고 받기 위한 보조 스트림
+		
+		DataOutputStream dos = null;
+		DataInputStream dis = null;
+		
+		try {
+			//2. 서버 소켓 객체 생성
+			//생성자 매개변수로 전달한 포트번호가 열리면서 서버 대기 상태
+			server = new ServerSocket(port);
+			System.out.println("[서버 준비 완료]");
+			System.out.println("클라이언트 접속 요청 대기 중....");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}	

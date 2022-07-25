@@ -1,0 +1,27 @@
+package kh.java.func;
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class StreamTest {
+	public void test1() {
+		//quiz.txt 파일의 내용을 읽어올 예정
+		BufferedReader br = null;
+		//이미지로 내보낼 보조스트림
+		BufferedOutputStream bos = null;
+		
+		try {
+			//quiz.txt를 읽어오기 위한 주 스트림 생성
+			FileReader fr = new FileReader("quiz.txt");
+			//보조스트림을 통한 성능개선
+			br = new BufferedReader(fr);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

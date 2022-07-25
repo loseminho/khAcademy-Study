@@ -1,0 +1,8 @@
+package kr.or.student.start;
+
+import kr.or.student.controller.StudentController;
+
+public class Start {
+	StudentController sc = new StudentController();
+	sc.maine;
+}

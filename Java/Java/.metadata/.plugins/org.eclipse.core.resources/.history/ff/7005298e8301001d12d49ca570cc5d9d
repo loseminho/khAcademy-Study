@@ -1,0 +1,95 @@
+package kh.java.func;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class CharStreamTest {
+	private Scanner sc;
+
+	public CharStreamTest() {
+		super();
+		sc = new Scanner(System.in);
+	}
+	public void primarStream() {
+		System.out.println("저장할 파일명 입력 : ");
+		String filename = sc.nextLine();
+		FileWriter fw = null;//~Write : 2바이트 짜리
+
+		try {
+			//1. 파일이 생성되고 스트림이 연결
+			fw = new FileWriter(filename);
+			System.out.println("["+filename+"] 파일에 저장될 내용을 입력하시오");
+			System.out.println("종료는 exit");
+			while(true) {
+				System.out.println("입력 : ");
+				String str = sc.nextLine() + "\r\n";
+				if(str.equals("exit\r\n")) {
+					break;
+				}
+				//문자스트림은 1 문자 단위로 전송하기 때문에 바이트 배열로 변환 하지 않음.
+				//2.메소드를 통한 출력
+				fw.write(str);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public void subStream() {
+		System.out.println("저장할 파일명 입력 : ");
+		String filename = sc.nextLine();
+		BufferedWriter bw = null; //보조스트림
+		
+		try {
+			//주스트림 생성
+			FileWriter fw = new FileWriter(filename);
+			//주스트림에 보조스트림 기능 추가
+			bw = new BufferedWriter(fw);
+			System.out.println("["+filename+"]에 저장할 내용 입력");
+			System.out.println("종료는 exit");
+			while(true) {
+				System.out.println("입력 : ");
+				String str = sc.nextLine();
+				if(str.equals("exit")) {
+					break;
+				}
+				bw.write(str);//보조스트림을 통한 데이터 전송
+				bw.newLine();//보조스트림에 존재하는 줄 개행 기능
+			}
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally {
+			try {
+				//보조스트림 반환 시 주스트림은 자동으로 반환
+				bw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public void CharStreamReader() {
+		//1. 스트림 생성 2. 메소드를 통한 입력 3. 자원반환
+		System.out.println("로드할 파일명 입력 : ");
+		String filename = sc.nextLine();
+		//데이터를 읽어올 보조 스트림
+		BufferedReader br = null;
+		try {
+			FileReader fr = new FileReader(filename);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

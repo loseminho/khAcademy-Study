@@ -1,0 +1,51 @@
+package kr.or.student.controller;
+import java.util.ArrayList;
+import kr.or.student.view.StudentView;
+import kr.or.student.vo.Student;
+
+public class StudentController {
+	private Student[] student1;
+	private int index;
+	private ArrayList<Student> students;
+	private StudentView view;
+
+	public StudentController() {
+		super();
+		student1 = new Student[10];
+		students = new ArrayList<Student>();
+		view = new StudentView();
+	}
+	public void main() {
+		while(true) {
+			int sel = view.showMenu();
+			switch(sel) {
+			case 1:
+				insertStudent();
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				
+				return;
+
+			}
+		}
+	}
+	public void insertStudent() {
+		Student s = view.insertStudent();
+//		student1[index] = s;
+//		index++;
+		students.add(s);//list 가장 뒤에 추가
+	}
+	
+}

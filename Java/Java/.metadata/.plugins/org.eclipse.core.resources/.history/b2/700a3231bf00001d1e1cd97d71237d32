@@ -1,0 +1,19 @@
+package kr.or.student.controller;
+import java.util.HashMap;
+
+import kr.or.student.view.StudentView;
+import kr.or.student.vo.Student;
+
+public class StudentController {
+	//키 값으로 이름을 사용하고, value를 학생 객체 사용
+	private HashMap<String, Student> students;
+	private StudentView view;
+	public StudentController() {
+		super();
+		students = new HashMap<String, Student>();
+		view = new StudentView();
+	}
+	
+	
+	
+}

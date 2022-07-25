@@ -1,0 +1,48 @@
+package kh.java.func;
+
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class UserMgr {
+	public void test1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 입력 : ");
+		String id = sc.next();
+		System.out.println("비밀번호 입력 : ");
+		String pw = sc.next();
+		System.out.println("이름 입력 : ");
+		String name = sc.next();
+		System.out.println("나이 입력 : ");
+		int age = sc.nextInt();
+		User u = new User(id, pw, name, age);
+		
+		//객체 내보내기
+		//객체를 내보내기 위한 보조스트림
+		ObjectOutputStream oos = null;
+		
+		try {
+			FileOutputStream fis = new FileOutputStream("object.txt");
+			oos = new ObjectOutputStream(fis);
+			
+			//객체 내보내는 코드
+			oos.writeObject(u);
+			System.out.println("객체 내보내기 완료");
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}finally {
+			try {
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

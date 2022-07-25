@@ -1,0 +1,8 @@
+package kh.java.func;
+
+public class StreamTest {
+	public void test1() {
+		//quiz.txt 파일의 내용을 읽어올 예정
+		
+	}
+}

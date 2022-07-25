@@ -1,0 +1,5 @@
+package kh.java.exception;
+
+public class UserException1 {
+
+}

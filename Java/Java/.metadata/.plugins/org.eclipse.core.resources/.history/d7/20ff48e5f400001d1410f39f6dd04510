@@ -1,0 +1,10 @@
+package kh.java.exception;
+
+public class UserException2 extends Exception{
+
+	public UserException2() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+}

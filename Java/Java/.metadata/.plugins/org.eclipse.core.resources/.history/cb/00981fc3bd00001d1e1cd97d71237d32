@@ -1,0 +1,51 @@
+package kh.java.func;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class MapTest {
+	public void mapTest1() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("hi");
+		list.add("hello");
+		list.add("bye");
+		list.add("hi");
+		System.out.println(list.get(1));
+		
+		//정수를 통해서 문자열을 관리하는 맵생성
+		HashMap<Integer, String> map = new HashMap<Integer, String>();
+		map.put(0, "hi");
+		map.put(1, "hello");
+		map.put(2, "bye");
+		map.put(3, "hi");
+		System.out.println(map.get(1));
+	}
+	public void mapTest2() {
+		HashMap<String, String> map = new HashMap<String, String>();
+		//put(key, value) : map에 데이터를 삽입하는 메소드
+		map.put("one", "hi");
+		map.put("two", "hello");
+		map.put("three", "bye");
+		System.out.println(map);
+		System.out.println(map.get("two"));
+		map.put("two", "집");
+		System.out.println(map);
+		map.put("zero", "hi");
+		System.out.println(map);
+		System.out.println(map.get("four"));//없는 키 값을 호출 시 null 출력
+		
+		//containsKey(param) : 매개변수로 받은 데이터가 key로 사용중이면 true, 사용중이지 않으면 false 리턴
+		boolean bool1 = map.containsKey("one");
+		boolean bool2 = map.containsKey("four");
+		System.out.println(bool1);
+		System.out.println(bool2);
+		
+		//remove(key) : 키 값에 해당하는 데이터를 삭제
+		map.remove("two");
+		System.out.println(map);
+		
+		//map에 있는 모든 데이터를 꺼내고 싶을 때
+		map.keySet();
+		
+	}
+}

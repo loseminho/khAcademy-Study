@@ -1,0 +1,15 @@
+package point.vo;
+
+public class Exam {
+
+	int cacheSize;
+	String [] cities;
+	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
+//	String [] arr = {"Jeju", "Pangyo", "NewYork", "newyork"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};	
+	
+	
+	
+}

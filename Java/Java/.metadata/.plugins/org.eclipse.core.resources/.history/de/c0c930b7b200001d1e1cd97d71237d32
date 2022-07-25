@@ -1,0 +1,20 @@
+package kh.java.func;
+
+import java.util.HashSet;
+
+public class SetTest {
+	public void SetTest() {
+		//set의 특징
+		//1)순서 없이 아무 위치에 삽입됨.
+		//2)중복 값은 삽입이 되지 않는다.
+		HashSet<Integer> set = new HashSet<Integer>();
+		System.out.println("set의 길이 : "+set.size());
+		set.add(10);
+		System.out.println("set의 길이 : "+set.size());
+		System.out.println(set);
+		set.add(20);
+		System.out.println(set);
+		set.add(30);
+		System.out.println(set);
+	}
+}

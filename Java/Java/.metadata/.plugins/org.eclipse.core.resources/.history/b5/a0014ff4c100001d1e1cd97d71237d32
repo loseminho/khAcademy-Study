@@ -1,0 +1,25 @@
+package kr.or.student.view;
+import java.util.Scanner;
+
+public class StudentView {
+	private Scanner sc;
+	
+	public StudentView() {
+		super();
+		sc = new Scanner(System.in);
+	}
+
+	public int showMenu() {
+		System.out.println("===== 학생 관리 프로그램 v5 =====");
+		System.out.println("1. 학생 정보 등록");
+		System.out.println("2. 전체 학생 출력");
+		System.out.println("3. 학생 1명 출력");
+		System.out.println("4. 학생 정보 수정");
+		System.out.println("5. 학생 정보 삭제");
+		System.out.println("0. 프로그램 종료");
+		System.out.println("선택 >>>");
+		int sel = sc.nextInt();
+		return sel;
+	}
+
+}

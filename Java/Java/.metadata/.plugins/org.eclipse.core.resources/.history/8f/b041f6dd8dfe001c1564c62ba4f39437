@@ -1,0 +1,26 @@
+package point.view;
+
+import java.util.Scanner;
+
+public class PointView {
+	private Scanner sc;
+	
+	public PointView() {
+		super();
+		sc = new Scanner(System.in);
+	}
+
+	public int showMenu() {
+		System.out.println("------ 포인트 관리 프로그램v5 -----");
+		System.out.println("1. 신규 회원 등록");
+		System.out.println("2. 회원 전체 출력");
+		System.out.println("3. 회원 1명 출력");
+		System.out.println("4. 회원 정보 수정");
+		System.out.println("5. 회원 정보 삭제");
+		System.out.println("0. 프로그램 종료");
+		System.out.println("선택 >>>");
+		int sel = sc.nextInt();
+		return sel;
+	}
+
+}

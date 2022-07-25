@@ -1,0 +1,32 @@
+package kh.java.run;
+
+import kh.java.func.Animal;
+import kh.java.func.AnimalMgr1;
+import kh.java.func.GenericeEx;
+import kh.java.func.Panda;
+import kh.java.func.Tiger;
+
+public class Start {
+
+	public static void main(String[] args) {
+
+//		GenericeEx<String> ge = new GenericeEx<String>();//<>안에는 참조형만 가능.
+//		GenericeEx<Integer> ge1 = new GenericeEx<Integer>();//기본형은 사용 불가해서 인티저 사용
+//		String str = ge.getDate();
+//		int num = ge1.getDate();
+		
+		Panda p1 = new Panda(200);
+		Tiger t1 = new Tiger(300);
+		
+		//AnimalMgr1 객체 생성
+		AnimalMgr1 am1 = new AnimalMgr1(p1);
+		AnimalMgr1 am2 = new AnimalMgr1(t1);
+		Animal a1 = am1.getData();//p1
+		Animal a2 = am2.getData();//t1
+		System.out.println("a1 HP : "+a1.getHp());
+		System.out.println("a2 HP : "+a2.getHp());
+		
+		
+	}
+
+}

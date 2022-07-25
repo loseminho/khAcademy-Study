@@ -1,0 +1,13 @@
+package kh.java.start;
+
+import kh.java.func.ByteStreamTest;
+
+public class Start {
+
+	public static void main(String[] args) {
+		ByteStreamTest bst = new ByteStreamTest();
+		bst.primaryStream();
+
+	}
+
+}

@@ -1,0 +1,36 @@
+package kh.java.func;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class MapTest {
+	public void mapTest1() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("hi");
+		list.add("hello");
+		list.add("bye");
+		list.add("hi");
+		System.out.println(list.get(1));
+		
+		//정수를 통해서 문자열을 관리하는 맵생성
+		HashMap<Integer, String> map = new HashMap<Integer, String>();
+		map.put(0, "hi");
+		map.put(1, "hello");
+		map.put(2, "bye");
+		map.put(3, "hi");
+		System.out.println(map.get(1));
+	}
+	public void mapTest2() {
+		HashMap<String, String> map = new HashMap<String, String>();
+		//put(key, value) : map에 데이터를 삽입하는 메소드
+		map.put("one", "hi");
+		map.put("three", "bye");
+		map.put("two", "hello");
+		System.out.println(map);
+		System.out.println(map.get("two"));
+		map.put("two", "집");
+		System.out.println(map);
+		map.put("zero", "hi");
+		System.out.println(map);
+	}
+}

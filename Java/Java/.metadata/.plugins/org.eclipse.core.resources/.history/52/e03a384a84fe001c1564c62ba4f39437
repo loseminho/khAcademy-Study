@@ -1,0 +1,71 @@
+package kr.or.student.view;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import kr.or.student.vo.Student;
+
+public class StudentView {
+	private Scanner sc;
+
+	public StudentView() {
+		super();
+		sc = new Scanner(System.in);
+	}
+
+	public int showMenu() {
+		System.out.println("----- 학생 관리 프로그램v4 -----");
+		System.out.println("1. 학생 정보 등록");
+		System.out.println("2. 학생 전체 출력");
+		System.out.println("3. 학생 1명 출력");
+		System.out.println("4. 학생 정보 수정");
+		System.out.println("5. 학생 정보 삭제");
+		System.out.println("0. 프로그램 종료");
+		System.out.print("선택 >>>");
+		int sel = sc.nextInt();
+		
+		return sel;
+	}
+	public Student insertStudent() {
+		System.out.println("----- 학생 정보 입력 -----");
+		System.out.println("이름 입력 : ");
+		String name = sc.next();
+		System.out.println("나이 입력 : ");
+		int age = sc.nextInt();
+		System.out.println("주소 입력 : ");
+		sc.nextLine();
+		String addr = sc.nextLine();
+		Student s = new Student(name, age, addr);
+		return s;
+	}
+
+	public void printAllStudent(ArrayList<Student> students) {
+		System.out.println("----- 학생 전체 출력 -----");
+		System.out.println("이름\t나이\t주소");
+//		for(int i=0;i<index;i++) {
+//			Student s = student1[i];
+//			System.out.println(s.getName()+"\t"
+//					+s.getAge()+"\t"
+//					+s.getAddr()+"\t");
+//		}
+//		for(int i=0;i<students.size();i++) {
+//			Student s = students.get(i);
+//			System.out.println(s.getName()+"\t"
+//					+s.getAge()+"\t"
+//					+s.getAddr()+"\t");
+//		}
+		for(Student s : students) {
+			System.out.println(s.getName()+"\t"
+					+s.getAge()+"\t"
+					+s.getAddr()+"\t");
+		}
+	}
+
+	public String getName(String str) {
+		System.out.println("----- 회원 정보 "+str+" -----");
+		System.out.print(str+"할 학생 이름 입력 : ");
+		String name = sc.next();
+		return null;
+	}
+	
+}

@@ -1,0 +1,10 @@
+package kr.or.student.view;
+
+public class StudentView {
+
+	public int showMenu() {
+		
+		return sel;
+	}
+
+}

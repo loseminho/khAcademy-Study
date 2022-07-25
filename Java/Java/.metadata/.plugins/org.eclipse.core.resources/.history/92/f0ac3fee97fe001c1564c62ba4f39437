@@ -1,0 +1,69 @@
+package point.controller;
+
+import java.util.ArrayList;
+import point.vo.Point;
+import point.view.PointView;
+
+public class PointController {
+	private ArrayList<Point> points;
+	private PointView view;
+	
+	public PointController() {
+		super();
+		points = new ArrayList<Point>();
+		view = new PointView();
+		
+	}
+	
+	public void main() {
+		while(true) {
+			int sel = view.showMenu();
+			switch(sel) {
+			case 1:
+				insertMember();
+				break;
+			case 2:
+				printAllMember();
+				break;
+			case 3:
+				printOneMember();
+				break;
+			case 4:
+				updateMember();
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				
+				return;
+			}
+		}
+	}
+
+	
+	private void updateMember() {
+		String name = view.getUpdateName();
+		Point p = view.updateMember();
+		points.set(searchIndex, p);
+	}
+	public void printOneMember() {
+		String name = view.getOneName();
+		for(int i=0;i<points.size();i++) {
+			Point p = points.get(i);
+			if(name.equals(p.getName())) {
+				view.printOneMember(p);
+			}else {
+				view.noSearchMember();
+			}
+		}
+	}
+	public void printAllMember() {
+		view.printAllMember(points);
+		
+	}
+	public void insertMember() {
+		Point p = view.insertMember();
+	}
+	
+}

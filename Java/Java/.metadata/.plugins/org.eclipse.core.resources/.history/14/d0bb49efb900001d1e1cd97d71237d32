@@ -1,0 +1,9 @@
+package kh.java.func;
+
+import java.util.ArrayList;
+
+public class MapTest {
+	public void mapTest1() {
+		ArrayList<String> list = new ArrayList<String>();
+	}
+}

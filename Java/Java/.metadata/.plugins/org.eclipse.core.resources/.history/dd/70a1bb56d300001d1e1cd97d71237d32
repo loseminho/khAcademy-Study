@@ -1,0 +1,8 @@
+package kr.or.point.controller;
+
+import java.util.HashMap;
+
+public class PointController {
+	private HashMap<String, Point> point;
+	
+}

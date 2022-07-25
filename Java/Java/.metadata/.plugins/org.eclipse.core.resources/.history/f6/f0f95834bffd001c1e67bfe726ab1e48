@@ -1,0 +1,19 @@
+package kh.java.func;
+
+public class StringClass {
+	public void test1() {
+		//문자열 변경을 위한 StringBuffer 사용
+		//import 안하는 조건
+		//1) 같은 패키지 내부의 클래스인경우
+		//2) java.lang패키지 소속의 클래스인경우
+		StringBuffer sb = new StringBuffer();
+		System.out.println("문자열 길이 : "+sb.length());
+		sb.append("hi");//현재 저장된 문자열에 매개변수로 전달한 문자를 추가
+		System.out.println(sb.toString());
+		sb.append(" 안녕");
+		System.out.println(sb.toString());
+		System.out.println("문자열 길이 : "+sb.length());
+		sb.append(" test");
+		System.out.println(sb.toString());
+	}
+}

@@ -1,0 +1,180 @@
+package kh.java.func;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
+
+public class TcpServer {
+	public void tcpExam1() {
+		Scanner sc = new Scanner(System.in);
+		int port = 9999;
+		ServerSocket server = null;
+		DataOutputStream dos = null;
+		DataInputStream dis = null;
+
+		try {
+			server = new ServerSocket(port);
+			System.out.println("[서버 준비 완료]");
+			System.out.println("클라이언트 접속 요청을 기다립니다...");
+			Socket client = server.accept();
+			System.out.println("클라이언트 접속 완료");
+
+			OutputStream out = client.getOutputStream();
+			InputStream in = client.getInputStream();
+			dos = new DataOutputStream(out);
+			dis = new DataInputStream(in);
+
+			while (true) {
+				System.out.println("나 : ");
+				String sendMsg = sc.next();// 전송
+				dos.writeUTF(sendMsg);
+				if (sendMsg.equals("exit")) {
+					break;
+				}
+				String clientMsg = dis.readUTF();
+				if (clientMsg.equals("exit")) {
+					break;
+				}
+				System.out.println("[client]: " + clientMsg);// 출력
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				dis.close();
+				dos.close();
+				server.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void tcpExam2() {
+		Scanner sc = new Scanner(System.in);
+		int port = 9999;
+		ServerSocket server = null;
+		DataOutputStream dos = null;
+		DataInputStream dis = null;
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("www.naver.com", "125.209.222.142");
+		map.put("www.google.com", "172.217.175.4");
+		map.put("www.iei.or.kr", "211.43.14.187");
+		int count =1;
+		
+		try {
+			server = new ServerSocket(port);
+			System.out.println("DNS서버 준비 완료");
+			Socket client = server.accept();
+			OutputStream out = client.getOutputStream();
+			InputStream in = client.getInputStream();
+			
+			dos = new DataOutputStream(out);
+			dis = new DataInputStream(in);
+
+			while (true) {
+				System.out.println("클라이언트 요청 대기상태 ...");
+				String clientMsg = dis.readUTF();
+				if(map.containsKey(clientMsg)) {
+					dos.writeUTF(map.get(clientMsg));
+				}else {
+					dos.writeUTF("no");
+				}
+				System.out.println("요청 " + count + "건 처리 완료");
+				count++;
+				System.out.println("서버를 종료하시겠습니까[y/n]?");
+				String sel = sc.next();
+				if (sel.equals("n")) {
+				} else if (sel.equals("y")) {
+					System.out.println("서버를 종료합니다.");
+					return;
+				} else {
+					System.out.println("잘못 입력하셨습니다. 서버를 종료합니다.");
+				}
+			}
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}finally {
+			try {
+				dis.close();
+				dos.close();
+				server.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public void baseballGameServer() {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+		int port = 8899;
+		ServerSocket server = null;
+		DataOutputStream dos = null;
+		DataInputStream dis = null;
+		HashMap<Integer, Integer> servermap = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> clientmap = new HashMap<Integer, Integer>();
+		
+		try {
+
+			server = new ServerSocket(port);
+			
+			System.out.println("< < < < < BaseBall Game > > > > > ");
+			System.out.println("클라이언트의 접속을 기다립니다.");
+			Socket client = server.accept();
+			OutputStream out = client.getOutputStream();
+			InputStream in = client.getInputStream();
+			dos = new DataOutputStream(out);
+			dis = new DataInputStream(in);
+			System.out.println("클라이언트가 접속 했습니다.");
+			System.out.print("서버 숫자 : ");
+			for(Integer i=0;i<3;i++) {
+				Integer random = r.nextInt(9)+1; //랜덤 숫자 생성
+				if(!servermap.containsValue(random)) {//중복값 제거
+					servermap.put(i, random);
+					continue;
+				}else {
+					servermap.remove(i);
+					i--;
+				}
+			}
+			for(Integer i =0;i<3;i++) {
+				System.out.print(servermap.get(i)+" ");
+			}
+			System.out.println();
+			System.out.println("< < < < < Game Start > > > > > ");
+			while(true) {
+				System.out.print("클라이언트가 입력한 수 ->");
+				for(Integer i=0;i<3;i++) {
+					Integer clientMsg = dis.read();	
+					System.out.print(clientMsg+" ");
+					clientmap.put(i, clientMsg);
+					
+				}
+				
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				dis.close();
+				dos.close();
+				server.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+}

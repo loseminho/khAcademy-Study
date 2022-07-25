@@ -1,0 +1,16 @@
+package kh.java.func;
+
+import java.util.Scanner;
+
+public class ExceptionTest {
+	private Scanner sc;
+	
+	public ExceptionTest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public void exceptionTest1() {
+		
+	}
+}

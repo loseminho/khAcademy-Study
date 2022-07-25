@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;kh.java.func.TcpServer&apos; to &apos;kh.java.func&apos;&#x0D;&#x0A;- Original project: &apos;networkServer&apos;&#x0D;&#x0A;- Original element: &apos;networkServer/src/kh.java.func.TcpServer&apos;&#x0D;&#x0A;- Renamed element: &apos;networkServer/src/kh.java.func&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;kh.java.func.TcpServer&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;kh.java.func.TcpServer" name="kh.java.func" qualified="false" references="true" stamp="1657674765058" textual="false" version="1.0"/>
+</session>

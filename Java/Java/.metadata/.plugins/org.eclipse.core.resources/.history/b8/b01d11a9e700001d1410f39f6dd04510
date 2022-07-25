@@ -1,0 +1,30 @@
+package kh.java.func;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionTest {
+	private Scanner sc;
+	
+	public ExceptionTest() {
+		super();
+		sc = new Scanner(System.in);
+	}
+
+	public void exceptionTest1() {
+		while(true) {
+			System.out.println("정수를 입력 하세요 : ");
+			int num =0;
+			try {
+				num = sc.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("에러 발생!");
+			}
+			System.out.println("결과 : "+num);
+			if(num == 0) {
+				break;
+			}
+		}
+		System.out.println("반복문 끝!");
+	}
+}

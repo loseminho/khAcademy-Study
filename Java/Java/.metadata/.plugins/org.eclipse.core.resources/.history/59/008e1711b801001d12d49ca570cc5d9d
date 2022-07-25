@@ -1,0 +1,15 @@
+package kh.java.func;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class StudentsMgr {
+	private ArrayList<Student> students;
+	private Scanner sc;
+	public StudentsMgr() {
+		super();
+		students = new ArrayList<Student>();
+		sc = new Scanner(System.in);
+	}
+	
+}

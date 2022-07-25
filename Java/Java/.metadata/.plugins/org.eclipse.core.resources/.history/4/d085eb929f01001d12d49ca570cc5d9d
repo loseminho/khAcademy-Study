@@ -1,0 +1,28 @@
+package kh.java.word.view;
+
+import java.util.Scanner;
+
+public class WordView {
+	private Scanner sc;
+	
+	public WordView() {
+		super();
+		sc = new Scanner(System.in);
+	}
+
+	public int showMenu() {
+		System.out.println("===== 끝말잇기 =====");
+		System.out.println("1. 게임시작");
+		System.out.println("2. 전적보기");
+		System.out.println("0. 프로그램 종료");
+		System.out.println("선택 >>>");
+		int sel = sc.nextInt();
+		return sel;
+	}
+
+	public void startGame() {
+		System.out.println("===== 게임시작 =====");
+		
+	}
+
+}

@@ -1,0 +1,53 @@
+package kr.or.point.controller;
+import java.util.HashMap;
+
+import kr.or.point.view.PointView;
+import kr.or.point.vo.Point;
+
+public class PointController {
+	private HashMap<String, Point> points;
+	private PointView view;
+	
+	public PointController() {
+		super();
+		points = new HashMap<String, Point>();
+		view = new PointView();
+	}
+	
+	public void main() {
+		while(true) {
+			int sel = view.pointMenu();
+			switch(sel) {
+			case 1:
+				insertMember();
+				break;
+			case 2:
+				printAllMember();
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				
+				return;
+			}
+		}
+	}
+
+	public void printAllMember() {
+		
+		
+	}
+
+	public void insertMember() {
+		Point p = view.insertMember();
+		points.put(p.getName(),p);
+	}
+	
+}

@@ -1,0 +1,47 @@
+package point.vo;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exam {
+	public void listExam() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("사용하실 캐시 사이즈를 입력하세요.");
+		int cacheSize= sc.nextInt();
+		String [] arr1 = new String[cacheSize];	
+		ArrayList<String> city = new ArrayList<String>();
+		int cachehit = 1;
+		int cachemiss = 5;
+		int Time = 0;
+		String cities = sc.next();
+		String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+		
+		
+		
+		for(int i=0; i<arr1.length;i++) {
+			city.add(arr[i]);
+		}//3번 일단 채우기
+		for(int i=arr1.length;i<arr.length;i++) {//3번 이후값부터 채울거다 모든 배열을
+			for(int j=0;j<arr1.length;j++) {//채워진 3개 배열 수색
+				if(city.get(j).equals(arr[i])){
+					Time += cachehit;
+				}else {
+					Time += cachemiss;
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+	}
+	
+	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
+//	String [] arr = {"Jeju", "Pangyo", "NewYork", "newyork"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};	
+	
+}

@@ -1,0 +1,27 @@
+package point.vo;
+
+import java.util.ArrayList;
+
+public class Exam {
+	String [] arr1 = new String[0];
+	int cacheSize;
+	ArrayList<cities> city = new ArrayList<cities>();
+	
+	
+	list.add()
+	
+	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
+//	String [] arr = {"Jeju", "Pangyo", "NewYork", "newyork"};
+//	String [] arr = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};	
+	cachehit = 1;
+	cachemiss = 5;
+	
+	
+	
+	
+	
+	
+	
+}
