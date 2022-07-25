@@ -529,7 +529,7 @@ CREATE TABLE LOOP_TEST(
 -- 부서코드 없는 직원은 '부서없음'으로 부서명 입력.
 -- 1. 사번을 이용해서 EMPLOYEE 테이블에서 필요한 정보 조회
 -- 2. 1번의 조회 결과를 이용해서 DEPARTMENT, JOB에서 추가 정보 조회
--- 3. 1,2번의 조회 결과를 이용하여  INSERT문 작성
+-- 3. 1,2번의 조회 결과를 이용하여  FCV문 작성
 -- 4. 모든 INSERT가 종료되면 COMMIT;
 DECLARE
     EMP     EMPLOYEE%ROWTYPE;
@@ -697,14 +697,278 @@ BEGIN
 END;
 /
 
+DROP PROCEDURE TEST_PRO_4;
+
 DECLARE
     D_TITLE DEPARTMENT.DEPT_TITLE%TYPE;
 BEGIN
     --PL/SQL 내부에서 프로시저 사용시 EXEC키워드를 사용하지 않음
-    TEST_PRO_4('송중기',D_TITLE);
+    TEST_PRO_4('하이유',D_TITLE);
     DBMS_OUTPUT.PUT_LINE(D_TITLE);
 END;
 /
+
+
+CREATE TABLE EMP_PRO_TEST
+AS
+SELECT EMP_ID, EMP_NAME, DEPT_TITLE, JOB_NAME, SALARY
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+LEFT JOIN JOB USING (JOB_CODE)
+ORDER BY 1;
+SELECT * FROM EMP_PRO_TEST;
+-- 1. 프로시저 생성
+-- >매개변수로 사번을 받아서 해당 직원을 EMP_PRO_TEST테이블에서 삭제 한 뒤
+-- >COMMIT;
+CREATE OR REPLACE PROCEDURE EMP_PRO_TEST_DELETE(E_ID IN VARCHAR2)
+IS
+BEGIN
+    DELETE FROM EMP_PRO_TEST
+    WHERE EMP_ID=E_ID;
+    COMMIT;
+END;
+/
+EXEC EMP_PRO_TEST_DELETE('205');
+
+
+
+/*
+1. 신규 테이블 생성 (테이블명 DEL_EMP)
+    > 사번, 이름, 부서명, 직급명, 퇴사일 저장할 컬럼 존재
+2. DEL_EMP_PRO2 프로시저 생성
+    > 매개변수로 사번을 받음
+    > 매개변수로 받은 사원정보를 EMP_PRO_TEST테이블에서 삭제
+    > EMP_PRO_TEST 테이블 삭제 전에 필요한 정보를 조회해서
+    > DEL_EMP에 INSERT 한 후 삭제( 퇴사일은 SYSDATE로 입력)
+    > 작업이 잘 되면, COMMIT.
+*/
+SELECT * FROM EMP_PRO_TEST;
+CREATE TABLE DEL_EMP(
+    DEL_E_ID        VARCHAR2(10),
+    DEL_E_NAME      VARCHAR2(20),
+    DEL_D_TITLE     VARCHAR2(20),
+    DEL_J_NAME      VARCHAR2(20),
+    DEL_END_DATE    DATE
+);
+
+CREATE OR REPLACE PROCEDURE DEL_EMP_PRO2(E_ID IN VARCHAR2)
+IS
+    EMP EMP_PRO_TEST%ROWTYPE;
+BEGIN
+    SELECT EMP_NAME, DEPT_TITLE, JOB_NAME
+    INTO EMP.EMP_NAME,
+    EMP.DEPT_TITLE,
+    EMP.JOB_NAME
+    FROM EMP_PRO_TEST
+    WHERE EMP_ID = E_ID;
+    INSERT INTO DEL_EMP VALUES
+    (E_ID,
+    EMP.EMP_NAME,
+    EMP.DEPT_TITLE,
+    EMP.JOB_NAME,
+    SYSDATE);
+    DELETE FROM EMP_PRO_TEST
+    WHERE EMP_ID = E_ID;
+    COMMIT;
+END;
+/
+
+SELECT * FROM EMP_PRO_TEST;
+SELECT * FROM DEL_EMP;
+EXEC DEL_EMP_PRO2('207');
+
+/*
+FUNCTION : 프로시저와 거의 유사
+> 리턴이 반드시 존재
+> IN|OUT 타입 변수 사용 X
+
+함수 작성 방법
+CREATE [OR REPLACE] FUNCTION 함수이름(매개변수1 자료형, 매개변수2 자료형..)
+RETURN 리턴자료형
+IS
+BEGIN
+END;
+/
+*/
+-- 부서코드를 받아서 해당하는 부서명을 조회하는 함수 생성
+CREATE OR REPLACE FUNCTION GET_DEPT(D_CODE VARCHAR2)
+RETURN DEPARTMENT.DEPT_TITLE%TYPE
+IS
+    D_NAME DEPARTMENT.DEPT_TITLE%TYPE;
+BEGIN
+    SELECT DEPT_TITLE
+    INTO D_NAME
+    FROM DEPARTMENT
+    WHERE DEPT_ID = D_CODE;
+    RETURN D_NAME;
+END;
+/
+
+SELECT GET_DEPT('D9') FROM DUAL;
+--JOIN을 사용하지 않아도 조회 가능.
+SELECT EMP_NAME, DEPT_CODE, GET_DEPT(DEPT_CODE) FROM EMPLOYEE;
+
+-- 급여랑 보너스를 매개변수로 받아서 연봉을 계산해서 리턴
+CREATE OR REPLACE FUNCTION GET_YEAR_SAL(
+    SAL NUMBER,
+    BO  NUMBER
+)
+RETURN NUMBER
+IS
+    YEAR_SAL    NUMBER;
+BEGIN
+    YEAR_SAL := (SAL+SAL*BO)*12;
+    RETURN YEAR_SAL;
+END;
+/
+SELECT GET_YEAR_SAL(50000000,0.1) FROM DUAL;
+SELECT EMP_NAME, SALARY, GET_YEAR_SAL(SALARY,NVL(BONUS,0)) FROM EMPLOYEE;
+
+--매개변수로 사번 받아서 해당 사원 연봉을 리턴하는 함수.
+CREATE OR REPLACE FUNCTION GET_YEAR_SAL2(
+    E_ID    NUMBER
+)
+RETURN NUMBER
+IS
+    SAL EMPLOYEE.SALARY%TYPE;
+    BO  EMPLOYEE.BONUS%TYPE;
+    YEAR_SAL NUMBER;
+BEGIN
+    SELECT SALARY, NVL(BONUS, 0)
+    INTO SAL,BO
+    FROM EMPLOYEE WHERE EMP_ID=E_ID;
+    YEAR_SAL := (SAL+SAL*BO)*12;
+    RETURN YEAR_SAL;
+END;
+/
+SELECT EMP_NAME, GET_YEAR_SAL2(EMP_ID) FROM EMPLOYEE;
+
+/*
+TRIGGER : 미리 정해놓은 조건을 만족하거나 수행되면 자동적으로 수행되는 행동
+    > 특정 테이블이나 뷰에 INSERT,UPDATE,DELETE의 의해
+    > 입력, 수정, 삭제가 되는 경우 자동으로 실행
+*/
+-- 회원 정보를 저장하는 테이블
+CREATE TABLE M_TBL(
+    MEMBER_ID   VARCHAR2(20) PRIMARY KEY,   --아이디
+    MEMBER_PW   VARCHAR2(30) NOT NULL,      --비밀번호
+    MEMBER_NAME VARCHAR2(20) NOT NULL,      --이름
+    ENROLL_DATE DATE                        --가입일
+);
+-- M_TBL에 정보가 변경되면 변경이력을 저장하는 테이블(비밀번호)
+CREATE TABLE M_LOG(
+    MEMBER_ID   VARCHAR2(20)    REFERENCES M_TBL ON DELETE CASCADE,
+    CHANGE_CONTENT VARCHAR2(100), --비밀번호 변경내역
+    CHANGE_DATE DATE              --변경 날짜
+);
+-- M_TBL에서 회원이 탈퇴 시 탈퇴 이력을 저장하는 테이블
+CREATE TABLE DEL_M_TBL(
+    --외래키를 걸어선 안됨.(다른 테이블에서 정보가 삭제되도 남아야야함)
+    MEMBER_ID   VARCHAR2(20)    PRIMARY KEY,
+    MEMBER_NAME VARCHAR2(20),
+    ENROLL_DATE DATE,
+    OUT_DATE    DATE
+);
+/*
+FOR EACH ROW가 있는 경우엔,
+업데이트문 동작 -> 5개의 행이 수정된 경우, 트리거가 5회 동작
+FOR EACH ROW가 없는 경우엔,
+업데이트문 동작 -> 5개의 행이 수정된 경우에도 트리거가 1회 동작
+
+ㅁ트리거 작성 틀
+CREATE [OR REPLACE] TRIGGER 트리거이름
+동작시점    동작DML   (AFTER INSERT)
+ON 대상 테이블
+[FOR EACH ROW] -- 트리거 종류 구분(변경된 행의 수 만큼 트리거 동작)
+BEGIN
+    --실행 코드  영역
+END;
+/
+바인드변수(FOR EACH ROW를 사용할 때만 사용가능한 변수)
+:NEW    - SQL문으로 새로 입력된 데이터
+:OLD    - SQL문으로 변경되기 전 데이터
+:NEW.컬럼명
+:OLD.컬럼명
+*/
+-- M_TBL에 회원이 INSERT되면 '회원이 추가되었습니다.'메세지 출력하는 트리거 생성
+CREATE OR REPLACE TRIGGER M_TBL_INSERT_TRG
+AFTER INSERT
+ON M_TBL
+FOR EACH ROW
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(:NEW.MEMBER_NAME||'회원이 추가되었습니다.');
+END;
+/
+INSERT INTO M_TBL VALUES('user01','1111','유저1',SYSDATE-1);
+COMMIT;
+INSERT INTO M_TBL VALUES('user02','2222','유저2',SYSDATE-1);
+COMMIT;
+INSERT INTO M_TBL VALUES('user03','3333','유저3',SYSDATE-1);
+
+-- M_TBL에서 비밀번호를 변경하면 변경이력을 M_LOG TBL에 INSERT
+CREATE OR REPLACE TRIGGER M_TBL_PW_TRG
+AFTER UPDATE
+ON M_TBL
+FOR EACH ROW
+BEGIN
+    INSERT INTO M_LOG 
+    VALUES(:OLD.MEMBER_ID, :OLD.MEMBER_PW||'-->'||:NEW.MEMBER_PW, SYSDATE);
+END;
+/
+SELECT * FROM M_TBL;
+UPDATE M_TBL SET MEMBER_PW='1234' WHERE MEMBER_ID='user01';
+SELECT * FROM M_LOG;
+
+-- M_TBL에서 데이터 삭제 시 DEL_M_TBL에 데이터를 INSERT하는 트리거
+CREATE OR REPLACE TRIGGER M_TBL_DEL_TRG
+AFTER DELETE
+ON M_TBL
+FOR EACH ROW
+BEGIN
+    INSERT INTO DEL_M_TBL
+    VALUES(:OLD.MEMBER_ID,:OLD.MEMBER_NAME,:OLD.ENROLL_DATE,SYSDATE);
+END;
+/
+SELECT * FROM M_TBL;
+DELETE FROM M_ TBL WHERE MEMBER_ID='user03';
+SELECT * FROM DEL_M_TBL;
+COMMIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
