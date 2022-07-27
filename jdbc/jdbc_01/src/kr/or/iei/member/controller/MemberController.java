@@ -53,8 +53,21 @@ public class MemberController {
         }
     }
 
+
     private void updateMember() {
         String getId = view.getId();
+        /*
+        member member = dao.searchIdMember(memberId);
+        if(member ==null){
+        view.updateFail();
+        }else{
+            Member m = view.getUpdateInfo();
+            int result = dao.updateMember(getId, m);
+            if(result > 0){
+                view.updateSuccess();
+            }
+        }
+         */
         Member m = view.getUpdateInfo();
         int result = dao.updateMember(getId, m);
         if(result > 0){
@@ -64,7 +77,7 @@ public class MemberController {
         }
     }
 
-    //회원정보를 입력 받아 가입하는 메ㅔ소드
+    //회원정보를 입력 받아 가입하는 메소드
     private void insertMember() {
         //insert into member_tbl values(..........);
         Member m = view.getMember();
@@ -102,7 +115,6 @@ public class MemberController {
         }else{
             view.noSearchMember();
         }
-
     }//searchIdMember()메소드 종료
 
     private void selectAllMember() {

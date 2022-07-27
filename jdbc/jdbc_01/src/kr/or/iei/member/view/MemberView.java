@@ -83,8 +83,6 @@ public class MemberView {
         char memberGender = sc.next().charAt(0);
         Member m = new Member(memberId, memberPw,memberName,memberAddr,memberPhone,memberAge,memberGender,null);
         return m;
-
-
     }
 
     public void insertSuccess() {
