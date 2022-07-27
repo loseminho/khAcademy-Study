@@ -38,7 +38,7 @@ public class MemberView {
     }
 
     public String getId() {
-        System.out.println("조회 할 아이디 입력 : ");
+        System.out.println("아이디 입력 : ");
         return sc.next();
     }
 
@@ -59,9 +59,68 @@ public class MemberView {
     }
 
     public String getName() {
-        System.out.println("조회 할 이름 입력 : ");
+        System.out.println("이름 입력 : ");
         String memberName = sc.next();
         return memberName;
     }
 
+    public Member getMember() {
+        System.out.println("\n------회원가입 -------\n");
+        System.out.print("아이디 입력 : ");
+        String memberId = sc.next();
+        System.out.print("비밀번호 입력 : ");
+        String memberPw = sc.next();
+        System.out.print("이름 입력 : ");
+        String memberName = sc.next();
+        System.out.print("주소 입력 :" );
+        sc.nextLine();
+        String memberAddr = sc.nextLine();
+        System.out.print("전화번호 입력 [010-0000-0000] : ");
+        String memberPhone = sc.next();
+        System.out.print("나이 입력 : ");
+        int memberAge = sc.nextInt();
+        System.out.print("성별 입력 [남/여] : ");
+        char memberGender = sc.next().charAt(0);
+        Member m = new Member(memberId, memberPw,memberName,memberAddr,memberPhone,memberAge,memberGender,null);
+        return m;
+
+
+    }
+
+    public void insertSuccess() {
+        System.out.println("회원가입 성공!");
+    }
+
+    public void insertFail() {
+        System.out.println("회원가입 실패~");
+    }
+
+    public Member getUpdateInfo() {
+        System.out.println("\n------회원 정보 변경 -------\n");
+        System.out.print("비밀번호 입력 : ");
+        String memberPw = sc.next();
+        System.out.print("주소 입력 :" );
+        sc.nextLine();
+        String memberAddr = sc.nextLine();
+        System.out.print("전화번호 입력 [010-0000-0000] : ");
+        String memberPhone = sc.next();
+        Member m = new Member(memberPw,memberAddr,memberPhone);
+        return m;
+    }
+
+    public void updateSuccess() {
+        System.out.println("업데이트 성공!");
+    }
+
+    public void updateFail() {
+        System.out.println("업데이트 실패!");
+    }
+
+    public void deleteSuccess() {
+        System.out.println("삭제 성공!");
+    }
+
+    public void deleteFail() {
+        System.out.println("삭제 실패!");
+    }
 }

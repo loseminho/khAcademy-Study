@@ -19,26 +19,62 @@ public class MemberController {
         while(true){
             int sel = view.showMenu();
             switch (sel){
-                case 1:
+                case 1://전체 회원 조회
                     selectAllMember();
                     break;
-                case 2:
+                case 2://아이디로 회원 조회
                     searchIdMember();
                     break;
-                case 3:
+                case 3://이름으로 회원 조회
                     searchNameMember();
                     break;
-                case 4:
+                case 4://회원 정보 변경
+                    insertMember();
                     break;
-                case 5:
+                case 5://회원 정보 변경
+                    updateMember();
                     break;
-                case 6:
+                case 6://회원 탈퇴
+                    deleteMember();
                     break;
-                case 0:
+                case 0://선택
                     return;
             }
         }
     }
+
+    private void deleteMember() {
+        String getId = view.getId();
+        int result = dao.deleteMember(getId);
+        if(result > 0){
+            view.deleteSuccess();
+        }else {
+            view.deleteFail();
+        }
+    }
+
+    private void updateMember() {
+        String getId = view.getId();
+        Member m = view.getUpdateInfo();
+        int result = dao.updateMember(getId, m);
+        if(result > 0){
+            view.updateSuccess();
+        }else {
+            view.updateFail();
+        }
+    }
+
+    //회원정보를 입력 받아 가입하는 메ㅔ소드
+    private void insertMember() {
+        //insert into member_tbl values(..........);
+        Member m = view.getMember();
+        int result = dao.insertMember(m);
+        if(result > 0){
+            view.insertSuccess();
+        }else {
+            view.insertFail();
+        }
+    }//insertMember() 메소드 종료
 
     //이름으로 회원을 조회하는 메소드
     private void searchNameMember() {

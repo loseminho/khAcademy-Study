@@ -26,6 +26,12 @@ public class Member {
         super();
     }
 
+    public Member(String memberPw, String memberAddr, String memberPhone) {
+        this.memberPw = memberPw;
+        this.memberAddr = memberAddr;
+        this.memberPhone = memberPhone;
+    }
+
     public String getMemberId() {
         return memberId;
     }
