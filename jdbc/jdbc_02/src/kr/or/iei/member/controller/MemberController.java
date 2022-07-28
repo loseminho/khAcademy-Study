@@ -78,7 +78,6 @@ public class MemberController {
             view.failMsg("가입");
         }
     }
-
     private void updateMember() {
         String getId = view.getId("수정");
         Member m = view.getUpdateInfo();

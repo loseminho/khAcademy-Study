@@ -91,7 +91,6 @@ public class MemberDao {
                 m.setMemberAge(rset.getInt("member_age"));
                 m.setMemberGender(rset.getString("member_gender"));
                 m.setEnrollDate(rset.getDate("enroll_date"));
-
             }
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
