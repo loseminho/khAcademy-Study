@@ -45,4 +45,34 @@ public class MemberService {
         Member m = dao.searchNameInfo(conn, searchName);
         return m;
     }
+
+    public int myInfoChange(Member m) {
+        Connection conn = JDBCTemplate.getConnection();
+        int result = dao.myInfoChange(conn, m);
+        if(result > 0){
+            JDBCTemplate.commit(conn);
+        }else{
+            JDBCTemplate.rollback(conn);
+        }
+        JDBCTemplate.close(conn);
+        return result;
+    }
+
+    public int deleteMember(Member login) {
+        Connection conn = JDBCTemplate.getConnection();
+        int result = dao.delMember(conn, login.getMemberId());
+        if(result > 0 ){
+            result = 0;
+            result = dao.insertDelMember(conn,login);
+            if (result > 0) {
+                JDBCTemplate.commit(conn);
+            }else{
+                JDBCTemplate.rollback(conn);
+            }
+        }else{
+            JDBCTemplate.rollback(conn);
+        }
+        JDBCTemplate.close(conn);
+        return result;
+    }
 }

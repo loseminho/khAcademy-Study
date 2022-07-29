@@ -43,7 +43,6 @@ public class MemberView {
 
 
     public int loginMenu(String memberName) {
-        System.out.println("\n ----- 회원 관리 프로그램v4 ----- \n");
         System.out.println("----- ["+memberName+"] -----");
         System.out.println("1. 내 정보 조회");
         System.out.println("2. 이름으로 회원 조회");
@@ -124,5 +123,39 @@ public class MemberView {
 
     public void nosearchName() {
         System.out.println("없는 회원입니다.");
+    }
+
+    public Member myInfoChange() {
+        Member m = new Member();
+        System.out.print("수정할 비밀 번호 입력 : ");
+        m.setMemberPw(sc.next());
+        System.out.print("수정할 주소 입력 : ");
+        sc.nextLine();
+        m.setMemberAddr(sc.nextLine());
+        System.out.print("수정 할 전화번호 입력 : ");
+        m.setMemberPhone(sc.next());
+        return m;
+    }
+
+    public void myInfoChangeSuccess() {
+        System.out.println("정보 변경 성공!");
+    }
+
+    public void myInfoChangeFail() {
+        System.out.println("정보 변경에 실패하였습니다.");
+    }
+
+    public String deleteCheck() {
+        System.out.println("정말 삭제 하시겠습니까? [y/n] : ");
+        String check = sc.next();
+        return check;
+    }
+
+    public void deleteSuccess() {
+        System.out.println("삭제가 완료되었습니다.");
+    }
+
+    public void deleteFail() {
+        System.out.println("삭제가 실패하였습니다.");
     }
 }

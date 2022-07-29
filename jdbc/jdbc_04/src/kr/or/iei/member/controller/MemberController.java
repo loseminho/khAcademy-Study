@@ -43,6 +43,7 @@ public class MemberController {
                         myInfoChange();
                         break;
                     case 4:
+                        deleteMember();
                         break;
                     case 0:
                         login = null;
@@ -94,7 +95,7 @@ public class MemberController {
         while (true) {
             searchName = view.searchName();
             boolean check = service.selectOneMember(searchName);
-            if (check == false) {
+            if (!check) {
                 Member m = service.searchNameInfo(searchName);
                 view.searchNameInfo(m);
                 break;
@@ -105,7 +106,30 @@ public class MemberController {
     }
 
     private void myInfoChange() {
+        Member m = view.myInfoChange();
+        m.setMemberId(login.getMemberId());
+        int result = service.myInfoChange(m);
+        if(result > 0){
+            //Db 값을 가져오는 것이 아닌 login 객체를 통해서 정보값을 저장한 경우, 수정 시
+            // 다시 login 객체에 수정 정보를 저장시켜야 함.
+            login = service.selectOneMember(m);
+            view.myInfoChangeSuccess();
+        }else{
+            view.myInfoChangeFail();
+        }
+    }
 
+    private void deleteMember() {
+        String check = view.deleteCheck();
+        if(check.equals("y")){
+            int result = service.deleteMember(login);
+            if(result >0){
+                login = null;
+                view.deleteSuccess();
+            }else {
+                view.deleteFail();
+            }
+        }
     }
 
 }

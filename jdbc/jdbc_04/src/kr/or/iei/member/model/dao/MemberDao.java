@@ -95,7 +95,7 @@ public class MemberDao {
         ResultSet rset = null;
         Member m = null;
 
-        String query = "select * from member_tbl where member_name = ?";
+        String query = "select * from member_tbl where member_name like ?";
 
         try {
             pstmt = conn.prepareStatement(query);
@@ -119,5 +119,64 @@ public class MemberDao {
             JDBCTemplate.close(rset);
         }
         return m;
+    }
+
+    public int myInfoChange(Connection conn, Member m) {
+        PreparedStatement pstmt = null;
+
+        int result = 0;
+        String query = "update member_tbl set member_pw = ?, member_addr = ?, member_phone = ? where member_id = ?";
+        try {
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,m.getMemberPw());
+            pstmt.setString(2,m.getMemberAddr());
+            pstmt.setString(3,m.getMemberPhone());
+            pstmt.setString(4,m.getMemberId());
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            JDBCTemplate.close(pstmt);
+        }
+        return result;
+    }
+
+    public int delMember(Connection conn, String memberId) {
+        PreparedStatement pstmt = null;
+
+        int result = 0;
+        String query = "delete from meber_tbl where member_id = ?";
+
+        try {
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,memberId);
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            JDBCTemplate.close(pstmt);
+        }
+        return result;
+    }
+
+    public int insertDelMember(Connection conn, Member login) {
+        PreparedStatement pstmt = null;
+        int result = 0;
+        String query  = "insert into del_member values(?,?,?,?,?,?,sysdate)";
+        try {
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,login.getMemberId());
+            pstmt.setString(2,login.getMemberPw());
+            pstmt.setString(3,login.getMemberName());
+            pstmt.setString(4,login.getMemberPhone());
+            pstmt.setInt(5,login.getMemberAge());
+            pstmt.setString(6,login.getMemberGender());
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            JDBCTemplate.close(pstmt);
+        }
+        return result;
     }
 }
