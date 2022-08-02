@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 구조를 유지할 것 (table 내부에 tr 내부에 td)-->
+    <table border="1">
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+            <td>내용4</td>
+        </tr>
+        <tr>
+            <td>내용5</td>
+            <td>내용6</td>
+            <td>내용7</td>
+            <td>내용8</td>
+        </tr>
+        <tr>
+            <td>내용5</td>
+            <td>내용6</td>
+            <td>내용7</td>
+            <td>내용8</td>
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <caption>표이름</caption>
+        <tr>
+            <th>제목1</th>
+            <th>제목2</th>
+            <th>제목3</th>
+        </tr>
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td>내용4</td>
+            <td>내용5</td>
+            <td>내용6</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- 테이블 셀 합치는 기능-->
+    <table border="1">
+        <caption>셀합치기(가로)</caption>
+        <tr>
+            <th colspan="3">회원정보</th>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>유저111</td>
+            <td>20</td>
+            <td>인천시 부평구</td>
+        </tr>
+        <tr>
+            <td>유저222</td>
+            <td>25</td>
+            <td>서울시 영등포구</td>
+        </tr>
+        <tr>
+            <td>유저333</td>
+            <td>40</td>
+            <td>서울시 강남구</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- 테이블 셀 합치는 기능-->
+    <table border="1">
+        <caption>셀합치기(세로)</caption>
+        <tr>
+            <th rowspan="3">이름</th>
+            <td>유저111</td>
+        </tr>
+        <tr>
+            <td>유저222</td>
+        </tr>
+        <tr>
+            <td>유저333</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- 테이블 셀 크기 지정-->
+    <table border="1">
+        <caption>셀크기 변경</caption>
+        <tr>
+            <th width="100px">제목1</th>
+            <th>제목2</th>
+            <th>제목3</th>
+        </tr>
+        <tr>
+            <td height="50px">내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td>내용4</td>
+            <td width="150px" height="150px">내용5</td>
+            <td>내용6</td>
+        </tr>
+        <tr>
+            <td>내용7</td>
+            <td>내용8</td>
+            <td>내용9</td>
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <tr>
+            <th colspan="2" rowspan="2" width="150px" height="150px">사진</th>
+            <th width="80">이름</th>
+            <th width="200px"></th>
+        </tr>
+        <tr>
+            <th>내용7</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th width="80px" height="50px">주소</th>
+            <th colspan="3"></th>
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>진민호1</td>
+                <td>20</td>
+                <td>서울시 영등포구</td>
+            </tr>
+            <tr>
+                <td>진민호2</td>
+                <td>25</td>
+                <td>서울시 강남구</td>
+            </tr>
+            <tr>
+                <td>진민호3</td>
+                <td>28</td>
+                <td>인천시 부평구</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">층 인원</th>
+                <td>3명</td>
+            </tr>
+        </tfoot>
+    </table>
+    <style>
+        thead{
+            background-color: gray;
+        }
+        tbody{
+            background-color: white;
+        }
+        tfoot{
+            background-color: lightblue;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="top">문서시작</h1>
+    <!--1. 시스템 내부에 있는 페이지로 이동. -->
+    <a href="01_글자태그.html" target="_self">1. 글자태그로 이동</a>
+    <br>
+    <a href="02_목록태그.html" target="_blank">2. 목록태그로 이동</a>
+    <!-- 
+        target: href 경로의 파일이 열리는 위치를 지정
+        _self : 현재창을 변경
+        _blank : 새창을 띄워서 문서 열기
+        _parent : 부모창에서 문서 열기(부모창 -> 현재 창을 열어준 창)
+        _top : 최상위창
+    -->
+
+    <br>
+    <!--2. 시스템 외부에 있는 페이지로 이동. -->
+    <a href="http://www.naver.com">네이버로 이동</a>
+    <br>
+    <a href="http://www.naver.com"><image src="image/dog.jpg" height="150"></image></a></body>
+    <br>
+    <image src="image/dog1.jpg" usemap="#dog">
+    <map name="dog">
+        <area shape="circle" coords="254,127,95" href="image/head.jpg">
+        <area shape="circle" coords="365,278,93" href="image/disk.jpg">
+        <area shape="circle" coords="518,337,71" href="image/leg.jpg">
+    </map>
+
+    <br>
+    <!--3. 문서 내부에서 이동-->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#top">위로 이동</a>
+</html>
