@@ -1,0 +1,54 @@
+/* 전체 선택자
+
+*{
+    color : red;
+}
+
+*/
+
+/* 태그 선택자*/
+p, pre{
+    color: cornflowerblue;
+}
+#li3 {
+    color:brown;
+}
+#li5{
+    color:gold;
+}
+.li1{
+    color:cadetblue;
+    background-color: navajowhite;
+}
+.li2{
+    color:crimson;
+    background-color: lightblue;
+}
+.c1{
+    color:white;
+    background-color: red;
+}
+.c2{
+    color: white;
+    background-color: blue;
+}
+.c3{
+    color:darkgray;
+    background-color: red;
+}
+.c4{
+    color:darkgray;
+    background-color: blue;
+}
+.t-white{
+    color : white;
+}
+.t-gray{
+    color : darkgray;
+}
+.bg-red{
+    background-color: red;
+}
+.bg-blue{
+    background-color: blue;
+}

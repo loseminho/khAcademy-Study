@@ -1,0 +1,76 @@
+/* 속성 선택자 */
+div[name=name2]{
+    background-color: chocolate;
+}
+div[class^=div]{
+    color: crimson;
+}
+/* 자손 선택자 */
+#div1>h4{
+    color: goldenrod;
+}
+#div1>*{
+    background-color: bisque;
+}
+#div1>#ul2>li{
+    background-color: blueviolet;
+}
+/* 후손 선택자 */
+#div1 li{
+    color: white;
+}
+
+/* 동위 선택자 */
+#div2>.test3+div{
+    background-color: burlywood;
+}
+/* #div2>div+div{
+    color: darkgreen;
+} */
+#div2>.test2~div{
+    color: rebeccapurple;
+}
+/* 반응 선택자 */
+.div3{
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+}
+#active-test:active{
+    background-color: yellow;
+}
+#hover-test:hover{
+    background-color: green;
+}
+
+/* 상태 선택자 */
+input[name=hobby]:checked{
+    width : 30px;
+    height: 30px;
+}
+
+input[name=gender]{
+    display: none;
+}
+
+input[name=gender]:checked+label{
+    background-color: black;
+    color: white;
+}
+
+label{
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+input[name=id]:focus{
+    background-color: lightgray;
+    outline: none;
+}
+input[name=pw]:disabled{
+    background-color: black;
+}

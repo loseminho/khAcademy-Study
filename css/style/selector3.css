@@ -1,0 +1,46 @@
+
+/* 일반 구조 선택자*/
+#div1>p:first-child{
+    background-color: tomato;
+    color: antiquewhite;
+}
+/* 마지막 자식이 p 태그가 아니면 동작 안함. */
+#div1>p:last-child{
+    background-color: violet;
+    color: antiquewhite;
+}
+/* p태그가 맞는 조건인 것만 동작 */
+#div1>p:nth-child(2n){
+    background-color: teal;
+    color: antiquewhite;
+}
+/* 아랫쪽에서부터 숫자를 셈 */
+#div1>p:nth-last-child(2){
+    background-color: aquamarine;
+    color: antiquewhite;
+}
+
+/* 형태 구조 선택자 */
+#div2>p:first-of-type{
+    background-color: tomato;
+    color: antiquewhite;
+}
+/* p 중에 마지막에 적용 */
+#div2>p:last-of-type{
+    background-color: violet;
+    color: antiquewhite;
+}
+#div2>p:nth-of-type(2n){
+    background-color: yellowgreen;
+    color: antiquewhite;
+}
+#div2>p:nth-last-of-type(3){
+    background-color: green;
+    color: antiquewhite;
+}
+
+/* 부정 선택자 */
+#div3>p:not(:nth-of-type(2n)){
+    background-color: tomato;
+    color: wheat;
+}
