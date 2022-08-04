@@ -1,0 +1,201 @@
+.div1{
+    /* 블록 요소의 넓이를 지정하지 않으면 부모 넓이의 100%가 됨*/
+    /* 높이를 지정하지 않으면 내부 컨텐츠의 높이만큼 */
+    background-color: blanchedalmond;
+    width: 500px;
+    height: 100px;
+}
+.div1>div{
+    background-color: orange;
+    width: 50%;
+}
+
+.div2{
+    background-color:forestgreen;
+    width: 50%;
+    height: 100px;
+}
+.div2>div{
+    background-color: aquamarine;
+    width: 50%;
+    height: 50px;
+}
+.div3{
+    background-color: cornflowerblue;
+    width: 500px;
+}
+.div3>div{
+    background-color: blue;
+    width: 50%;
+    height: 100px;
+}
+
+.div4{
+    background-color: aquamarine;
+    display: inline-block;
+}
+.span1{
+    background-color: beige;
+    display: inline-block;
+}
+.span2{
+    background-color:blueviolet;
+    display: inline-block;
+}
+.span3{
+    background-color:darkkhaki;
+    display: inline-block;
+}
+.dis{
+    width: 200px;
+    height:200px;
+
+}
+.span4{
+    background-color: coral;
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+}
+.span5{
+    background-color: darkblue;
+    color: aquamarine;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+.div5{
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    color: white;
+}
+.div5:hover{
+    background-color: white;
+    color: black;
+}
+.div5:hover+.ul1{
+    display: block;
+}
+.ul1{
+    display: none;
+}
+.div{
+    width:100px;
+    height: 100px;
+    display: inline-block;
+}
+.b1{
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: blue;
+
+    border-left-style: dashed;
+    border-left-width: 2px;
+    border-left-color: coral;
+
+    border-bottom-style: dotted;
+    border-bottom-width: 3px;
+    border-bottom-color: darkgoldenrod;
+    
+    border-right-style: double;
+    border-right-width: 5px;
+    border-right-color: deeppink;
+}
+.b2{
+    border-style: groove;
+    border-color: cadetblue;
+}
+.b3{
+    border-style: outset;
+}
+.b3:active{
+    border-style: inset;
+}
+.b4{
+    border-style: inset;
+}
+.b5{
+    border-style: ridge;
+}
+.b6{
+    border : 5px solid red;
+}
+.b7{
+    border : 10px dashed blue;
+}
+.b8{
+    border : 1px solid black;
+    border-top-left-radius: 30px;
+}
+.b9{
+    border : 1px solid blue;
+    border-radius: 50px;
+}
+.b10{
+    border: 2px dashed red;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+.b11{
+    border: 3px solid black;
+    box-shadow: 5px 5px 3px 2px gray;
+}
+.b12{
+    border-style: ridge;
+    box-shadow: 5px 5px 3px 2px gray;
+}
+.b13{
+    border-style: hidden;
+    box-shadow: 5px 5px 3px 2px gray;
+}
+
+.div-m{
+    width: 300px;
+    height: 300px;
+    border: 10px dashed black;
+    background-color: blanchedalmond;
+}
+.div6{
+    margin: 100px;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.div7{
+    padding: 10px;
+}
+
+.div8{
+    width: 500px;
+    height: 300px;
+    background-color: aquamarine;
+}
+.div8>div{
+    width: 50%;
+    height: 100px;
+    display: inline-block;
+}
+.div8>div:first-child{
+    border: 1px solid black;
+    background-color: chocolate;
+}
+.div8>div:last-child{
+    background-color: crimson;
+}
+.div9{
+    width: 300px;
+    height: 100px;
+    background-color: cornflowerblue;
+    text-align: center;
+    padding: 100px 100px;
+}
+.div9>div{
+    margin: 0 auto;
+
+    width: 50%;
+    height: 100px;
+    background-color: coral;
+    font-size: 2em;
+    text-align: center;
+    line-height: 100px;
+}

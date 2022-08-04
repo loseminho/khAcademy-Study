@@ -1,0 +1,139 @@
+.c1{
+    color: blue;
+}
+.c2{
+    color: #0000ff;
+    /*
+    rgb
+    r : 00~ff
+    g : 00~ff
+    b : 00~ff
+
+    #0000ff인경우
+    2자리 단위로 동일한 값을 쓸 때,
+    #00f로 표현 가능
+    */
+}
+.c3{
+    color:rgb(0,0,255);
+}
+.c4{
+    /*a가 0이 될 경우 완전 투명해짐(0~1 사이)*/
+    color:rgba(0,0,255,0.5);
+}
+
+.td1{
+    text-decoration: none;
+}
+.td2{
+    text-decoration: underline;
+}
+.td3:hover{
+    text-decoration: underline;
+    font-weight: 900;
+    cursor: pointer;
+    color: red;
+}
+.td4{
+    text-decoration: line-through;
+}
+
+.tt1{
+    text-transform: none;
+}
+.tt2{
+    text-transform: capitalize;
+}
+.tt3{
+    text-transform: uppercase;
+}
+.tt4{
+    text-transform: lowercase;
+}
+
+.shadow{
+    font-size: 80px;
+    font-weight: 500;
+}
+.ts1{
+    color : orangered;
+    text-shadow: 5px 5px 2px orange, 10px 10px 5px darkmagenta;
+}
+.ts2{
+    color : red;
+    text-shadow: 0px 0px 4px #ccc, 0px -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;
+}
+
+.ws1{
+    white-space: normal;
+}
+.ws2{
+    white-space: nowrap;
+}
+.ws3{
+    white-space: pre;
+}
+.ws4{
+    white-space: pre-line;
+}
+.ws5{
+    white-space: pre-wrap;
+}
+
+.ls1{
+    letter-spacing: 10px;
+}
+.ls2{
+    letter-spacing: 20px;
+}
+.w-space1{
+    word-spacing: 10px;
+}
+.w-space2{
+    word-spacing: 20px;
+}
+
+.p{
+    width: 500px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.ta1{
+    text-align: center;
+}
+.ta2{
+    text-align: justify;
+}
+.ta3{
+    text-align: center;
+}
+.ta4{
+    text-align: right;
+}
+
+.ti1{
+    text-indent: 100px;
+}
+.ti2{
+    text-indent: 200px;
+}
+
+.lh1{
+    line-height: 20px;
+}
+.lh2{
+    line-height: 40px;
+}
+.lh3{
+    text-align: center;
+    line-height: 50px;
+}
+.to1{
+    overflow: hidden;
+    text-overflow: clip;
+}
+.to2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

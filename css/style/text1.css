@@ -1,0 +1,71 @@
+.ff1{
+    font-family: "궁서체";
+}
+.ff2{
+    font-family: "고딕체","궁서체","바탕체";
+}
+.ff{
+    font-family: "없는글꼴1";
+}
+
+.webfont1{
+    font-family: 'Single Day', cursive;
+}
+@font-face {
+    font-family: ns-regular;
+    src: url(./Noto_Sans_KR/NotoSansKR-Regular.otf);
+}
+@font-face {
+    font-family: ns-bold;
+    src: url(./Noto_Sans_KR/NotoSansKR-Bold.otf);
+}
+.webfont2{
+    font-family: ns-regular;
+}
+.webfont3{
+    font-family: ns-bold;
+}
+
+.size1{
+    font-size: 32px;
+}
+.size2{
+    font-size: 1.5em;
+}
+
+.fw1{
+    /* font-weight: 400; */
+    font-weight: normal;
+}
+.fw2{
+    /* font-weight: 100; */
+    font-weight: lighter;
+}
+.fw3{
+    /* font-weight: 600; */
+    font-weight: bold;
+}
+.fw4{
+    /* font-weight: 900; */
+    font-weight: bolder;
+}
+
+.fv{
+    font-variant: small-caps;
+}
+.fs1{
+    font-style: italic;
+}
+.fs2{
+    font-style: oblique;
+}
+
+.f1{
+    line-height: 100px;
+}
+.f2{
+    font : 16px/30px "궁서체";
+}
+.f3{
+    font : italic bold 20px/20px "고딕체";
+}

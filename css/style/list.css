@@ -1,0 +1,25 @@
+.ul1{
+    list-style-type: circle;
+}
+.ul2{
+    list-style-type: square;
+}
+.ul3{
+    list-style-type: none;
+}
+.ul4{
+    list-style-image: url(../img/kakao.jpg);
+}
+
+.ul5{
+    list-style-position: inside;
+}
+.ul6{
+    list-style-position: outside;
+}
+.ul7{
+    list-style: square inside;
+}
+.ul8{
+    list-style: circle outside url(../img/kakao.jpg);
+}
