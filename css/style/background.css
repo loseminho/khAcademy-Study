@@ -1,0 +1,94 @@
+.clip-wrap{
+    overflow: hidden;
+}
+.clip-wrap>div{
+    background-color: forestgreen;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 5px dashed black;
+    float: left;
+}
+.clip1{
+    /* border(선)까지 전부 채운다. */
+    background-clip: border-box;
+}
+.clip2{
+    /* padding(속)까지 채운다. */
+    background-clip: padding-box;
+}
+.clip3{
+    background-clip: content-box;
+}
+
+
+.repeat-wrap{
+    overflow: hidden;
+}
+.test-div{
+    width: 200px;
+    height: 100px;
+    margin: 30px;
+    float: left;
+    background-image: url(../img/kakao.jpg);
+    border: 1px solid black;
+}
+.repeat1{
+    background-repeat: repeat;
+}
+.repeat2{
+    background-repeat: repeat-x;
+}
+.repeat3{
+    background-repeat: repeat-y;
+}
+.repeat4{
+    background-repeat: no-repeat;
+}
+
+
+.positon-wrap{
+    overflow: hidden;
+    float: left;
+}
+.position-wrap>.test-div{
+    background-repeat: no-repeat;
+}
+.po1{
+    background-position: left bottom;
+}
+.po2{
+    background-position: center center;
+}
+.po3{
+    background-position: center bottom;
+}
+.po4{
+    background-position: 30% 70%;
+}
+
+.size-wrap{
+    overflow: hidden;
+}
+.size-wrap>div{
+    background-repeat: no-repeat;
+}
+.size1{
+    background-size: auto;
+}
+.size2{
+    background-size: contain;
+}
+.size3{
+    background-size: cover;
+}
+.size4{
+    background-size: 30%;
+}
+
+body{
+    background-image: url(../img/flower1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

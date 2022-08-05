@@ -1,0 +1,46 @@
+.linear{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+.gra1{
+    background: linear-gradient(#00f,#fff);
+}
+.gra2{
+    background: linear-gradient(to left, #00f,#fff);
+}
+.gra3{
+    /* 12시방향에서 오른쪽방향으로 돌아감 */
+    background: linear-gradient(45deg, #00f,#fff);
+}
+.gra4{
+    background: linear-gradient(to right, #00f,#fff 50%, #f00);
+}
+.gra5{
+    background: linear-gradient(45deg, #00f,#fff 20%,#ff3 30%, #f00);
+}
+.gra6{
+    background: repeating-linear-gradient(to right, red,orange 10%, green 30%);
+}
+
+/* 기본값은 타원형 */
+.circle{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+}
+.gra7{
+    /* 기본값은 타원형 */
+    background: radial-gradient(#fff,#00f,#f00);
+}
+.gra8{
+    /* 기본값은 타원형 */
+    background: radial-gradient(circle ,#fff,#00f,#f00);
+}
+.gra9{
+    /* 기본값은 타원형 */
+    background: -webkit-radial-gradient(30% 40%, circle ,#fff,#00f,#f00);
+    background: -o-radial-gradient(30% 40%, circle ,#fff,#00f,#f00);
+    background: -moz-radial-gradient(30% 40%, circle ,#fff,#00f,#f00);
+    background: -ms-radial-gradient(30% 40%, circle ,#fff,#00f,#f00);
+}

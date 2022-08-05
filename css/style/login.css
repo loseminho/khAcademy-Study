@@ -1,0 +1,99 @@
+/* body{
+    place-items: center;
+    display: grid;
+} */
+body{
+    position: fixed;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.login-header{
+    text-align: center;
+    width: 1200px;
+}
+.login-header>h2{
+    margin: 0px;
+    padding-bottom: 15px;
+    font-weight: normal;
+    font-size: 2em;
+    
+}
+.login-header>h3{
+    color:darkgoldenrod;
+    margin: 0px;
+    padding-bottom: 30px;
+    font-size:medium;
+}
+
+
+.login-content{
+    width: 1200px;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+.login-content>form{
+    padding-left: 400px;
+    width: 400px;
+    height: 100px;
+}
+
+form>.input-box{
+    float: left;
+    width:270px;
+    height: 100px;
+}
+form>.btn-box{
+    float: left;
+    width:130px;
+    height: 100px;
+}
+input[name=id]{
+    text-indent: 15px;
+    width: 270px;
+    height: 43px;
+    padding: 0px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    border-color: lightslategray;
+}
+input[name=pw]{
+    text-indent: 15px;
+    width: 270px;
+    height: 43px;
+    padding: 0px;
+    border-radius: 10px;
+    border-color: lightslategray;
+}
+.btn-box>input{
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    border:none;
+}
+.link-wrap{
+    margin-top: 20px;
+    margin-left: 400px;
+    width: 400px;
+    text-align:right;
+}
+.link-wrap>a{
+    text-align: right;
+    line-height: 20px;
+    color: black;
+    text-decoration-line: none;
+    font-weight: 550;
+    font-size: 80%;
+}
+.link-wrap>a:first-child{
+    margin-right: 15px;
+} 

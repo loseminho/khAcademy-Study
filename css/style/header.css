@@ -1,0 +1,68 @@
+.header{
+    width: 1200px;
+}
+.header-top{
+    height: 40px;
+}
+.logo{
+    width: 200px;
+    height: 40px;
+    float: left;
+}
+.nav{
+    height: 55px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+.logo>a{
+    text-decoration: none;
+    font-size: 30px;
+    color: coral;
+    font-weight: bolder;
+}
+.membership-link{
+    width: 200px;
+    height: 40px;
+    float: right;
+}
+.membership-link>a{
+    text-align: right;
+    line-height: 40px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.membership-link>a:hover{
+    text-decoration: underline;
+    color: salmon;
+}
+.membership-link>a:first-child{
+    margin-right: 30px;
+}
+.nav>ul{
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+.nav>ul>li{
+    float:left;
+    
+}
+.nav>ul>li>a{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    display: block;
+    line-height: 55px;
+    text-decoration: none;
+    border-top: transparent solid 3px;
+    color: black;
+    font-weight: 500;
+}
+.nav>ul>li>a:hover{
+    border-top: orangered solid 3px;
+    font-weight: bolder;
+    color: orangered;
+}
