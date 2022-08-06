@@ -7,9 +7,94 @@
     <title>로그인</title>
     <link rel="stylesheet" href="style/notosans.css">
     <link rel="stylesheet" href="style/login2.css">
-    
+    <link rel="stylesheet" href="style/login11.css">
+    <link rel="stylesheet" href="style/header.css">
 </head>
 <body>
-    
+    <div class="wrap">
+
+        <!-- 헤더코드 -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="#">Lee's World</a>
+                </div>
+                <div class="membership-link">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </div>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">메뉴1</a></li>
+                    <li><a href="#">메뉴2</a></li>
+                    <li><a href="#">메뉴3</a></li>
+                    <li><a href="#">메뉴4</a></li>
+                    <li><a href="#">메뉴5</a></li>
+                    <li><a href="#">메뉴6</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-img"></div>
+
+        <!-- 로그인 코드 -->
+        <div class="middle-wrap">
+            <div class="middle-header">
+                <h3>MEMBER JOIN</h3>
+            </div>
+            <div class="middle-content">
+                <form action="login.html" method="post" id="middle-frm">
+                    <div class="input-name">
+                        <ul class="input-ul">
+                            <li>아이디</li>
+                            <li>비밀번호</li>
+                            <li>비밀번호확인</li>
+                            <li>이름</li>
+                            <li>성별</li>
+                            <li>전화번호</li>
+                        </ul>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="id">
+                        <input type="password" name="pw">
+                        <input type="password" name="pwc">
+                        <input type="text" name="name">
+
+                        <input type="radio" name="gender" id="m">
+                        <label for="m">남</label>
+                        <input type="radio" name="gender" id="f">
+                        <label for="f">여</label>
+
+                        <select name="phone1">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="070">070</option>
+                        </select>
+                        -
+                        <input type="text" name="phone1" class="phone">
+                        -
+                        <input type="text" name="phone2" class="phone">
+
+                    </div> 
+                    <div class="btn-box">
+                        <input type="submit" value="회원가입">
+                    </div>   
+                </form>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <ul class="footer-content">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">광고문의</a></li>
+                <li><a href="#">서비스 약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">&copy;Jin's World</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

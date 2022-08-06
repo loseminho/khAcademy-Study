@@ -1,0 +1,91 @@
+
+.middle-wrap{
+    width : 700px;
+    margin-left: 550px;    
+}
+.middle-header>h3{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    color: darkgoldenrod;
+}
+.middle-wrap>.middle-header{
+    border-bottom: 5px solid red;
+}
+.middle-content{
+    width: 700px;
+}
+.input-name{
+    width: 250px;
+    display: inline-block;
+}
+.input-name>.input-ul{
+    width: 230px;
+    height: 350px;
+    margin : 0;
+    float: left;
+    padding: 0;
+}
+.input-ul>li{
+    width: 220px;
+    height: 40px;
+    font-size: 19px;
+    font-weight: 200px;
+    list-style-type: none;
+    text-indent: 50px;
+    padding-top: 15px;
+    color: red;
+}
+
+.input-box{
+    width: 440px;
+    height: 350px;
+    margin: 0;
+    float: right;
+}
+
+.btn-box>input{
+    margin-left: 10px;
+    width: 680px;
+    height: 70px;
+    background-color: white;
+    border: 3px solid red;
+    border-radius: 8px;
+    color: red;
+    font-size: 15px;
+}
+.input-box>input{
+    width: 400px;
+    height: 42px;
+    border: 1px solid slategrey;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+input[name=gender]{
+    display: none;
+}
+input[name=gender]:checked+label{    
+    background-color: red;
+    color: white
+}
+label{
+    float: left;
+    margin-top: 10px;
+    display: inline-block;
+    width: 200px;
+    height: 37px;
+    line-height: 30px;
+    border: 1px solid red;
+    text-align: center;
+    padding-top: 4px;
+    background-color: white;
+    color: red;
+}
+select[name=phone1]{
+    width: 70px;
+    height: 40px;
+}
+input[class=phone]{
+    width: 148px;
+    height: 40px;
+}
+

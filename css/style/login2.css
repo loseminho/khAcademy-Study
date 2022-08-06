@@ -1,0 +1,48 @@
+
+
+.main-img{
+    height: 300px;
+    background-image: url(../img/main.jpg);
+    margin-bottom: 15px;
+}   
+.footer{
+    margin-top: 80px;
+    padding: 100px 0px;
+    background-color: #eee;
+}
+.footer-content{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.footer-content>li{
+    float: left;
+    width: 149px;
+    border-right: 1px solid #bbb;
+    text-align: center;
+}
+.footer-content>li:last-child{
+    border: none;
+}
+.footer-content>li>a{
+    text-decoration: none;
+    color: #bbb;
+}
+.footer-content>li>a:hover{
+    text-decoration: underline;
+    color: #2c2d34;
+}
+.footer-content>li:last-child>a{
+    color: #2c2d34;
+}
+
+
+
+
+
+
+
+
