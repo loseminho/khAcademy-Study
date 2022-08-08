@@ -1,0 +1,161 @@
+.header{
+    height: 140px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-top{
+    width: 1180px;
+    height: 90px;
+    margin-left: 225px;
+}
+
+.logo{
+    width: 240px;
+    height: 85px;
+    float: left;
+}
+.logo>a{
+    text-decoration: none;
+    font-size: 50px;
+    color: coral;
+    font-weight: bolder;
+}
+
+.search{
+    width: 590px;
+    height: 90px;
+    float: left;
+}
+.input-box>input{
+    width: 500px;
+    border: none;
+    border-bottom: 2px solid rgba(25, 187, 174, 0.5);
+    font-size: 18px;
+    float: left;
+    margin-left: 35px;
+    margin-top: 35px;
+    color: gray;
+}
+.input-box>input:focus{
+    outline: none;
+}
+.btn-box>input{
+    width: 20px;
+    height: 20px;
+    margin-top: 35px;
+}
+
+
+.right-link{
+    width: 233px;
+    height: 80px;
+    float: left;
+    margin-left: 50px;
+}
+.right-link>a{
+    width: 60px;
+    height: 59px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.right-link>a>img{
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+.right-link>a>div{
+    margin-left: 10px;
+    
+}
+
+.nav{
+    height: 50px;
+    background-color: #19bbae;
+}
+.nav ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+.nav>ul>li{
+    float: left;
+}
+.nav>ul>li:first-child{
+    margin-left: 225px;
+}
+.nav>ul>li>a{
+    width: 120px;
+    height: 50px;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.nav>ul>li:hover>a{
+    font-weight: 900;
+    transition-duration: 0.5s;
+    color: white;
+}
+
+/* .nav{
+    height: 55px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+*/
+
+
+/*
+.membership-link{
+    width: 200px;
+    height: 40px;
+    float: right;
+}
+.membership-link>a{
+    text-align: right;
+    line-height: 40px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.membership-link>a:hover{
+    text-decoration: underline;
+    color: salmon;
+}
+.membership-link>a:first-child{
+    margin-right: 30px;
+}
+.nav>ul{
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+.nav>ul>li{
+    float:left;
+    
+}
+.nav>ul>li>a{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    display: block;
+    line-height: 55px;
+    text-decoration: none;
+    border-top: transparent solid 3px;
+    color: black;
+    font-weight: 500;
+}
+.nav>ul>li>a:hover{
+    border-top: orangered solid 3px;
+    font-weight: bolder;
+    color: orangered;
+} */

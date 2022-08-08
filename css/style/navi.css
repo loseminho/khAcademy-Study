@@ -1,0 +1,240 @@
+.menu-wrap{
+    margin: 100px;
+    padding: 50px;
+    border: 1px solid black;
+}
+
+/* 1. 기본메뉴 */
+.navi1{
+    width: 800px;
+}
+
+.navi1>ul{
+    /* 분립기호제거 */
+    list-style-type: none;
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+/* 메뉴 4개 가로로 설정 */
+.navi1>ul>li{
+    float: left;
+}
+
+.navi1>ul>li>a{
+    display: block;
+    /* inline은 크기를 지정할 수 없다(block를 줘야 크기가 할당된다) */
+
+    /* width: 199px; */
+    width: calc(797px/4);
+    /* 일일이 계산해야되는 경우에는 계산식을 입력 */
+
+    height: 40px;
+
+    /* 가로, 세로 가운데 정렬 */
+    text-align: center;
+    line-height: 40px;
+
+    text-decoration: none;
+    background-color: #ffe761;
+    color: #092e20;
+    border-right: 1px solid #092e20;
+}
+
+/* 메뉴4의 마지막 border 삭제 */
+.navi1>ul>li:last-child>a{
+    border: none;
+}
+
+/* .navi1>ul>li:hover>a{ -> li에 hover를 넣어도 똑같이 적용된다*/
+.navi1>ul>li>a:hover{
+    background-color: #092e20;
+    color: #ffe761;
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+
+.navi2{
+    width: 800px;
+}
+.navi2>ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffe761;
+}
+.navi2>ul>li{
+    float: left;
+}
+.navi2>ul>li>a{
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: #092e20;
+    transition-duration: 0.2s;
+}
+.navi2>ul>li>a:hover{
+    background-color: #092e20;
+    color: #ffe761;
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+
+
+/* 드롭다운메뉴 */
+.navi3{
+    width: 800px;
+}
+
+/* 속한 모든 ul에 적용할떄는 띄어쓰기로.. */
+.navi3 ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* 속한 바로 앞 자식에게 적용할 때는 >로 */
+.navi>ul{
+    overflow: hidden;
+}
+.navi3>ul>li{
+    float: left;
+}
+.navi3 ul>li>a{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+.navi3>ul>li>a{
+    background-color: #ffe761;
+    color: #092e20;
+}
+.navi3>ul>li:hover>a{
+    background-color: #092e20;
+    color: #ffe761;
+}
+.navi3 .sub{
+    height: 0px;
+    overflow: hidden;
+    background-color: #234f32;
+    transition-duration: 1s;
+}
+.navi3 .sub>li>a{
+    color: #ffe761;
+}
+
+/* haver 된 li 중 a 바로 다음 sub만 */
+.navi3>ul>li:hover>a+.sub{
+    height: 160px;
+}
+.navi3>ul>li:hover>.sub>li:hover>a{
+    font-size: 1.2em;
+}
+
+
+/* 4.가로탭메뉴 */
+.navi4{
+    width: 800px;
+    position: relative;
+}
+.navi4 ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+.navi4 ul>li{
+    float: left;
+}
+.navi4 ul>li>a{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+.navi4>ul>li>a{
+    background-color: #ffe761;
+    color: #092e20;
+}
+/* relative가 잡혀있는 곳까지 absolute left 적용 맞춰감*/
+.navi4 .sub{
+    background-color: #234f32;
+    height: 0;
+    transition-duration: 0.5s;
+    position: absolute;
+}
+.navi4 .sub>li>a{
+    color: #ffe761;
+}
+.navi4>ul>li:hover>a{
+    background-color: #092e20;
+    color: #ffe761;
+}
+
+.navi4>ul>li:hover>.sub{
+    height: 40px;
+    left: 0;
+}
+.navi4>ul>li:hover>.sub>li:hover>a{
+    font-size: 1.2em;
+}
+
+/* 5.사이드메뉴 */
+.navi5{
+    width : 200px;
+}
+.navi5 ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.navi5 ul>li>a{
+    display: block;
+    width: calc(200px - 10px);
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    border-left: 10px solid transparent;
+    color:#ffe761;
+}
+.navi5>ul>li{
+    background-color: #234f32;
+}
+.navi5>ul>li>a{
+    text-indent: 30px;
+}
+.navi5 .sub{
+    display: none; 
+}
+.navi5 .sub>li>a{
+    text-indent: 50px;
+}
+.navi5>ul>li:hover>a{
+    background-color: #ffe761;
+    color: #234f32;
+    font-weight: 900;
+    border-color: #092e20;
+}
+.navi5>ul>li:hover>.sub{
+    display: block;
+}
+.navi5>ul>li:hover>.sub>li:hover>a{
+    background-color: #ffe761;
+    color: #234f32;
+    font-weight: 900;
+    border-color: #092e20;
+}

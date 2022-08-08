@@ -68,7 +68,6 @@ input[name=gender]:checked+label{
     color: white
 }
 label{
-    float: left;
     margin-top: 10px;
     display: inline-block;
     width: 200px;
