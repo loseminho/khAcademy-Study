@@ -1,13 +1,19 @@
+body{
+    margin: 0;
+}
 .header{
     height: 140px;
     margin: 0;
     padding: 0;
+    background-color: #eef5f4;
+    position: fixed;
 }
 
 .header-top{
-    width: 1180px;
+    width: 1400px;
     height: 90px;
     margin-left: 225px;
+    
 }
 
 .logo{
@@ -30,6 +36,7 @@
 .input-box>input{
     width: 500px;
     border: none;
+    background-color: #eef5f4;
     border-bottom: 2px solid rgba(25, 187, 174, 0.5);
     font-size: 18px;
     float: left;
@@ -45,7 +52,6 @@
     height: 20px;
     margin-top: 35px;
 }
-
 
 .right-link{
     width: 233px;
@@ -103,59 +109,6 @@
     transition-duration: 0.5s;
     color: white;
 }
-
-/* .nav{
-    height: 55px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    
+.wrap .title h1{
+    color: #12615b;
 }
-*/
-
-
-/*
-.membership-link{
-    width: 200px;
-    height: 40px;
-    float: right;
-}
-.membership-link>a{
-    text-align: right;
-    line-height: 40px;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-.membership-link>a:hover{
-    text-decoration: underline;
-    color: salmon;
-}
-.membership-link>a:first-child{
-    margin-right: 30px;
-}
-.nav>ul{
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-}
-.nav>ul>li{
-    float:left;
-    
-}
-.nav>ul>li>a{
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    display: block;
-    line-height: 55px;
-    text-decoration: none;
-    border-top: transparent solid 3px;
-    color: black;
-    font-weight: 500;
-}
-.nav>ul>li>a:hover{
-    border-top: orangered solid 3px;
-    font-weight: bolder;
-    color: orangered;
-} */
