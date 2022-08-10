@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="style/signup/signuppage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="signup-wrap">
+        <div class="signup-content">
+            <div class="signup-logo">
+                ICE - MALL
+                <div class="signup-logo-small">Sign-Up</div>
+            </div>
+
+            <div class="signup-list">
+                <div class="signup-list-id">
+                    아이디
+                    <div><input type="text" name="login-id"></div>
+                </div>
+                <div class="signup-list-pw">
+                    비밀번호
+                    <div><input type="text" name="login-pw"></div>
+                </div>
+                <div class="signup-list-pwc">
+                    비밀번호 확인
+                    <div><input type="text" name="login-pwc"></div>
+                </div>
+                <div class="signup-list-name">
+                    이름
+                    <div><input type="text" name="login-name"></div>
+                </div>
+                <div class="signup-list-birth">
+                    생년월일<br>
+                    <input type="text" name="birth-year" placeholder="년도">
+                    <input type="text" name="birth-mon" placeholder="월">
+                    <input type="text" name="birth-day" placeholder="일">
+                </div>
+                <div class="signup-list-email">
+                    이메일
+                    <div><input type="text" name="login-email">@
+                        <select>
+                            <option>이메일 선택</option>
+                            <option>naver.com</option>
+                            <option>daum.com</option>
+                            <option>kakao.kr</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="signup-list-hobby">
+                    취미
+                    <div class="hobby-check">
+                        <input type="checkbox" id="hobbys1">
+                        <label for="hobbys1">축구</label>
+                        <input type="checkbox" id="hobbys2">
+                        <label for="hobbys2">영화감상</label>
+                        <input type="checkbox" id="hobbys3">
+                        <label for="hobbys3">만화</label>
+                        <input type="checkbox" id="hobbys4">
+                        <label for="hobbys4">명상</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="signup-clear">회원가입</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

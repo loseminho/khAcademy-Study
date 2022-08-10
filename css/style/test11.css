@@ -1,0 +1,24 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.div{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+/* id가 우선순위가 제일 높고 다음은 클래스, 그 다음 태그*/
+#div{
+    background-color: coral;
+}
+
+.div2{
+    background-color: blueviolet;
+}
+.test1{
+    color: tomato;
+}
+.div2>ul>li{
+    color: aqua;
+}
