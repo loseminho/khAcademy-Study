@@ -1,0 +1,134 @@
+
+.content>.content-banner-background{
+    background-color: #222;
+    width: 1200px;
+}
+.content>.content-banner-background>.content-banner{
+    margin-left: 110px;
+}
+.content-banner>video{
+    height: 500px;
+    width: 980px;
+}
+.content>.content-body{
+    width: 1100px;
+    margin-top: 55px;
+    margin-left: 110px;
+    padding-bottom: 100px;
+}
+
+.content-body-title{
+    height: 45px;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.content-body-title> div{
+    float: left;
+    height: 44px;
+    font-size: 26px;
+    color: #666666;
+    margin-right: 10px;
+    cursor: pointer;
+}
+div>.content-body-title1{
+    font-weight: 700px;
+    color: black;
+}
+div>.content-body-title2{
+    padding-left: 8px;
+    border-left: 1px solid lightgrey;
+}
+
+.content-body-poster{
+    height: 400px;
+}
+
+.content-body-poster div{
+    float: left;
+    margin-right: 25px;
+    width: 175px;
+    height: 330px;
+}
+.content-body-poster>div>.post-img{
+    margin:0;
+    height: 255px;
+    position: relative;
+    border-radius: 5%;
+}    
+.content-body-poster>div>.post-img>img{
+    width: 175px;
+    height: 255px;
+}
+
+.poster-wrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    left: 0;
+    top: 0;
+    display: none;
+    margin-top: 0;
+}
+
+
+.poster1 img:hover{
+    cursor: pointer;
+}
+
+.content-body-poster div:hover>.poster-wrap{
+    height: 255px;
+    display: block;
+}
+
+.post-img a{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 120px;
+    height: 34px;
+    background-color: #fb4357;
+    color: #ffffff;
+    font-size: 13px;
+    border-radius: 5%;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 34px;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    opacity: 0.9;
+}
+.post-img a:first-child{
+    color: #666666;
+    background-color: #ffffff;
+    margin-top: 80px;
+}
+.post-img a:hover{
+    opacity: 0.8;
+}
+
+
+.content-body-poster div>.movie-name{
+    font-size: 17px;
+    color: #222222;
+    height: 25px;
+    text-align: center;
+    margin-top: 14px;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.content-body-poster div>.movie-name-sub{
+    font-size: 14px;
+    color: #222222;
+    width: 165px;
+    height: 17px;
+    text-align: right;
+    margin-top: 5px;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+}

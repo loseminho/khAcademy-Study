@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.wrap{
+    margin-left: 200px;
+}
+.header{
+    width: 1200px;
+}
+.header>.header-top{
+    height: 110px;
+    width: 1200px;
+    border-bottom: 1px solid lightgray;
+}
+.header>.header-top>.header-logo{
+    height: 110px;
+    width: 250px;
+    float: left;
+    margin-left: 105px;
+    
+}
+.header>.header-top>.header-logo-small{
+    float: left;
+    height: 110px;
+    line-height: 110px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #222;
+}
+.header>.header-top>.card-logo{
+    float: left;
+    margin-top: 37px;
+    margin-left: 105px;
+    width: 150px;
+    height: 50px;
+}
+.header>.header-top>.header-login-icon{
+    float: left;
+    width: 456px;
+    height: 65px;
+    margin-top: 30px;
+}
+.header>.header-top>.header-login-icon div{
+    float: left;
+    height: 60px;
+    width: 60px;
+    font-size: 13px;
+    margin-left: 10px;
+}
+.header-login-icon div img{
+    margin-left: 5px;
+    height: 36px;
+    width: 36px;
+}
+.header-login-icon div a{
+    text-decoration: none;
+    color: #222;
+}
+
+
+.header>.header-bottom{
+    height: 45px;
+    width: 1200px;
+    border-bottom: 3px solid #fb4357;
+}
+.header-bottom-content ul{
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 44px;
+    list-style-type: none;
+    overflow: hidden;
+}
+.header-bottom-content>ul>li{
+    float: left;
+}
+.header-bottom-content>ul>li:first-child{
+    margin-left: 105px;
+}
+.header-bottom-content>ul>li>a{
+    width: 105px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header-bottom-content>ul>li:hover>a{
+    font-weight: 900;
+    transition-duration: 0.8s;
+    color: #fb4357;
+}
+
+.header-bottom-content>.header-search{
+    float: left;
+    width: 260px;
+    margin-left: 60px;
+    margin-top: 10px;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+}
+.header-bottom-content>.header-search>input{
+    margin-left: 10px;
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+.header-search>a>img{
+    height: 20px;
+    width: 20px;
+}

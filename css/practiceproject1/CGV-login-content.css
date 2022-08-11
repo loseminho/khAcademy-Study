@@ -1,0 +1,161 @@
+.login-content{
+    width: 1000px;
+    height: 550px;
+    margin-left: 100px;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.login-section1{
+    width: 400px;
+    height: 400px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.login-section2{
+    width: 400px;
+    height: 400px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.login-section2> img{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.login-section3{
+    width: 950px;
+    height: 65px;
+    float: left;
+    text-indent: 15px;
+    border: 1px solid #e0e0e0;
+    font-size: 13px;
+}
+
+.login-section1-loginlogo{
+    width: 380px;
+    height: 45px;
+    font-size: 32px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+}
+.login-section1-logincontent{
+    width: 380px;
+    height: 290px;
+    margin-top: 5px;
+    border-top: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+}
+.logincontent-div1{
+    width:380px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+}
+.logincontent-div2>input{
+    padding: 0;
+    width: 230px;
+    height: 35px;
+    background-color: #e0e0e0;
+    border: none;
+    margin-bottom: 15px;
+    margin-left: 75px;
+}
+.logincontent-div3>input{
+    padding: 0;
+    width: 230px;
+    height: 35px;
+    background-color: #e0e0e0;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 75px;
+}
+.logincontent-div4>input{
+    padding: 0;
+    width: 230px;
+    height: 35px;
+    background-color: #e14f4f;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 75px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.logincontent-div5{
+    padding: 0;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 75px;
+    font-size: 11px;
+    
+}
+.logincontent-div5> div{
+    display: inline-block;
+}
+.logincontent-div5 div a{
+    color: #333333;
+}
+input#save{
+    margin: 0;
+    margin-top: 7px;
+}
+.div5-div1{
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.logincontent-div6 input{
+    background-image: url(img/loginNaver.jpg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    padding: 0;
+    width: 230px;
+    height: 35px;
+    margin-left: 75px;
+}
+
+.login-section3 div{
+    float: left;
+}
+.section3-box1{
+    width: 430px;
+    height: 30px;
+    line-height: 65px;
+}
+.section3-box2{
+    width: 145px;
+    height: 25px;
+    line-height: 25px;
+    border: 2px solid#ff0000;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #ff0000;
+    margin-right: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.section3-box3{
+    width: 145px;
+    height: 25px;
+    line-height: 25px;
+    border: 2px solid#000000;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #000000;
+    margin-right: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
