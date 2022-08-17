@@ -149,6 +149,43 @@ addBtn.onclick = function(){
     const p = document.createElement("p");
     const text = document.createTextNode("추가!");
     p.appendChild(text);
-    const addZone = document.querySelector(".add-zone");
+    const addZone = document.querySelector("#add-zone");
     addZone.appendChild(p);
+}
+
+const delBtn1 = document.querySelector("#del-btn1");
+delBtn1.onclick = function(){
+    const delElement = document.querySelector("#i-div3");
+    delElement.remove();
+}
+
+const delBtn2 = document.querySelector("#del-btn2");
+delBtn2.onclick = function(){
+    const delDivs = document.querySelectorAll(".i-c1");
+    console.log(delDivs);
+    delDivs[0].remove();
+}
+
+const delBtn3 = document.querySelector("#del-btn3");
+delBtn3.onclick = function(){
+    const delDivs = document.querySelectorAll(".del-zone>div");
+    console.log(delDivs);
+    delDivs[0].remove();
+    delDivs[1].remove();
+    delDivs[2].remove();
+    delDivs[3].remove();
+    delDivs[4].remove();
+}
+
+const testBtn = document.querySelector("#testBtn");
+testBtn.onclick  = function(){
+    const div = document.querySelector("#divdiv");
+    console.dir(div);
+    // div.href="test";
+    //강제로 div에 href를 삽입.
+    div.setAttribute("href","test");
+    div.setAttribute("class","test-div");
+    console.log(div.id);
+    //태그가 가지고 있지 않은 속성의 값을 가져오는 방법.
+    console.log(div.getAttribute("href"));
 }

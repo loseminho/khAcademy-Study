@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+    <h1>DOM TEST</h1>
+    <hr>
+    <div id="d1" class="dd1" name="name1">첫번째</div>
+    <div id="d2" class="dd1" name="name1">두번째</div>
+    <div id="d3" class="dd2" name="name1">세번째</div>
+    <div id="d4" class="dd2" name="name2">네번째</div>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <button id="btn4">버튼4</button>
+    <hr>
+
+    <input type="text" name="id" id="input1" value="아이디 입력"><br>
+    <input type="password" name="pw" id="input2" placeholder="비밀번호 입력"><br>
+    <button id="btn5">버튼5</button>
+    <button id="btn6">버튼6</button>
+    <button id="btn7">버튼7</button>
+    
+    <input type="checkbox" id="change" name="change">
+    <label for="change">비밀번호 보이기</label>
+    <div class="agree">
+        <input type="checkbox" id="allCheck">
+        <label for="allCheck">전체동의</label>
+        <br>
+        <input type="checkbox" class="check" id="check1">
+        <label for="check1">개인정보수집동의</label>
+        <br>
+        <input type="checkbox" class="check" id="check2">
+        <label for="check2">광고수신동의</label>
+    </div>
+    <hr>
+    <a href="#" id="link">링크</a>
+    <br>
+    <button id="btn8">네이버로 이동</button>
+    <button id="btn9">구글로 이동</button>
+    <hr>
+    <div class="div-wrap">
+        <div class="test-div"></div>
+        <div class="test-div"></div>
+        <div class="test-div"></div>
+        <div class="test-div"></div>
+    </div>
+    <!-- 버튼10 클릭 시, test-div 넓이,너비 200px로 확대, 배경색 변경 -->
+    <!-- 버튼11 클릭 시, 변경 된 값을 초기상태로 -->
+    <button id="btn10">버튼10</button>
+    <button id="btn11">버튼11</button>
+    <button id="btn102">버튼10-2</button>
+    <button id="btn112">버튼11-2</button>
+    <button id="btn12">버튼12</button>
+
+    <style>
+        .div-wrap{
+            overflow: hidden;
+        }
+        .test-div{
+            width: 100px;
+            height: 100px;
+            float: left;
+            border: 1px solid black;
+            background-color: darkseagreen;
+        }
+        .pick{
+        width: 150px;
+        height: 150px;
+        background-color: coral;
+        }
+    </style>
+
+    
+    <script src="js/08_domtest2.js"></script>
+</body>
+</html>
