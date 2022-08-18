@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+    <style>
+        .examzone{
+            width: 500px;
+            padding: 50px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            background-color: cornsilk;
+        }
+        #result{
+            color:cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <h1>실습1</h1>
+    <p>다음 문제를 보고 요구하는 함수를 작성해주세요.</p>
+    <hr>
+    <h3>문제 1. 다음 쿼리문을 보고 올바르게 고쳐서 다시 출력하세요.</h3>
+    <div class="examzone">
+        <div>
+            <span>이름 : </span>
+            <span id="name">이윤수</span>
+        </div>
+        <div>
+            <span>나이 : </span>
+            <span id="age">20</span>
+        </div>
+        <div>
+            <span>주소 : </span>
+            <span id="addr">서울</span>
+        </div>
+    </div>    
+    <button id="q1">정보수정하기</button>
+
+    <hr>
+
+    <h3>문제 2. 숫자를 입력하고 결과확인버튼을 누르는경우 홀수인지 짝수인지 구별하고, 숫자가 아닌경우 숫자가 아니라고 결과를 출력 하세요.</h3>
+    <div class="examzone">
+        <span>결과 : </span>
+        <span class="result">결과출력공간</span>
+    </div>
+    <label for="input1">숫자 입력 : </label>
+    <input type="text" name="input1" id="input1" size="55">
+    <button id="q2">결과확인</button>
+    
+    <hr>
+
+    <h3>문제 3. 아래 이미지를 클릭했을 때 angel.png 이미지로 변경해주세요.</h3>
+    <img src="img/smile.jpg">
+
+    
+    <hr>
+
+
+    <h3>문제 4. 아래 영역의 글씨색과 배경색이 동일해서 보이지 않습니다. 글씨색을 navy로 변경해주세요.</h3>
+    <div class="examzone">
+        <span id="result">수고하셨습니다.</span>
+    </div>
+    <button id="q4">결과확인</button>
+
+    <script src="js/01_exam1.js"></script>
+</body>
+</html>

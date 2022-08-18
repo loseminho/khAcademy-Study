@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습3</title>
+    <style>
+      .divs {
+        width: 100px;
+        height: 100px;
+        float: left;
+        border: 1px solid black;
+      }
+      #red {
+        background-color: red;
+      }
+      #blue {
+        background-color: blue;
+      }
+      #green {
+        background-color: green;
+      }
+      #pink {
+        background-color: pink;
+      }
+      #yellow {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>실습3</h1>
+    <p>
+      1. 클릭한 div는 화면에서 사라짐 <br />
+      2. 5개 모두 클릭하면 다시 화면에 나옴 <br />
+      3. 화면에 다시 출력될땐 이전에 클릭에서 사라진 순서 그대로 나와야함
+    </p>
+    <fieldset>
+      <legend>보기</legend>
+      <div id="divWrap">
+        <div class="divs" id="red"></div>
+        <div class="divs" id="blue"></div>
+        <div class="divs" id="green"></div>
+        <div class="divs" id="pink"></div>
+        <div class="divs" id="yellow"></div>
+      </div>
+    </fieldset>
+    <script src="js/03_exam3.js"></script>
+  </body>
+</html>
