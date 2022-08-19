@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <hr>
+    <h3>고전 이벤트 모델 : 요소의 이벤트 속성에 함수를 연결</h3>
+    <h3>인라인 이벤트 : 요소 작성 시 내부에 작성</h3>
+    <h3>표준 이벤트 모델 : W3C에서 공식적으로 지정한 이벤트 모델</h3>
+    <button id="btn1">고전이벤트1</button>
+    <button id="btn2">고전이벤트2</button>
+    <button id="btn3" onclick="console.log('인라인 이벤트');">인라인 이벤트1</button>
+    /* 
+        const btn3 = document.querySelector("#btn3");
+        btn3.onclick = function(){
+            // btn3과 this가 같은 의미를 띔.
+            console.log("인라인 이벤트1");
+        }
+     */
+    <button id="btn4" onclick="func1();">인라인 이벤트2</button>
+    /*
+        const btn4 = document.querySelector("#btn4");
+        btn4.onclick = function(){
+            // btn4와 this가 같은 의미를 띔.
+            func1();
+        }
+     */
+
+        <div class="d1" onclick="func2(this);">첫번째</div>
+        <div class="d1" onclick="func2(this);">두번째</div>
+        <div class="d1" onclick="func2(this);">세번째</div>
+        <div class="d1" onclick="func2(this);">네번째</div>
+        <button id="btn5">표준 이벤트 모델</button>
+        <button id="btn6">비교용</button>
+        <hr>
+        <a href="javascript:void(0);" id="a">네이버로 이동</a>
+        <hr>
+
+        <!-- <form action="/login.html" method="post" onsubmit="return checkValue();"> -->
+        <form action="/login.html" method="post">
+            <fieldset>
+                <legend>로그인</legend>
+                아이디 : <input type="text" name="id" id="id2"><span id="chkMsg2"></span><br>
+                비밀번호 : <input type="password" name="pw" id="pw2"><br>
+                <!-- <input type="submit" value="회원가입" onclick="return checkValue();"> -->
+                <input type="submit" value="회원가입">
+                <input type="reset" value="취소">
+            </fieldset>
+        </form>
+
+        <hr>
+        <h3>이벤트 전달(이벤트 버블링)</h3>
+        <div class="div-test div1">첫번째
+            <div class="div-test div2">두번째
+                <div class="div-test div3">세번째</div>
+            </div>
+        </div>
+        <hr>
+        <div id="div1" class="test-div">클릭</div>
+        <div id="div2" class="test-div">더블클릭</div>
+        <div id="div3" class="test-div">mouseenter / mouseleave</div>
+
+
+
+
+        <style>
+            .test-div{
+                width: 150px;
+                height: 150px;
+                border: 1px solid black;
+            }
+
+
+
+
+            .div-test{
+                border: 1px solid black;
+                padding: 20px;
+            }
+            .div1{
+                background-color: antiquewhite;   
+            }
+            .div2{
+                background-color:aquamarine   
+            }
+            .div3{
+                background-color:blueviolet   
+            }
+        </style>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script src="js/10_event.js"></script>
+</body>
+</html>
