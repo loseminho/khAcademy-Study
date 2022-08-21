@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단계가 있는 회원가입</title>
+    <link rel="stylesheet" href="css/join.css">
+</head>
+<body>
+    <h1>단계가 있는 회원가입</h1>
+    <hr>
+
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active-tab">약관확인</li>
+            <li>필수정보입력</li>
+            <li>상세정보입력</li>
+            <li>가입완료</li>
+        </ul>
+        <div class="content">
+            <div class="contentDetail">
+                <h3 class="title">이용약관 확인 및 동의</h3>
+                <input type="checkbox" id="allAgreement">
+                <label for="allAgreement">이용약관 전체 체크</label>
+                <div class="agreebox">
+                    <input type="checkbox" id="privacyAgreement" class="agreeCheck">
+                    <label for="privacyAgreement">개인정보 수집 및 이용에 동의 <span class="fcBlue">(필수)</span></label>
+                    <div class="agreeContent">
+                        <ul>
+                            <li>수집항목 : 이름, 휴대전화번호, 생년월일, 비밀번호</li>
+                            <li>수집 및 이용목적 : 회원제 서비스 제공</li>
+                            <li>보유 및 이용기간 : 회원탈퇴 시 까지</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="agreebox">
+                    <input type="checkbox" id="adAgreement" class="agreeCheck">
+                    <label for="adAgreement">개인정보 수집 및 이용에 동의 <span class="fcBlue">(선택)</span></label>
+                    <div class="agreeContent">
+                        <ul>
+                            <li>수집항목 : 이름, 휴대전화번호, 생년월일, 비밀번호</li>
+                            <li>수집 및 이용목적 : 회원제 서비스 제공</li>
+                            <li>보유 및 이용기간 : 회원탈퇴 시 까지</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btnBox">
+                    <button class="nextBtn">다음</button>
+                </div>
+            </div>
+            <div class="contentDetail">
+                <h3 class="title">필수정보 입력</h3>
+                <table class="inputTbl">
+                    <tr>
+                        <td>아이디</td>
+                        <td>
+                            <input type="text" class="input long" name="id">
+                            <span id="idChk"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td>
+                            <input type="password" class="input long" name="pw">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호 확인</td>
+                        <td>
+                            <input type="password" class="input long" name="pw_re">
+                            <span id="pwChk"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이름</td>
+                        <td>
+                            <input type="text" class="input long" name="name">
+                        </td>
+                    </tr>
+                </table>
+                <div class="btnBox">
+                    <button class="nextBtn">다음</button>
+                </div>
+            </div>
+            <div class="contentDetail">
+                <h3 class="title">추가정보 입력</h3>
+                <table class="inputTbl">
+                    <tr>
+                        <td>이메일</td>
+                        <td>
+                            <input type="text" class="input" name="email1">
+                            @
+                            <input type="text" class="input" name="email2">
+                            <select name="emailSelect" id="emailSelect">
+                                <option value="">직접 입력</option>
+                                <option value="naver.com">naver</option>
+                                <option value="google.com">google</option>
+                                <option value="nate.com">nate</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>성별</td>
+                        <td>
+                            <input type="radio" name="gender" value="남" id="m">
+                            <label for="m">남자</label>
+                            <input type="radio" name="gender" value="여" id="f">
+                            <label for="f">여자</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>자기소개</td>
+                        <td><textarea id="introduce"></textarea></td>
+                    </tr>
+                </table>
+                <div class="btnBox">
+                    <button class="nextBtn">다음</button>
+                </div>
+            </div>
+            <div class="contentDetail">
+                <h3 class="title">가입을 축하합니다.</h3>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/join.js"></script>
+</body>
+</html>

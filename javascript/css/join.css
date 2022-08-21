@@ -1,0 +1,166 @@
+/*폰트설정*/
+@font-face {
+    font-family: ns-light;
+    src: url(../Noto_Sans_KR/NotoSansKR-Light.otf);
+}
+
+@font-face {
+    font-family: ns-bold;
+    src: url(../Noto_Sans_KR/NotoSansKR-Bold.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: ns-light;
+    color: #2c2d34;
+}
+
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.tabs{
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.tabs>li{
+    float: left;
+    width: calc(100%/4);
+    height: 70px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #d8d8d8;
+    line-height: 68px;
+    font-size: 18px;
+}
+
+.tabs>.active-tab{
+    border-bottom: none;
+    color: #1f4787;
+    border-top: 10px solid #1f4787;
+    line-height: 59px;
+    font-family: ns-bold;
+}
+
+.content{
+    width: 1138px;
+    padding: 30px;
+    border: 1px solid #d8d8d8;
+    border-top: none;
+}
+
+.contentDetail{
+    display: none;
+}
+
+
+.title{
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+.agreebox{
+    margin: 30px 0px;
+}
+
+.agreeContent>ul>li{
+    color: #707070;
+}
+
+.agreeContent>ul{
+    padding: 20px 40px;
+}
+
+.agreeContent{
+    width: 98%;
+    margin: 0 auto;
+    border: 1px solid #1f1111;
+}
+
+.btnBox{
+    text-align: center;
+}
+
+.nextBtn{
+    width: 180px;
+    height: 50px;
+    background-color: #1f4787;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+.lable{
+    font-size: 22px;
+}
+.fcBlue{
+    color: #1f4787;
+}
+.inputTbl{
+    width: 98%;
+    margin: 20px auto;
+    border-top: 2px solid #1f4787;
+    border-bottom: 1px solid #b3b3b3;
+}
+.inputTbl td{
+    border-top: 1px solid #ebebeb;
+    font-size: 20px;
+}
+.inputTbl tr>td:first-child{
+    width: 25%;
+    background-color: #fbfcfd;
+    border-right: 1px solid #ebebeb;
+}
+.input{
+    height: 35px;
+    border: 1px solid #d8d8d8;
+    outline: none;
+    font-size: 20px;
+}
+.long{
+    width: 400px;
+}
+.input:focus{
+    border: 1px solid #0e77d9;
+}
+#emailSelect{
+    height: 35px;
+    border: none;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    font-size: 20px;
+    width: 150px;
+}
+input[name=gender]{
+    display: none;
+}
+input[name=gender]+label{
+    display: inline-block;
+    height: 37px;
+    line-height: 37px;
+    width: 130px;
+    text-align: center;
+    border: 1px solid #1f4787;
+    color: #1f4787;
+}
+input[name=gender]:checked+label{
+    background-color: #1f4787;
+    color: #fff;
+}
+
+#introduce{
+    width: 600px;
+    height: 300px;
+    border: 1px solid #d8d8d8;
+    outline: none;
+    font-size: 20px;
+    resize: none;
+}
+#introduce:focus{
+    border: 1px solid #0e77d9;
+}

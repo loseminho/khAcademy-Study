@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.header>h1{
+    background: #a8c0ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3f2b96, #a8c0ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f2b96, #a8c0ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 36px;
+
+}
+
+.content{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.input-box{
+    overflow: hidden;
+}
+.input-box>*{
+    float: left;
+}
+[name=input]{
+    width: 80%;
+    outline: none;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 20px;
+}
+.add-btn{
+    width: 20%;
+    background-color: #28324e;
+    color: #fff;
+    height: 40px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+}
+
+.check-like{
+    color: #ee0979;
+}
+.like-icon{
+    /* color: #ee0979;
+    font-size: 50px; */
+}
+
+.todolist{
+    list-style-type: none;
+    overflow: hidden;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+}
+.todolist>li{
+    float: left;
+    height: 24px;
+    line-height: 24px;
+}
+.like{
+    width: 20%;
+}
+.todo-text{
+    width: 70%;
+}
+.todo-text-add{
+    text-decoration: line-through;
+}
+.check-zone{
+    width: 10%;
+}
+.check-zone{
+    text-align: right;
+}
+.check{
+    color: #4fd3c4;
+}
+.close{
+    color:#ff1700;
+}
+.todolist span:hover{
+    cursor:pointer;
+}
