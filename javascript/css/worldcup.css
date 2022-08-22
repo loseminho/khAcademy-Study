@@ -115,3 +115,15 @@ body{
     font-weight: bold;
     border-radius: 5px;
 }
+
+.left.pick{
+    transform: translateX(300px);
+    transition-duration: 1s;
+}
+.right.pick{
+    transform: translateX(-300px);
+    transition-duration: 1s;
+}
+.delete{
+    opacity:0;
+}

@@ -46,7 +46,11 @@ function init(){
 
 // 라운드 정보 출력 변경 함수
 function changeRoundInfo(){
-    roundInfo.innerText = `아이스크림 이상형 월드컵 ${kang}강 ${round}/${kang/2}`;
+    if(kang == 2 && round == 1){
+        roundInfo.innerHTML = "아이스크림 이상형 월드컵 결승전";
+    }else{
+        roundInfo.innerText = `아이스크림 이상형 월드컵 ${kang}강 ${round}/${kang/2}`;
+    }
 }
 // 라운드 별 이미지를 화면에 출력하는 함수
 function showImg(){
@@ -66,6 +70,60 @@ function showImg(){
     iceContent[1].setAttribute("value",playArr[playArrNo]);
 }
 
+left.addEventListener("click", function(){
+    //css 속성 부여
+    this.classList.add("pick");
+    right.classList.add("delete");
+    //선택한  value 배열 값에 저장
+    const value = this.getAttribute("value");
+    pickArr.push(value);
+    nextRound();
+});
+right.addEventListener("click", function(){
+    //css 속성 부여
+    this.classList.add("pick");
+    left.classList.add("delete");
+    //선택한  value 배열 값에 저장
+    const value = this.getAttribute("value");
+    pickArr.push(value);
+    nextRound();
+});
 
+function nextRound(){
+    round++;
+    if(round > kang/2){
+        if(round == 2 && kang == 2){
+            roundInfo.innerText = "아이스크림 이상형 월드컵 최종 우승";
+            return;
+        }
+        round = 1;
+        kang = kang/2;
+        
 
-
+        console.log(playArr);
+        console.log(pickArr);
+        playArr = new Array();
+        while(playArr.length != kang){
+            const randomNum = Math.floor(Math.random() * pickArr.length);
+            const value = pickArr[randomNum];
+            if(playArr.indexOf(value) == -1){
+                playArr.push(value);
+            }
+        }
+        pickArr = new Array();
+        console.log(playArr);
+        console.log(pickArr);
+    }
+    window.setTimeout(function(){
+        left.classList.add("delete");
+        right.classList.add("delete");
+        left.classList.remove("pick");
+        right.classList.remove("pick");
+        showImg();
+    },1.9*1000);
+    window.setTimeout(function(){
+        changeRoundInfo();
+        left.classList.remove("delete");
+        right.classList.remove("delete");
+    },2*1000);
+}   
