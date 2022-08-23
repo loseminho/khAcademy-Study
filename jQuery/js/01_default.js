@@ -81,5 +81,76 @@ function func6(){
     const span = $(".ancestors span");
     const select = span.parentsUntil("div"); // span태그부터 div 태그 전까지의 사이만
     select.css("border","2px solid red");
+}
+function func7(){
+    // children()
+    // 매개변수 없는 경우 : 모든 직계 자식
+    const div = $(".descendants");
+    // const select = div.children();
+    //매개 변수가 있는 경우 : 직계 자식 중에 매개변수에 선택자에 해당되는 요소만
+    const select = div.children(".child2");
+    select.css("border", "2px solid red");
+}
 
+function func8(){
+    // find(인자) : 모든 후손 요소 중 인자로 전달한 요소만
+    const div = $(".descendants");
+    const select = div.find(".child1");
+    select.css("border","2px solid blue");
+}
+
+function func9(){
+    // siblings([인자])
+    // 매개변수 없는 경우 : 형제 관계에 있는 모든 요소(본인 제외한 나머지 요소)
+    const h3 = $(".siblings h3");
+    // const select = h3.siblings();
+    // 매개 변수가 있는 경우 : 형제 관계에 있는 요소 중 매개변수에 해당되는 요소만
+    const select = h3.siblings("p");
+    select.css("border", "2px solid red");
+}
+
+function func10(){
+    // next() : 선택된 요소의 바로 다음 요소
+    const h3 = $(".siblings h3");
+
+    const select = h3.next();
+
+    const h5 = h3.next().next();
+    h5.css("border", "2px solid red");
+}
+function func11(){
+    // nextAll([인자])
+    // 매개변수가 없는 경우 : 선택된 요소의 형제들 중 선택된 요소 이후의 모든 요소
+    const h3 = $(".siblings h3");
+    // const select = h3.nextAll();
+    // 매개변수가 있는 경우 : 선택된 요소의 형제들 중 선택된 요소 이후에 있는 요소 중 매개변수로 전달한 선택자에 해당하는 요소만
+    const select = h3.nextAll("h5"); //h3 이후의 요소 중 h5 요소만
+    select.css("border", "2px solid red");
+}
+function func12(){
+    // nextUntil(인자) : 선택된 요소부터 매개변수로 전달한 요소 사이에 있는 모든 요소
+    const h3 = $(".siblings h3");
+    const select = h3.nextUntil("p"); // h3사이 p 사이의 값만
+    select.css("border", "2px solid red");
+}
+function func13(){
+    // prev() : 선택된 요소 바로 이전 요소
+    const h3 = $(".siblings h3");
+    const select = h3.prev();
+    select.css("border", "2px solid red");
+}
+function func14(){
+    // prevAll([인자]) 
+    const h3 = $(".siblings h3");
+    const select = h3.prevAll();
+    // 매개변수 없는 경우 : 선택된 요소의 형제들 중 이전에 있는 모든 요소
+    // 매개변수 있는 경우 : 이전 요소 중 해당하는 요소만
+    select.css("border", "2px solid red");
+}
+function func15(){
+    // prevUntil([인자]) : 선택된 요소 이전의 형제들 중 선택된 요소와 매개변수로 받은 선택자 사이에 있는 요소 
+    const h3 = $(".siblings h3");
+    const select = h3.prevUntil("p");
+    select.css("border", "2px solid red");
+    console.log(select.first().text());
 }
