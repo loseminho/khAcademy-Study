@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별점 주기</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/star.css">
+</head>
+<body>
+    <h1>별점</h1>
+    <hr>
+    <div class="star-wrap1">
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+    </div>
+    <p>
+        <span id="star-result">0</span>
+        <span>점</span>
+    </p>
+    <hr>
+    <div class="star-wrap2">
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <div class="star-on">
+            <div>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+            </div>
+        </div>
+    </div>
+    <input type="text" name="star-score">
+    <button id="btn">점수입력</button>
+
+    <div class="star-wrap3">
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+        <span class="material-icons">star</span>
+    </div>
+    <div class="input-score">
+        <span class="real-score">0</span>
+        <span class="show-score">0</span>
+    </div>
+
+
+    <script src="js/star.js"></script>
+</body>
+</html>

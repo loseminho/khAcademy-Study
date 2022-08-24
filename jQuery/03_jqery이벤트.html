@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <hr>
+    <h2>이벤트 연결하는 방법</h2>
+    <h3>1. inline 이벤트 : 자바스크립트와 동일 onclick ="func1()"</h3>
+    <h3>2. 고전 이벤트 모델 : $("선택자").이벤트이름(function(){});</h3>
+    <h3>3. $("선택자").on("이벤트이름",function(){});</h3>
+    <div id="test1">
+        <div class="d1">test-1</div>
+        <div class="d1">test-2</div>
+        <div class="d1">test-3</div>
+    </div>
+    <button id="btn1">클릭</button>
+    <hr>
+    <div class="levelup">
+        <button class="levelupBtn">레벨업</button>
+        <span>HTML : </span>
+        <span>0</span><br>
+        <button class="levelupBtn">레벨업</button>
+        <span>CSS : </span>
+        <span>0</span><br>
+        <button class="levelupBtn">레벨업</button>
+        <span>JavaScript : </span>
+        <span>0</span><br>
+        <button id="allLevelup">전체레벨업</button>
+    </div>
+    <hr>
+    <h2>마우스이벤트</h2>
+    <p id="click">클릭</p>
+    <p id="dblclick">더블클릭</p>
+    <p id="mousedown">마우스업/마우스다운</p>
+    <div>현재 마우스 위치 : <span id="mousemove"></span></div>
+    <hr>
+    <form action="test.html" id="frm">
+        입력 1 : <input type="text" id="input1"><br>
+        입력 2 : <input type="text" id="input2"><br>
+        <input type="submit" value="제출하기" id="submit" >
+    </form>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script src="js/03_event.js"></script>
+</body>
+</html>
