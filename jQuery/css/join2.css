@@ -1,0 +1,81 @@
+.join-wrap{
+    margin: 0 auto;
+    padding: 0;
+    width: 600px;
+    height: 800px;
+    border: 1px solid black;
+}
+
+
+.join-wrap>.join-title{
+    text-align: center;
+    font-weight: 700px;
+}
+.join-wrap>.join-title>h1{
+    color: blueviolet;
+    margin: 25px;
+    text-align: center;
+}
+
+
+.join-body{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    margin-left: 100px;
+    
+}
+.join-body-title{
+    margin: 10px;
+    height: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+.join-body-title label{
+    position: absolute;
+    margin-top: 48px;
+    margin-left: 40px;
+    transition-duration: 1s;
+}
+.join-body-input{
+    margin-top: 10px;
+}
+.join-body-input img{
+    margin-top: 3px;
+    height: 40px;
+    width: 40px;
+    float: left;
+}
+.join-body-input input{
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    width: 350px;
+    border:none;
+    border-bottom: 2px solid lightgray;
+    font-size: 17px;
+    text-indent: 10px;
+}
+.join-body-input input:focus{
+    outline: none;
+    border-bottom: 2px solid blueviolet;
+    color: blueviolet;
+}
+.join-btn{
+    margin-top: 30px;
+}
+
+.join-btn input{
+    background-color: blueviolet;
+    margin-left: 100px;
+    border: none;
+    width: 400px;
+    height: 50px;
+    border-radius: 40px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.join-btn input:hover{
+    font-size: 1.1em;
+}

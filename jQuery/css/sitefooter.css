@@ -1,0 +1,40 @@
+
+.area_footer{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.service_info>ul{
+    overflow: hidden;
+    padding: 0;
+}
+.service_info>ul>li{
+    float: left;
+    list-style-type: none;    
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    
+}
+.service_info>ul>li:last-child{
+    border: none;
+}
+.service_info a{
+    text-decoration: none;
+    color: #4c4c4c;
+    display: block;
+    font-size: 12px;
+    
+}
+
+.service_info>p{
+    font-size: 11px;
+}
+
+.list_info{
+    font-size: 11px;
+    padding-top: 10px;
+}
+
+.service_info a:hover{
+    text-decoration: underline;
+}

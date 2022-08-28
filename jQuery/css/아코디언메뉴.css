@@ -1,0 +1,42 @@
+.allform{
+    width:250px;
+}
+.allform ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.allform ul>li>a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    text-indent: 20px;
+    border-left: 10px solid transparent;
+}
+.allform>ul>li{
+    background-color: #ed5565;
+}
+.allform>ul>li:hover{
+    background-color: #da4453;
+}
+.allform .sub>li{
+    background-color: #383838;
+    display: none;
+}
+.allform .sub>li:hover>a{
+    border-left: 10px solid #da4453;
+}
+.allform .sub>li>a{
+    text-indent: 40px;
+}
+.allform .two>li>a{
+    text-indent: 60px;
+}
+.allform>ul>li>.one>li{
+    display: block;
+}
+.allform>ul>li>.one>li>.two>li{
+    display: block;
+}

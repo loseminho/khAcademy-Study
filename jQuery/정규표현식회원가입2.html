@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규 표현식 회원가입</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/join2.css">
+</head>
+<body>
+    <form action="joinMember.html" method="post" autocomplete="off">
+        <div class="join-wrap">
+            <div class="join-title">
+                <h1>JIN'S WORLD</h1>
+                <h4>Create a New Account</h3>
+            </div>
+            <div class="join-body">
+                <div class="join-body-title">
+                    <label for="id">아이디</label>
+                    <span class="comment" id="idComment"></span>
+                </div>
+                <div class="join-body-input">
+                    <img src="./img/bg-1.jpg">
+                    <input type="text" name="id" id="id">
+                </div>
+
+                <div class="join-body-title">
+                    <label for="pw">비밀번호</label>
+                    <span class="comment"></span>
+                </div>
+                <div class="join-body-input">
+                    <img src="./img/bg-1.jpg">
+                    <input type="password" name="pw" id="pw">
+                </div>
+
+                <div class="join-body-title">
+                    <label for="pwRe">비밀번호</label>
+                    <span class="comment"></span>
+                </div>
+                <div class="join-body-input">
+                    <img src="./img/bg-1.jpg">
+                    <input type="password" name="pwRe" id="pwRe">
+                </div>
+                
+                <div class="join-body-title">
+                    <label for="name">이름</label>
+                    <span class="comment"></span>
+                </div>
+                <div class="join-body-input">
+                    <img src="./img/bg-1.jpg">
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="join-body-title">
+                    <label for="phone">전화번호</label>
+                    <span class="comment"></span>
+                </div>
+                <div class="join-body-input">
+                    <img src="./img/bg-1.jpg">
+                    <input type="text" name="phone" id="phone">
+                </div>
+            </div>
+            <div class="join-btn">
+                <input type="submit" value="SIGN UP">
+            </div>
+        </div>
+
+    </form>
+
+
+    <script src="js/join2.js"></script>
+</body>
+</html>

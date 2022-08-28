@@ -1,0 +1,55 @@
+.menu{
+    width: 250px;
+    margin: 100px;
+}
+
+.menu ul{
+    list-style-type: none;
+
+    /* 아래 두개를 해야 서브메뉴까지 한줄로 정렬 */
+    padding: 0;
+    margin: 0;
+}
+
+.menu a{
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    text-decoration: none;
+    padding-left: 20px;
+    color: #fff;
+
+    /* +버튼 오른쪽으로 옮기기 */
+    position: relative; 
+}
+
+.main-menu>li{
+    background-color: #ed5565;
+    border-bottom: 1px solid #da4453;
+}
+
+/* 서브메뉴 색과 보더길이를 줘서 글씨가 살짝 오른쪽으로 */
+.sub-menu>li>a{
+    background-color: #383838;
+    border-left: 10px solid #383838;
+}
+
+.sub-menu>li:hover>a{
+    border-left: 10px solid #da4453;
+}
+
+.sub-menu{
+    display: none;
+}
+
+.more{
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    transition-duration: 0.5s;
+}
+
+.active{
+    transform: rotate(45deg);
+}
