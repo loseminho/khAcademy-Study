@@ -1,0 +1,12 @@
+package kr.or.iei.member.service;
+
+import kr.or.iei.member.vo.Member;
+
+public class MemberService {
+
+	public int insertMember(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

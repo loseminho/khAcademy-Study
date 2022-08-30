@@ -1,0 +1,19 @@
+package kr.or.iei.member.service;
+
+import common.JDBCTemplate;
+import kr.or.iei.member.vo.Member;
+
+public class MemberService {
+	private MemberDao dao;
+	
+	public MemberService() {
+		super();
+	}
+
+	public int insertMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.insertMeber(conn,m);
+		return 0;
+	}
+
+}

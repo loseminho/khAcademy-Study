@@ -1,0 +1,60 @@
+package kr.or.iei.member.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.or.iei.member.vo.Member;
+
+/**
+ * Servlet implementation class JoinServlet
+ */
+@WebServlet(name = "Join", urlPatterns = { "/Join.do" })
+public class JoinServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public JoinServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1 인코딩
+		request.setCharacterEncoding("utf-8");
+		
+		// 2 값 추출
+		String memberId = request.getParameter("memberId");
+		String memberPw = request.getParameter("memberPw");
+		String memberName = request.getParameter("memberName");
+		String memberPhone = request.getParameter("memberPhone");
+		String memberAddr = request.getParameter("memberAddr");
+		Member m = new Member();
+		m.setMemberId(memberId);
+		m.setMemberPw(memberPw);
+		m.setMemberName(memberName);
+		m.setMemberPhone(memberPhone);
+		m.setMemberAddr(memberAddr);
+		
+		
+		
+		// 3 
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

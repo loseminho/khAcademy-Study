@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>메인페이지 입니다.</h1>
+	<hr>
+	<h3><a href="/requestServer.do">1. 서버 호출</a></h3>
+	<h3><a href="/responseTest.do">2. 서버에서 응답받기</a></h3>
+	<!--  -->
+	<h3><a href="/sendData1.do?name=진민호&test=abc">3. 서버로 값 전송하기(a태그)</a></h3>
+	<form action="/sendData2.do" method="get">
+		이름 : <input type="text" name="name"><br>
+		나이 : <input type="text" name="age"><br>
+		주소 : <input type="text" name="addr"><br>
+		<input type="submit" value="서버로 전송">
+	</form>
+	<hr>
+	<form action="/sendData3.do" method="post">
+		
+	</form>
+</body>
+</html>

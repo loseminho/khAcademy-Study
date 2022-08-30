@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	//*주소 : localhost/test/test1.html
+	<h1>TEST1 페이지 입니다.</h1>
+</body>
+</html>
