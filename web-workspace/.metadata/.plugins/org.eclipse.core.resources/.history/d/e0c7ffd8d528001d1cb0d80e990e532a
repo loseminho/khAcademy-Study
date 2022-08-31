@@ -1,0 +1,31 @@
+package kr.or.iei.member.model.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+import kr.or.iei.member.model.vo.Member;
+
+public class MemberDao {
+
+	public Member selectOneMember(Connection conn, Member member) {
+		PreparedStatement pstmt = null;
+		Result rset = null;
+		Member m = null;
+		String query = "select * from member_tbl where member_id=? and member_pw=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1,  member.getMemberId());
+			pstmt.setString(1,  member.getMemberPw());
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

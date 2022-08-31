@@ -1,0 +1,19 @@
+package kr.or.iei.member.model.dao;
+
+import java.sql.PreparedStatement;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+import kr.or.iei.member.model.vo.Member;
+
+public class MemberDao {
+
+	public Member selectOneMember(Member member) {
+		PreparedStatement pstmt = null;
+		Result rset = null;
+		Member m = null;
+		String query = "select * from member_tbl where member_id=? and member_pw=?";
+		return null;
+	}
+
+}

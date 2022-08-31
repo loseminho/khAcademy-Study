@@ -1,0 +1,26 @@
+<%@page import="kr.or.iei.member.service.MemberService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    request.setCharacterEncoding("utf-8");
+    
+    MemberService service = new MemberService();
+    Member m = service.insertMember(Member m);
+    String memberId = request.getParameter("memberId");
+    String memberPw = request.getParameter("memberPw");
+    String memberName = request.getParameter("memberName");
+    String memberPhone = request.getParameter("memberPhone");
+    String memberAddr = request.getParameter("memberAddr");
+    
+    
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

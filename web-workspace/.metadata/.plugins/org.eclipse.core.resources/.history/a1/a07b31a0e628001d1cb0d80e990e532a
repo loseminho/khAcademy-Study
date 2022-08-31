@@ -1,0 +1,74 @@
+<%@page import="kr.or.iei.member.model.vo.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	Member m = (Member)session.getAttribute("m");
+    %>
+    <!-- 구글 아이콘 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/js/jquery-3.6.0.js"></script>
+    <!-- 기본 CSS -->
+    <link rel="stylesheet" href="/css/default.css" />
+    <!-- 기본 js -->
+    <script src="/js/default.js"></script>
+    
+    <header>
+      <div class="site-logo">
+        <a href="/">Jin's WORLD</a>
+      </div>
+      <nav>
+        <ul class="navi">
+          <li><a href="#">메뉴-1</a></li>
+          <li><a href="#">메뉴-2</a></li>
+          <li><a href="#">메뉴-3</a></li>
+          <li><a href="#">메뉴-4</a></li>
+          <li>
+			<a href="#">메뉴-5</a>
+            <ul class="sub-navi">
+              <li><a href="#">sub-1</a></li>
+              <li><a href="#">sub-2</a></li>
+              <li><a href="#">sub-3</a></li>
+            </ul>
+           </li>
+        </ul>
+      </nav>
+      <div class="header-link">
+        <button class="btn bc11 modal-open-btn" target="#login-modal">SIGN IN</button>
+        <a class="btn bc11">SIGN UP</a>
+      </div>
+    </header>
+    <div id="login-modal" class="modal-bg">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          <h2>SIGN IN</h2>
+          <span class="material-icons close-icon modal-close">close</span>
+        </div>
+        <form action="/signIn.do" method="post">
+	        <div class="modal-content">
+	          <div class="input-box">
+	          	<label for="signId">아이디</label>
+	          	<input type="text" name="signId" class="input-form" placeholder="아이디 입력">
+	          </div>
+	          <div class="input-box">
+	          	<label for="signPw">비밀번호</label>
+	          	<input type="password" name="signPw" class="input-form" placeholder="비밀번호 입력">	          
+	          </div>
+	          <div class="input-box link-box">
+	          	<a href="#">아이디/비밀번호 찾기</a>
+	          </div>
+	        </div>
+	        <div class="modal-foot">
+	          <button type="submit" class="btn bc11">로그인</button>
+	          <button type="button" class="btn bc1 modal-close">취소</button>
+	        </div>
+        </form>
+	  </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    

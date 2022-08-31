@@ -1,0 +1,14 @@
+package kr.or.iei.member.model.service;
+
+import kr.or.iei.member.model.dao.MemberDao;
+
+public class MemberService {
+	private MemberDao dao;
+
+	public MemberService() {
+		super();
+		dao = new MemberDao();
+	}
+	
+	
+}

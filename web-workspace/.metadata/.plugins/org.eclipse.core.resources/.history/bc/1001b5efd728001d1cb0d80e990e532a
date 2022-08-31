@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	String title = (String)request.getAttribute("title");
+    	String msg = (String)request.getAttribute("msg");
+    	String icon = (String)request.getAttribute("icon");
+    	String loc = (String)request.getAttribute("loc");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

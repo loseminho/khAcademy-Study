@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;04_jspProject/src/main/webapp/jsp/scriptletTeg.jsp&apos; to &apos;scriptletTag.jsp&apos;" description="Rename resource &apos;scriptletTeg.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/jsp/scriptletTeg.jsp" name="scriptletTag.jsp" stamp="1661839893849" updateReferences="true"/>
+</session>

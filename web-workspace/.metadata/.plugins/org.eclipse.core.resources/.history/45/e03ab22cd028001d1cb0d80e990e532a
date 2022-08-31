@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <!-- 구글 아이콘 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/js/jquery-3.6.0.js"></script>
+    <!-- 기본 CSS -->
+    <link rel="stylesheet" href="/css/default.css" />
+    <!-- 기본 js -->
+    <script src="/js/default.js"></script>
+    
+    <header>
+      <div class="site-logo">
+        <a href="#">LoseMinho WORLD</a>
+      </div>
+      <nav>
+        <ul class="navi">
+          <li><a href="#">메뉴-1</a></li>
+          <li><a href="#">메뉴-2</a></li>
+          <li><a href="#">메뉴-3</a></li>
+          <li><a href="#">메뉴-4</a></li>
+          <li>
+			<a href="#">메뉴-5</a>
+            <ul class="sub-navi">
+              <li><a href="#">sub-1</a></li>
+              <li><a href="#">sub-2</a></li>
+              <li><a href="#">sub-3</a></li>
+            </ul>
+           </li>
+        </ul>
+      </nav>
+      <div class="header-link">
+        <button class="btn bc11">버튼</button>
+        <a class="btn bc11">링크</a>
+      </div>
+    </header>

@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	String title = (String)request.getAttribute("title");
+    	String msg = (String)request.getAttribute("msg");
+    	String icon = (String)request.getAttribute("icon");
+    	String loc = (String)request.getAttribute("loc");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div>
+		<div id="title"><%=title %></div>
+		<div id="msg"><%=msg %></div>
+		<div id="icon"><%=icon %></div>
+		<div id="loc"><%=loc %></div>
+		
+	</div>
+</body>
+</html>
