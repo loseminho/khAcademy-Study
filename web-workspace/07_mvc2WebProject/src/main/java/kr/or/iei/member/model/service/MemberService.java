@@ -28,9 +28,26 @@ public class MemberService {
 		return m;
 	}
 
-	public Member insertOneMember(Member member) {
-		
-		return null;
+
+	public int insertMember(Member member) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.insertMember(conn, member);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateMember(Member member) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.updateMember(conn, member);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int deleteMember(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.deleteMember(conn, memberId);
+		JDBCTemplate.close(conn);
+		return result;
 	}
 	
 	

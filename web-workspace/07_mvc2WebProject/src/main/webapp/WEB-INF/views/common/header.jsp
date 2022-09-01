@@ -38,7 +38,8 @@
         <button class="btn bc11 modal-open-btn" target="#login-modal">SIGN IN</button>
         <a class="btn bc11" href="/signUpFrm.do">SIGN UP</a>
         <%}else{ %>
-        <a class="btn bc11"><%=m.getMemberName() %></a>
+        <%-- <a class="btn bc11" href="/mypage1.do"><%=m.getMemberName() %></a> --%>
+        <a class="btn bc11" href="/mypage2.do?memberId=<%=m.getMemberId() %>"><%=m.getMemberName() %></a>
         <a class="btn bc11" href="/logOut.do">LOGOUT</a>
         <%} %>
       </div>

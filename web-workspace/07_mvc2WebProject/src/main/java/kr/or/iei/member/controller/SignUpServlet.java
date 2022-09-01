@@ -1,6 +1,8 @@
 package kr.or.iei.member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,11 +35,11 @@ public class SignUpServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		// 2. 값추출
-		String memberId = request.getParameter("signId");
-		String memberPw = request.getParameter("signPw");
-		String memberName = request.getParameter("signName");
-		String memberPhone = request.getParameter("signPhone");
-		String memberAddr = request.getParameter("signAddr");
+		String memberId = request.getParameter("memberId");
+		String memberPw = request.getParameter("memberPw");
+		String memberName = request.getParameter("memberName");
+		String memberPhone = request.getParameter("memberPhone");
+		String memberAddr = request.getParameter("memberAddr");
 		Member member = new Member();
 		member.setMemberId(memberId);
 		member.setMemberPw(memberPw);
@@ -45,12 +47,23 @@ public class SignUpServlet extends HttpServlet {
 		member.setMemberPhone(memberPhone);
 		member.setMemberAddr(memberAddr);
 		
-		
 		// 3. 비즈니스로직
 		MemberService service = new MemberService();
-		int result = service.insertOneMember(member);
+		int result = service.insertMember(member);
 		
 		// 4. 결과처리
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			request.setAttribute("title", "회원가입성공");
+			request.setAttribute("msg", "회원가입성공! 환영합니다");
+			request.setAttribute("icon", "success");
+		}else {
+			request.setAttribute("title", "회원가입실패");
+			request.setAttribute("msg", "회원가입실패! 관리자에게 문의하세요");
+			request.setAttribute("icon", "error");
+		}
+		request.setAttribute("loc", "/");
+		view.forward(request, response);
 	}
 
 	/**
