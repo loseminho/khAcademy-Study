@@ -1,0 +1,15 @@
+package kr.or.iei.notice.model.dao;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import kr.or.iei.notice.model.vo.Notice;
+
+public class NoticeDao {
+
+	public ArrayList<Notice> selectNoticeList(Connection conn, int start, int end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

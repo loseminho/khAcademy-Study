@@ -69,9 +69,10 @@
 			<div class="btn-box">
 				<button type="submit" class="btn bc11 bs2">정보 수정</button>
 				<%if(member.getMemberLevel() ==1) {%>
-					<a class="btn bc66 bs2" href="/adminPage.do?memberId=<%=member.getMemberId()%>">회원 관리</a>
+					<a class="btn bc66 bs2" href="/adminPage.do">회원 관리</a>
 				<%}else{ %>
 					<a class="btn bc66 bs2" href="/deleteMember.do">회원 탈퇴</a>
+					<!-- <a class="btn bc66 bs2" href="/deleteMember.do?memberId=<%=member.getMemberId()%>">회원 탈퇴</a> -->
 				<%} %>
 				
 			</div>

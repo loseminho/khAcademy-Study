@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공지사항 작성</title>
+<style>
+	#noticeWrite td, #noticeWrite th{
+		border: 1px solid #ccc;
+	}
+</style>
+</head>
+<body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">공지사항 작성</div>
+		<form action="/noticeWrite.do" method="post" enctype="multypart/form-data">
+			
+		</form>
+	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

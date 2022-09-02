@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 import common.JDBCTemplate;
 import kr.or.iei.member.model.vo.Member;
@@ -132,4 +132,57 @@ public class MemberDao {
 	      }
 		return result;
 	}
+
+	public ArrayList<Member> selectAllMember(Connection conn) {
+		PreparedStatement pstmt = null;
+		ArrayList<Member> list = new ArrayList<Member>();
+		ResultSet rset = null;
+		String query = "select * from member_tbl order by 1";
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				Member m = new Member();
+				m.setEnrollDate(rset.getString("enroll_date"));
+				m.setMemberAddr(rset.getString("member_addr"));
+				m.setMemberId(rset.getString("member_id"));
+				m.setMemberLevel(rset.getInt("member_level"));
+				m.setMemberName(rset.getString("member_name"));
+				m.setMemberNo(rset.getInt("member_no"));
+				m.setMemberPhone(rset.getString("member_phone"));
+				list.add(m);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		return list;
+	}
+
+	public int changeLevel(Connection conn, int memberNo, int memberLevel) {
+		PreparedStatement pstmt = null;
+		int result=0;
+		String query = "update member_tbl set member_level=? where member_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberLevel);
+			pstmt.setInt(2, memberNo);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }

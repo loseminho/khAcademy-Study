@@ -1,0 +1,45 @@
+<%@page import="kr.or.iei.notice.model.vo.Notice"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+    	String pageNavi = (String)request.getAttribute("pageNavi");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.notice-tbl a:hover{
+		text-decoration : underline;
+	}
+	.notice-tbl tr{
+		border-bottom: 1px solid #ccc;
+	}
+	.notice-tbl tr>td:ntch-child(2){
+		text-align : left;
+	}
+	#pageNavi{
+		margin: 30px;
+	}
+</style>
+</head>
+<body>
+	<%@ include file="/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">공지사항</div>
+		<table class="tbl tbl-hover notice-tbl">
+			<tr class="tr-2">
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+		</table>
+	</div>
+	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

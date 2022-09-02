@@ -1,6 +1,8 @@
 package kr.or.iei.member.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import common.JDBCTemplate;
 import kr.or.iei.member.model.dao.MemberDao;
@@ -46,6 +48,52 @@ public class MemberService {
 	public int deleteMember(String memberId) {
 		Connection conn = JDBCTemplate.getConnection();
 		int result = dao.deleteMember(conn, memberId);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public ArrayList<Member> selectAllMember() {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Member> list = dao.selectAllMember(conn);
+		JDBCTemplate.close(conn);
+		return list;
+	}
+
+	public int changeLevel(int memberNo, int memberLevel) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.changeLevel(conn, memberNo, memberLevel);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public boolean checkedChangeLevel(String num, String level) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		// '/'를 기준으로 문자열을 잘라내서 사용
+		StringTokenizer sT1 = new StringTokenizer(num,"/");
+		StringTokenizer sT2 = new StringTokenizer(level,"/");
+		boolean result = true;
+		
+		//토큰으로 잘라놓은게 남아있으면 while문이 계속 돔
+		while(sT1.hasMoreTokens()) {
+			int memberNo = Integer.parseInt(sT1.nextToken());
+			int memberLevel = Integer.parseInt(sT2.nextToken());
+			int changeResult = dao.changeLevel(conn, memberNo, memberLevel);
+			if(changeResult == 0) {
+				result = false;
+				break;
+			}
+		}
+		if(result) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 		JDBCTemplate.close(conn);
 		return result;
 	}

@@ -19,8 +19,8 @@
       </div>
       <nav>
         <ul class="navi">
-          <li><a href="#">메뉴-1</a></li>
-          <li><a href="#">메뉴-2</a></li>
+          <li><a href="/noticeList.do?reqPage=1">공지사항</a></li>
+          <li><a href="/">자유게시판</a></li>
           <li><a href="#">메뉴-3</a></li>
           <li><a href="#">메뉴-4</a></li>
           <li>

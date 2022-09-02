@@ -57,6 +57,7 @@ public class SignUpServlet extends HttpServlet {
 			request.setAttribute("title", "회원가입성공");
 			request.setAttribute("msg", "회원가입성공! 환영합니다");
 			request.setAttribute("icon", "success");
+			System.out.println("회원가입했습니다.");
 		}else {
 			request.setAttribute("title", "회원가입실패");
 			request.setAttribute("msg", "회원가입실패! 관리자에게 문의하세요");
