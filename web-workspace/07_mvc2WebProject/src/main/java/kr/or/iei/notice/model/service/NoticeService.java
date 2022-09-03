@@ -32,8 +32,9 @@ public class NoticeService {
 		ArrayList<Notice> list = dao.selectNoticeList(conn,start, end);
 		
 		//페이징처리
-		//전체페이지 수 계산 -> 전체 게시물 수 조회
+		//전체페이지 수 계산하기 위해서는 전체 게시물 수 조회를 해야함
 		int totalCount = dao.selectNoticeCount(conn);
+		
 		//전체 페이지
 		int totalPage = 0;
 		if(totalCount%numPerPage ==0) {
@@ -142,6 +143,18 @@ public class NoticeService {
 		}
 		JDBCTemplate.close(conn);
 		return n;
+	}
+
+	public int updateNotice(Notice n) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.updateNotice(conn, n );
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 	

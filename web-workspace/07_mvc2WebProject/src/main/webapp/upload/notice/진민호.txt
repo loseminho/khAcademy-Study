@@ -1,0 +1,7 @@
+kakaoPage_main.js
+메인페이지 이모티콘, 텍스트 효과를
+마우스 올렸다 내렸다에 따라서 줌
+kakaoPageNav.js
+헤더 네비게이션에 마우스 클릭에 따라서 효과를 줌
+
+main페이지, detail 페이지 만듬
