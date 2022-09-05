@@ -1,0 +1,30 @@
+package kr.or.iei.free.notice.model.service;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import common.JDBCTemplate;
+import kr.or.iei.free.notice.model.dao.FreeNoticeDao;
+import kr.or.iei.free.notice.model.vo.FreeNotice;
+import kr.or.iei.free.notice.model.vo.FreeNoticePageData;
+
+public class FreeNoticeService {
+	private FreeNoticeDao fdao;
+
+	public FreeNoticeService() {
+		super();
+		fdao = new FreeNoticeDao();
+	}
+
+	public FreeNoticePageData selectFreeNoticeList(int reqPage) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int numPerPage = 10;
+		int end = numPerPage * reqPage;
+		int start = end - numPerPage + 1;
+		ArrayList<FreeNotice> flist = fdao.selectNoticeList(conn, start, end);
+		return null;
+	}
+	
+	
+}

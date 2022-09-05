@@ -1,0 +1,14 @@
+package kr.or.iei.free.notice.model.service;
+
+import kr.or.iei.free.notice.model.dao.FreeNoticeDao;
+
+public class FreeNoticeService {
+	private FreeNoticeDao fdao;
+
+	public FreeNoticeService() {
+		super();
+		fdao = new FreeNoticeDao();
+	}
+	
+	
+}

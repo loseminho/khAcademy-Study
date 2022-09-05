@@ -31,4 +31,5 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="common.JDBCTemplate"/>
     <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="kr.or.iei.notice.model.vo.NoticeComment"/>
 </qualifiedTypeNameHistroy>

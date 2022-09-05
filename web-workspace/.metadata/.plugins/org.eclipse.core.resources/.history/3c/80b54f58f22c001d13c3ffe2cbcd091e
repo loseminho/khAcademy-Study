@@ -1,0 +1,5 @@
+package kr.or.iei.free.notice.model.service;
+
+public class FreeNoticeService {
+
+}

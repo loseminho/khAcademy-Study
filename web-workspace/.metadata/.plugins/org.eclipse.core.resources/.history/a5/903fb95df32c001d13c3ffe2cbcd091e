@@ -1,0 +1,15 @@
+package kr.or.iei.free.notice.model.dao;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import kr.or.iei.free.notice.model.vo.FreeNotice;
+
+public class FreeNoticeDao {
+
+	public ArrayList<FreeNotice> selectNoticeList(Connection conn, int start, int end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

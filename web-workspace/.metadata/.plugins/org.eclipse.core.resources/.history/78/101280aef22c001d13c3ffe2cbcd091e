@@ -1,0 +1,9 @@
+package kr.or.iei.free.notice.model.vo;
+
+import java.util.ArrayList;
+
+public class FreeNoticePageData {
+	private ArrayList<FreeNotice> Flist;
+	private String FreePageNavi;
+	
+}

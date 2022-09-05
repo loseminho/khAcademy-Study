@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import common.JDBCTemplate;
+import kr.or.iei.notice.controller.NoticeViewServlet;
 import kr.or.iei.notice.model.dao.NoticeDao;
 import kr.or.iei.notice.model.vo.Notice;
+import kr.or.iei.notice.model.vo.NoticeComment;
 import kr.or.iei.notice.model.vo.NoticePageData;
+import kr.or.iei.notice.model.vo.NoticeViewData;
 
 public class NoticeService {
 	private NoticeDao dao;
@@ -156,6 +159,64 @@ public class NoticeService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
+	
+	public int insertNoticeComment(NoticeComment nc) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = dao.insertNoticeComment(conn, nc);
+	      
+	      if(result > 0) {
+	         JDBCTemplate.commit(conn);
+	      } else {
+	         JDBCTemplate.rollback(conn);
+	      }
+	      JDBCTemplate.close(conn);
+	      return result;
+	   }
+	
+	public NoticeViewData selectOneNotice(int noticeNo) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = dao.updateReadCount(conn, noticeNo);
+	      if(result > 0) {
+	         JDBCTemplate.commit(conn);
+	         Notice n = dao.selectOneNotice(conn, noticeNo);
+	         // 공지사항 상세내용조회 후에 해당 공지사항에 작성된 댓글도 모두 조회
+	         // 1. 일반댓글 조회
+	         ArrayList<NoticeComment> commentList = dao.selectNoticeCommentList(conn, noticeNo);
+	         // 2. 대댓글 조회
+	         ArrayList<NoticeComment> recommentList = dao.selectNoticeReCommentList(conn,noticeNo);
+	         
+	         NoticeViewData nvd = new NoticeViewData(n, commentList, recommentList);
+	         JDBCTemplate.close(conn);
+	         return nvd;
+	      }else {
+	         JDBCTemplate.rollback(conn);
+	         JDBCTemplate.close(conn);
+	         return null;
+	      }
+	   }
 
+	public int updateNoticeComment(NoticeComment nc) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.updateNoticeComment(conn,nc);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int deleteNoticeComment(int ncNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.deleteNoticeComment(conn, ncNo);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
 	
 }
