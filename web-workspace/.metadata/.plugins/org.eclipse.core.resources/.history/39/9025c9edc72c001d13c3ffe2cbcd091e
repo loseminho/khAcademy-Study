@@ -1,0 +1,141 @@
+<%@page import="kr.or.iei.notice.model.vo.NoticeComment"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.or.iei.notice.model.vo.Notice"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	Notice n = (Notice)request.getAttribute("n");
+    	ArrayList<NoticeComment> commentList = (ArrayList<NoticeComment>)request.getAttribute("commentList");
+    	ArrayList<NoticeComment> reCommentList = (ArrayList<NoticeComment>)request.getAttribute("reCommentList");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#noticeView th, #noticeView td{
+		border: 1px solid #eee;
+	}
+	#noticeContent{
+		min-height: 300px;
+		text-align: left;
+		font-family: ns-light;
+	}
+</style>
+</head>
+<body>
+	<%@ include file="/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">공지사항</div>
+		<table class="tbl" id ="noticeView">
+			<tr class="tr-3">
+				<th colspan="6"><%=n.getNoticeTitle() %></th>
+			</tr>
+			<tr class="tr-1">
+				<th class="td-3">작성자</th>
+				<td><%=n.getNoticeWriter() %></td>
+				<th class="td-3">조회수</th>
+				<td><%=n.getReadCount() %></td>
+				<th class="td-3">작성일</th>
+				<td><%=n.getRegDate() %></td>
+			</tr>
+			<tr class="tr-1">
+				<th class="td-3">첨부파일</th>
+				<td colspan="5">
+				<%if( n.getFilename() != null ){%>
+				<img src="/img/file.png" width="16px">
+				<a href="/noticeFileDown.do?noticeNo=<%=n.getNoticeNo()%>"><%=n.getFilename() %></a>
+				<%}%>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<div id="noticeContent"><%=n.getNoticeContentBr() %></div>
+				</td>
+			</tr>
+			<%if(m!= null && n.getNoticeWriter().equals(m.getMemberId())) {%>
+			<tr class="tr-1">
+				<th colspan="6">
+					<a class="btn bc44" href="/noticeUpdateFrm.do?noticeNo=<%=n.getNoticeNo()%>">수정</a>
+					<button class="btn bc44" onclick="noticeDelete(<%=n.getNoticeNo() %>);">삭제</button>
+				</th>
+			</tr>
+			<%} %>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+		</table>
+		<%if(m != null) {%>
+		      <div class="inputCommentBox">
+		         <form action="/insertComment.do" method="post">
+		            <ul>
+		               <li>
+		                  <span class="material-icons">account_box</span>
+		               </li>
+		               
+		               <li>
+		                  <input type="hidden" name="ncWriter" value="<%=m.getMemberId()%>">
+		                  <input type="hidden" name="noticeRef" value="<%=m.getMemberNo()%>">
+		                  <input type="hidden" name="ncRef" value="0">
+		                  <textarea class="input-form" name="ncContent"></textarea>
+		               </li>
+		               
+		               <li>
+		                  <button type="submit" class="btn bc1 bs4">등록</button>
+		               </li>
+		            </ul>
+		         </form>
+		      </div>
+		<%} %>
+		
+		<div class="commentBox">
+			<%for(NoticeComment nc : commentList){ %>
+
+				<ul class="posting-comment">
+					<li>
+						<span class="material-icons">account_box</span>
+					</li>
+					<li>
+						<p class="comment-info">
+							<span><%=nc.getNc_no() %></span>
+							<span><%=nc.getNc_date()%></span>
+						</p>
+						<p class="comment-content"><%=nc.getNc_comment() %></p>
+						<p class="comment-link">
+							<%if(m != null){ %>
+							<a href="#" class="recShow">답글달기</a>
+							<%}//답글조건 if문(로그인 체크) %>
+						</p>
+					</li>
+				</ul>
+					<%if(m != null) {%>
+						<div class="inputRecommentBox">
+							<ul>
+								<li>
+									<span class="material-icons">subdirectory_arrow_right</span>
+								</li>
+								<li>
+									<input type="hidden" class="ncWriter" value="<%=m.getMemberId()%>">
+									<input type="hidden" class="noticeRef" value="<%=m.getNoticeNo()%>">
+									<input type="hidden" class="ncRef" value="<%=m.getNoticeNo()%>">
+									<textarea class="input-form" name="ncContent"></textarea>
+									
+								</li>
+							</ul>
+						</div>					
+					<%}//대댓글달기 form 조건문 %>
+				<%}//댓글 반복문 종료 %>
+			
+		</div>
+		
+	</div>
+	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	<script>
+		function noticeDelete(noticeNo){
+			if(confirm("공지사항을 삭제하시겠습니까?")){
+				location.href="/noticeDelete.do?noticeNo="+noticeNo;
+				
+			}
+			
+		}
+	</script>
+</body>
+</html>
