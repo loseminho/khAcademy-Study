@@ -16,7 +16,7 @@ public class FreeNoticeDao {
 		ResultSet rset = null;
 		ArrayList<FreeNotice> flist = new ArrayList<FreeNotice>();
 		String query = "select * from(select rownum as rnum, n.* from (SELECT * FROM FREE_NOTICE ORDER BY FREE_NOTICE_NO DESC)n) where rnum between ? and ?;";
-		
+	
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setInt(1, start);

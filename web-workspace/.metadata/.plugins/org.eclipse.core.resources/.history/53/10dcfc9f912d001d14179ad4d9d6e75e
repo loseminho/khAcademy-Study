@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.ajaxResult{
+		min-height: 100px;
+		border: 2px solid #ccc;
+	}
+</style>
+</head>
+<body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">AJAX</div>
+		<h3>1. 서버 호출하기</h3>
+		<button class="btn bc11" id="js">JS방식</button>
+		<button class="btn bc11" id="jqs">JQ방식</button>
+	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

@@ -9,10 +9,10 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp" %>
-
+	<% System.out.println("메인페이지 접속!!!!!!!!!!!ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ"); %>
 	<div class="page-content">
-		<h1>MVC2 Web Project 메인페이지</h1>
-		<img src="http://file3.instiz.net/data/cached_img/upload/2022/03/26/15/3057556609e565b733a6597272b313ee.jpg">
+		<h1>릴리클로스는 기요워</h1>
+		<img src="/img/dog14.jpg" width="500px">
 		<a href="http://192.168.10.42/"></a>
 	</div>
 
