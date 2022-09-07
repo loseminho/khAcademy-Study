@@ -15,18 +15,18 @@
     
     <header>
       <div class="site-logo">
-        <a href="/">Jin's WORLD</a>
+        <a href="/">Hoya's WORLD</a>
       </div>
       <nav>
         <ul class="navi">
           <li><a href="/noticeList.do?reqPage=1">공지사항</a></li>
-          <li><a href="/freeNoticeList.do?reqPage=1">자유게시판</a></li>
+          <li><a href="#">자유게시판</a></li>
           <li><a href="/ajax.do">AJAX</a></li>
-          <li><a href="#">메뉴-4</a></li>
+          <li><a href="/photoList.do">사진게시판</a></li>
           <li>
-			<a href="#">메뉴-5</a>
+			<a href="#">API</a>
             <ul class="sub-navi">
-              <li><a href="#">sub-1</a></li>
+              <li><a href="/email.do">sub-1</a></li>
               <li><a href="#">sub-2</a></li>
               <li><a href="#">sub-3</a></li>
             </ul>

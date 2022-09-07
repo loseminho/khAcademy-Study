@@ -1,11 +1,22 @@
 package kr.or.iei.ajax.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.google.gson.Gson;
+
+import kr.or.iei.member.model.service.MemberService;
+import kr.or.iei.member.model.vo.Member;
 
 /**
  * Servlet implementation class AjaxTest7Servlet
@@ -26,8 +37,17 @@ public class AjaxTest7Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		
+		//비즈니스 로직
+		MemberService service = new MemberService();
+		ArrayList<Member> list = service.selectAllMember();
+		
+		//결과처리
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		new Gson().toJson(list,out);
+		
 	}
 
 	/**

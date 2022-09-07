@@ -47,6 +47,10 @@
 		<h3>7. 서버에서 데이터 리스트 받기(GSON)</h3>
 		<button class="btn bc11" id="jQ7">전체회원조회</button>
 		<p class="ajaxResult" id="result7"></p>
+		
+		<h3>8. 비동기 테스트</h3>
+		<button class="btn bc11" id="jQ8">비동기 호출 테스트</button>
+		
 	</div>
 	
 	
@@ -202,6 +206,21 @@
 						result.append(div);
 					}
 				}
+			});
+		});
+		$("#jQ8").on("click",function(){
+			let test =10;
+			console.log("이벤트 시작 : "+test);
+			$.ajax({
+				url : "/ajaxTest8.do",
+				success : function(data){
+					//성공 시 내부를 실행되지만, 이 function이 처리되는 동안 아래 이벤트 끝이 담긴 콘솔이 돌아버림.
+					//따라서 해당 방법을 방지하기 위해서는 모든 작업을 ajax 함수 내에서 실행해도 되며, 혹은 .then(function(){내부})에 담아주어도 됨. 
+					test = data;
+					console.log("ajax 내부 : "+test)
+				}
+			}).then(function(){
+			console.log("이벤트 끝 : "+test);				
 			});
 		});
 	</script>

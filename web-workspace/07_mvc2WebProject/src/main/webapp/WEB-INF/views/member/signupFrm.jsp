@@ -38,7 +38,7 @@
 		</form>
 		<form action="/signUp.do" method="post">
 			<div class="input-wrap">
-				<label for="memberId">아이디</label>
+				<label for="memberId">아이디<span id="ajaxCheckId"></span></label>
 				<div class="id-wrap">
 					<input type="text" name="memberId" id="memberId" class="input-form">
 					<button type="button" id="idChkBtn" class="btn bc2">중복체크</button>
@@ -66,6 +66,26 @@
 		</form>
 	</div>
 	<script>
+		$("[name=memberId]").on("keyup",function(){
+			const memberId = $(this).val();
+			// 유효성 검사 먼저 수행
+			// 유효성 검사를 통화하면 중복 체크
+			$.ajax({
+				url : "/ajaxCheckId.do",
+				type: "get",
+				data: {memberId : memberId},
+				success : function(data){
+					if(data == "1"){
+						$("#ajaxCheckId").text("이미 사용중인 아이디입니다.");
+						$("#ajaxCheckId").css("color","red");
+					}else if(data == "0"){
+						$("#ajaxCheckId").text("사용 가능한 아이디입니다.");
+						$("#ajaxCheckId").css("color","blue");
+					}
+				}
+			});
+		});
+		
 		$("#idChkBtn").on("click",function(){
 			const memberId = $(this).prev().val();
 			if(memberId == ""){

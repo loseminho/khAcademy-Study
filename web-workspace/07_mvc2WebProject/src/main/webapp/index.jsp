@@ -6,14 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.page-content h1{
+		margin: auto;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp" %>
 	<% System.out.println("메인페이지 접속!!!!!!!!!!!ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ"); %>
 	<div class="page-content">
-		<h1>릴리클로스는 기요워</h1>
+		<h1>릴리 기요워</h1>
 		<img src="/img/dog14.jpg" width="500px">
-		<a href="http://192.168.10.42/"></a>
+		<video src="/video/liry.mp4" id="videos" type="video/mp4" width="500px" controls autoplay>릴리</video>
+		
 	</div>
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>

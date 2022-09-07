@@ -35,7 +35,7 @@ public class NoticeWriteFrmServlet extends HttpServlet {
 		//3. 비즈니스 로직		
 		//4. 결과처리
 		//(굳이 서블릿을 들리는 이유는 작성페이지를 notice 폴더에 넣어서 관리하기 위함임
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/notice/noticeWriteFrm1.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/notice/noticeWriteFrm2.jsp");
 		view.forward(request, response);
 	}
 
