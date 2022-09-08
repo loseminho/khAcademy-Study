@@ -21,8 +21,8 @@
 		<button class="btn bc11" id="jQ1">JQuery방식</button>
 		
 		<h3>2. 서버로 값 전송하기</h3>
-		<input type="text">
-		<button class="btn bc11" id="jQ2">전송</button>
+		<input type="text" placeholder="본인을 밝혀주신 뒤 전송해주세요">
+		<button class="btn bc11" id="jQ2" >전송</button>
 		
 		<h3>3. 서버로 데이터 전송하고 서버에서 데이터받기(기본형데이터 받기)</h3>
 		<input type="text" id="su1">
