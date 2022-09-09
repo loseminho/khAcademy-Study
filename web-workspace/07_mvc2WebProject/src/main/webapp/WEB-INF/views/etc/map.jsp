@@ -89,7 +89,28 @@
 			//생성된 infoWindow를 map의 marker 위치에 생성
 			infoWindow.open(map,marker);
 		});
-		
+        naver.maps.Event.addListener(map,"click",function(e){
+          marker.setPosition(e.coord);//해당위치로 마커 이동
+          if(infoWindow.getMap()){//정보창이 지도 위에 올라가있으면
+             infoWindow.close();
+        }
+          //위경도를 통해서 해당 위치의 주소를 알아내기
+          naver.maps.Service.reverseGeocode({   location:new naver.maps.LatLng(e.coord.lat(),e.coord.lng())},
+             function(status,response){
+                if(status != naver.maps.Service.Status.OK){
+                   return alert("주소를 찾을 수 없습니다.");
+                }
+                console.log(response);
+                const address = response.result.items[1].address;
+                console.log(address);
+                contentString = [
+                   "<div class='iw_inner'>",
+                   "   <p>"+address+"</p>",
+                   "</div>"
+                ].join("");
+             }
+          );
+       });
 		
 		
 	</script>

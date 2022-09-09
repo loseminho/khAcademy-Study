@@ -46,72 +46,69 @@
 	            <span id="authMsg"></span>
 	         </div>
 	</div>
-	<script>
-		let mailCode;
-	    function sendMail(){
-	       const email = $("#email").val();
-	       $.ajax({
-	          url : "/sendMail2.do",
-	          data : {email:email},
-	          type : "post",
-	          success : function(data){
-	             console.log(data);
-	             if(data != null){
-	             MailCode = data;
-	             $("#auth").show();
-	             authTime();	            	 
-	             }
-	          }
-	       });
-	    }
-	    let intervalId;
-	    function authTime(){
-	    	$("#timeZone").html("<span id='min'>3</span> : <span id='sec'>00</span> ");
-	    	intervalId = window.setInterval(function(){
-	    		timeCount();
-	    	},100)
-	    }
-	    function timeCount(){
-	    	const min = Number($("#min").text());
-	    	const sec = $("sec").text();
-	    	if(sec == "00"){
-	    		//초가 0일때,
-	    		if(min ==0){
-	    			//분도 0이면..
-	    			//시간이 만료일때의 조건
-	    			mailCode = null;
-	    			clearInterval(intervalId);
-	    		}else{
-		    		$("#min").text(min-1);
-		    		$("#sec").text(59);
-		    	}
-	    	}else{
-		    	const newSec = Number(sec)-1;
-		    	if(newSec<10){
-		    		$("#sec").text("0"+newSec);
-		    	}else{
-		    		$("#sec").text(newSec);
-		    	}
-	    	}
-	    }
-         $(authBtn).on("click",function(){
-         	const inputValue = $("#authCode").val();
-          	if(mailCode != null){
-	           	if(inputValue == mailCode){
-	           		$("#authMsg").text("인증성공");
-	           		$("#authMsg").css("color","blue");
-	           		clearInterval(intervalId);
-	           		$("#timeZone").hide();
-	           	}else{
-	           		$("#authMsg").text("인증실패");
-	           		$("#authMsg").css("color","red");
-	           	}
-          	}else{
-           		$("#authMsg").text("인증시간만료");
-           		$("#authMsg").css("color","red");
-           	}
+   <script>
+      let mailCode;
+      function sendMail(){
+         const email = $("#email").val();
+         $.ajax({
+            url : "/sendMail2.do",
+            data : {email:email},
+            type : "post",
+            success : function(data){
+               if(data != null){
+                  mailCode = data;
+                  $("#auth").show();
+                  authTime();
+               }
+            }
          });
-	</script>
+      }
+      let intervalId;
+      function authTime(){
+         $("#timeZone").html("<span id='min'>3</span> : <span id='sec'>00</span> ")
+         intervalId = window.setInterval(function(){
+            timeCount();
+         },100);
+      }
+      function timeCount(){
+         const min = Number($("#min").text());
+         const sec = $("#sec").text();
+         if(sec == "00"){
+            if(min == 0){
+               mailCode = null;
+               clearInterval(intervalId);
+            }else{
+               $("#min").text(min-1);
+               $("#sec").text(59);
+            }
+         }else{
+            const newSec = Number(sec)-1;
+            if(newSec<10){
+               $("#sec").text("0"+newSec);
+            }else{
+               $("#sec").text(newSec);
+            }
+         }
+      }
+      $("#authBtn").on("click", function(){
+         const inputValue = $("#authCode").val();
+         if(mailCode != null){
+            if(inputValue == mailCode){
+               $("#authMsg").text("인증성공");
+               $("#authMsg").css("color","blue");
+               clearInterval(intervalId);
+               $("#timeZone").hide();
+            }else{
+               $("#authMsg").text("인증실패");
+               $("#authMsg").css("color","red");         
+            }
+         }else{
+            $("#authMsg").text("인증시간만료");
+            $("#authMsg").css("color","red");
+         }
+      });
+   </script>
+
 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
