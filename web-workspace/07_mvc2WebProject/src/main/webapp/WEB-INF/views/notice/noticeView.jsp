@@ -119,6 +119,7 @@
             </tr>
          <%} %>
       </table>
+      <!-- 댓글 입력 양식 -->
       <%if(m!=null){ %>
       <div class="inputCommentBox">
          <form action="/insertComment.do" method="post">
@@ -139,12 +140,13 @@
          </form>
       </div>   
       <%} %>
+      
       <div class="commentBox">
-         <%for(NoticeComment nc : commentList){ %>
-         <ul class="posting-comment">
-            <li>
-               <span class="material-icons">account_box</span>
-            </li>
+      	<%for(NoticeComment nc : commentList) {%>
+      	<ul class="posting-comment">
+      		<li>
+      			<span class="material-icons">account_box</span>
+      		</li>
             <li>
                <p class="comment-info">
                   <span><%=nc.getNcWriter() %></span>
@@ -154,7 +156,7 @@
                <textarea name="ncContent" class="input-form" style="min-height: 96px; display:none;"><%=nc.getNcContent() %></textarea>
                <p class="comment-link">
                   <%if(m!=null){ %>
-                     <%if(m.getMemberId().equals(nc.getNcWriter())){ %>
+                     <%if(m.getMemberId().equals(nc.getNcWriter()) || m.getMemberLevel() == 1){ %>
                         <a href="javascript:void(0)" onclick="modifyComment(this, <%=nc.getNcNo()%>,<%=n.getNoticeNo()%>);">수정</a>
                         <a href="javascript:void(0)" onclick="deleteComment(this, <%=nc.getNcNo()%>,<%=n.getNoticeNo()%>);">삭제</a>
                      <%} %>

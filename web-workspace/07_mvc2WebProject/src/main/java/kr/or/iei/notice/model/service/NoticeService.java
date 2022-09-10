@@ -111,15 +111,22 @@ public class NoticeService {
 		return result;
 	}
 
-	public Notice seelctOneNotice(int noticeNo) {
+	public NoticeViewData selectOneNotice(int noticeNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		int result = dao.updateReadCount(conn,noticeNo);
 		if(result >0) {
 			JDBCTemplate.commit(conn);
-			Notice n = dao.selectOneNotice(conn, noticeNo);			
+			Notice n = dao.selectOneNotice(conn, noticeNo);
+			//공지사항 상세내용 조회 후에 해당 공지사항에 작성된 댓글도 모두 조회
+			//1. 일반 댓글 조회
+			ArrayList<NoticeComment> commentList = dao.selectNoticeCommentList(conn, noticeNo);
+			//2. 대댓글 조회
+			ArrayList<NoticeComment> recommentList = dao.selectNoticeReCommentList(conn,noticeNo);
+			NoticeViewData nvd = new NoticeViewData(n, commentList, recommentList);
+			 
 			JDBCTemplate.close(conn);
-			return n;
+			return nvd;
 		}else {
 			JDBCTemplate.rollback(conn);
 			JDBCTemplate.close(conn);
@@ -138,6 +145,7 @@ public class NoticeService {
 		Connection conn = JDBCTemplate.getConnection();
 		Notice n = dao.selectOneNotice(conn, noticeNo);
 		int result = dao.deleteNotice(conn,noticeNo);
+		
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -163,7 +171,6 @@ public class NoticeService {
 	public int insertNoticeComment(NoticeComment nc) {
 	      Connection conn = JDBCTemplate.getConnection();
 	      int result = dao.insertNoticeComment(conn, nc);
-	      
 	      if(result > 0) {
 	         JDBCTemplate.commit(conn);
 	      } else {
@@ -171,28 +178,6 @@ public class NoticeService {
 	      }
 	      JDBCTemplate.close(conn);
 	      return result;
-	   }
-	
-	public NoticeViewData selectOneNotice(int noticeNo) {
-	      Connection conn = JDBCTemplate.getConnection();
-	      int result = dao.updateReadCount(conn, noticeNo);
-	      if(result > 0) {
-	         JDBCTemplate.commit(conn);
-	         Notice n = dao.selectOneNotice(conn, noticeNo);
-	         // 공지사항 상세내용조회 후에 해당 공지사항에 작성된 댓글도 모두 조회
-	         // 1. 일반댓글 조회
-	         ArrayList<NoticeComment> commentList = dao.selectNoticeCommentList(conn, noticeNo);
-	         // 2. 대댓글 조회
-	         ArrayList<NoticeComment> recommentList = dao.selectNoticeReCommentList(conn,noticeNo);
-	         
-	         NoticeViewData nvd = new NoticeViewData(n, commentList, recommentList);
-	         JDBCTemplate.close(conn);
-	         return nvd;
-	      }else {
-	         JDBCTemplate.rollback(conn);
-	         JDBCTemplate.close(conn);
-	         return null;
-	      }
 	   }
 
 	public int updateNoticeComment(NoticeComment nc) {

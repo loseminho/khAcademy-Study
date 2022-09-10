@@ -26,8 +26,8 @@ public class NoticeDao {
 				Notice n = new Notice();
 				n.setNoticeNo(rset.getInt("notice_no"));
 				n.setNoticeTitle(rset.getString("notice_title"));
-				n.setNoticeWriter(rset.getString("notice_writer"));
 				n.setNoticeContent(rset.getString("notice_content"));
+				n.setNoticeWriter(rset.getString("notice_writer"));
 				n.setReadCount(rset.getInt("read_count"));
 				n.setRegDate(rset.getString("reg_date"));
 				n.setFilename(rset.getString("filename"));
@@ -108,9 +108,7 @@ public class NoticeDao {
 				n.setNoticeTitle(rset.getString("notice_title"));
 				n.setNoticeWriter(rset.getString("notice_writer"));
 				n.setReadCount(rset.getInt("read_count"));
-				n.setRegDate(rset.getString("reg_date"));
-				
-				
+				n.setRegDate(rset.getString("reg_date"));	
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
