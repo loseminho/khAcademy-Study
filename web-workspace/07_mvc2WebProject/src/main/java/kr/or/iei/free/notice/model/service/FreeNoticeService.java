@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import common.JDBCTemplate;
 import kr.or.iei.free.notice.model.dao.FreeNoticeDao;
 import kr.or.iei.free.notice.model.vo.FreeNotice;
+import kr.or.iei.free.notice.model.vo.FreeNoticeComment;
 import kr.or.iei.free.notice.model.vo.FreeNoticePageData;
+import kr.or.iei.free.notice.model.vo.FreeNoticeViewData;
+import kr.or.iei.notice.model.vo.Notice;
+import kr.or.iei.notice.model.vo.NoticeComment;
+import kr.or.iei.notice.model.vo.NoticeViewData;
 
 public class FreeNoticeService {
 	private FreeNoticeDao fdao;
@@ -50,7 +55,7 @@ public class FreeNoticeService {
 		
 		if(PageNo != 1) {
 			pageNavi += "<li>";
-			pageNavi += "<a class='page-item' href='/noticeList.do?reqPage="+(PageNo-1)+"'>";
+			pageNavi += "<a class='page-item' href='/freeNoticeList.do?reqPage="+(PageNo-1)+"'>";
 			pageNavi += "<span class='material-icons'>chevron_left</span>";
 			pageNavi += "</a></li>";
 		}
@@ -58,13 +63,13 @@ public class FreeNoticeService {
 			if(PageNo == reqPage) {
 				//내가 요청한 페이지(현재 위치한 페이지)
 				pageNavi += "<li>";
-				pageNavi += "<a class='page-item active-page' href='/noticeList.do?reqPage="+PageNo+"'>";
+				pageNavi += "<a class='page-item active-page' href='/freeNoticeList.do?reqPage="+PageNo+"'>";
 				pageNavi += PageNo;
 				pageNavi += "</a></li>";
 			}else {
 				//아닌 경우(위치해있지 않은 페이지)
 				pageNavi += "<li>";
-				pageNavi += "<a class='page-item' href='/noticeList.do?reqPage="+PageNo+"'>";
+				pageNavi += "<a class='page-item' href='/freeNoticeList.do?reqPage="+PageNo+"'>";
 				pageNavi += PageNo;
 				pageNavi += "</a></li>";
 			}
@@ -75,7 +80,7 @@ public class FreeNoticeService {
 		}
 		if(PageNo<=totalPage) {
 			pageNavi += "<li>";
-			pageNavi += "<a class='page-item' href='/noticeList.do?reqPage="+PageNo+"'>";
+			pageNavi += "<a class='page-item' href='/freeNoticeList.do?reqPage="+PageNo+"'>";
 			pageNavi += "<span class='material-icons'>chevron_right</span>";
 			pageNavi += "</a></li>";
 		}
@@ -83,6 +88,113 @@ public class FreeNoticeService {
 		FreeNoticePageData fnpd = new FreeNoticePageData(flist, pageNavi);
 		JDBCTemplate.close(conn);
 		return fnpd;
+	}
+
+	public FreeNoticeViewData selectOneNotice(int freeNoticeNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = fdao.updateReadCount(conn,freeNoticeNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			FreeNotice fn = fdao.selectOneNotice(conn, freeNoticeNo);
+			//공지사항 상세 내용 조회 후 해당 공지사항에 작성된 댓글도 조회
+			//1. 일반 댓글 조회
+			ArrayList<FreeNoticeComment> fCommentList = fdao.selectNoticeCommentList(conn, freeNoticeNo);
+			//2. 대댓글 조회
+			ArrayList<FreeNoticeComment> fRecommentList = fdao.selectNoticeReCommentList(conn,freeNoticeNo);
+			
+			FreeNoticeViewData fnvd = new FreeNoticeViewData(fn, fCommentList, fRecommentList);
+			
+			JDBCTemplate.close(conn);
+			return fnvd;
+		}else {
+			JDBCTemplate.rollback(conn);
+			JDBCTemplate.close(conn);
+			return null;
+		}
+		
+	}
+
+	public FreeNotice getNotice(int noticeNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		FreeNotice fn = fdao.selectOneNotice(conn, noticeNo);
+		JDBCTemplate.close(conn);
+		return fn;
+	}
+
+	public int deleteNoticeComment(int ncNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = fdao.deleteNoticeComment(conn, ncNo);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int insertNoticeComment(FreeNoticeComment fnc) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      int result = fdao.insertNoticeComment(conn, fnc);
+	      if(result > 0) {
+	         JDBCTemplate.commit(conn);
+	      } else {
+	         JDBCTemplate.rollback(conn);
+	      }
+	      JDBCTemplate.close(conn);
+	      return result;
+	}
+
+	public int updateNoticeComment(FreeNoticeComment fnc) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = fdao.updateNoticeComment(conn,fnc);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public FreeNotice deleteNotice(int noticeNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		FreeNotice fn = fdao.selectOneNotice(conn, noticeNo);
+		int result = fdao.deleteNotice(conn,noticeNo);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+			fn = null;
+		}
+		JDBCTemplate.close(conn);
+		return fn;
+	}
+
+	public int updateNotice(FreeNotice fn) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = fdao.updateNotice(conn, fn );
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int insertNotice(FreeNotice fn) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = fdao.insertNotice(conn, fn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 	
 	

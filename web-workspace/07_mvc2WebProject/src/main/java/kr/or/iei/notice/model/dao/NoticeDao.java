@@ -225,7 +225,6 @@ public class NoticeDao {
 		            nc.setNcWriter(rset.getString("nc_writer"));
 		            nc.setNoticeRef(rset.getInt("notice_ref"));
 		            list.add(nc);
-		            
 		         }
 		      } catch (SQLException e) {
 		         // TODO Auto-generated catch block

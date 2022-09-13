@@ -1,0 +1,78 @@
+package kr.or.iei.free.notice.controller;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.or.iei.free.notice.model.service.FreeNoticeService;
+import kr.or.iei.free.notice.model.vo.FreeNotice;
+import kr.or.iei.notice.model.service.NoticeService;
+import kr.or.iei.notice.model.vo.Notice;
+
+/**
+ * Servlet implementation class FreeNoticeDeleteServlet
+ */
+@WebServlet(name = "freeNoticeDelete", urlPatterns = { "/freeNoticeDelete.do" })
+public class FreeNoticeDeleteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FreeNoticeDeleteServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
+		//2. 값 추출
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		
+		//3. 비즈니스 로직
+		FreeNoticeService fservice = new FreeNoticeService();
+		//삭제 후 파일을 처리하기 위해 해당 정보를 받아옴.
+		FreeNotice fn = fservice.deleteNotice(noticeNo);
+		
+		//4. 결과 처리
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(fn!=null) {
+			//게시물 삭제에 성공하면 해당 게시글의 첨부 파일을 삭제
+			if(fn.getFreeFilepath() != null) {
+				String root = getServletContext().getRealPath("/");
+				String deleteFile = root+"upload/notice/"+fn.getFreeFilepath();
+				File delFile = new File(deleteFile);
+				delFile.delete();
+			}
+			request.setAttribute("title","삭제완료");
+			request.setAttribute("msg","삭제가 완료 되었습니다");
+			request.setAttribute("icon","success");
+			request.setAttribute("loc","/freeNoticeList.do?reqPage=1");
+		}else {
+			request.setAttribute("title","삭제실패");
+			request.setAttribute("msg","관리자에게 문의하세요");
+			request.setAttribute("icon","error");
+			request.setAttribute("loc","/freeNoticeView.do?FreenoticeNo="+noticeNo);
+		}
+		view.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

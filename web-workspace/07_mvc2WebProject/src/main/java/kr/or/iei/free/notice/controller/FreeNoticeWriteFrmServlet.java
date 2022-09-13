@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.free.notice.model.service.FreeNoticeService;
-import kr.or.iei.free.notice.model.vo.FreeNoticePageData;
-
 /**
- * Servlet implementation class FreeNoticeListServlet
+ * Servlet implementation class FreeNoticeWriteFrmServlet
  */
-@WebServlet(name = "freeNoticeList", urlPatterns = { "/freeNoticeList.do" })
-public class FreeNoticeListServlet extends HttpServlet {
+@WebServlet(name = "freeNoticeWriteFrm", urlPatterns = { "/freeNoticeWriteFrm.do" })
+public class FreeNoticeWriteFrmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FreeNoticeListServlet() {
+    public FreeNoticeWriteFrmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +28,14 @@ public class FreeNoticeListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//1. 인코딩
 		request.setCharacterEncoding("utf-8");
 		
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		
-		FreeNoticeService fservice = new FreeNoticeService();
-		FreeNoticePageData fnpd = fservice.selectFreeNoticeList(reqPage);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/freenotice/freeNoticeList.jsp");
-		request.setAttribute("flist", fnpd.getFlist());
-		request.setAttribute("freePageNavi", fnpd.getFreePageNavi());
+		//2. 값 추출
+		//3. 비즈니스 로직		
+		//4. 결과처리
+		//(굳이 서블릿을 들리는 이유는 작성페이지를 notice 폴더에 넣어서 관리하기 위함임
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/freenotice/freeNoticeWriteFrm2.jsp");
 		view.forward(request, response);
 	}
 

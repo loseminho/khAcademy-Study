@@ -52,6 +52,10 @@ public class FreeNotice {
 		FreeNoticeWriter = freeNoticeWriter;
 	}
 
+	public String getFreeNoticeContentBr() {
+		return FreeNoticeContent.replaceAll("\r\n", "<br>");
+	}
+	
 	public String getFreeNoticeContent() {
 		return FreeNoticeContent;
 	}

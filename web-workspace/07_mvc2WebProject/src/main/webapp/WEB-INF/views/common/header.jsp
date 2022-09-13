@@ -20,7 +20,7 @@
       <nav>
         <ul class="navi">
           <li><a href="/noticeList.do?reqPage=1">공지사항</a></li>
-          <li><a href="#">자유게시판</a></li>
+          <li><a href="/freeNoticeList.do?reqPage=1">자유게시판</a></li>
           <li><a href="/ajax.do">AJAX</a></li>
           <li><a href="/photoList.do">사진게시판</a></li>
           <li>

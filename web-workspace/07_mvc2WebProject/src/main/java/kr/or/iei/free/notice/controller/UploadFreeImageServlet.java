@@ -1,28 +1,28 @@
 package kr.or.iei.free.notice.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.iei.free.notice.model.service.FreeNoticeService;
-import kr.or.iei.free.notice.model.vo.FreeNoticePageData;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
- * Servlet implementation class FreeNoticeListServlet
+ * Servlet implementation class UploadFreeImageServlet
  */
-@WebServlet(name = "freeNoticeList", urlPatterns = { "/freeNoticeList.do" })
-public class FreeNoticeListServlet extends HttpServlet {
+@WebServlet(name = "uploadFreeImage", urlPatterns = { "/uploadFreeImage.do" })
+public class UploadFreeImageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FreeNoticeListServlet() {
+    public UploadFreeImageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +31,21 @@ public class FreeNoticeListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//1. 인코딩
 		request.setCharacterEncoding("utf-8");
 		
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		//2.값 추출
+		String root = getServletContext().getRealPath("/");
+		String saveDirectory = root+"upload/editor";
+		int maxSize = 10*1024*1024;
+		MultipartRequest mRequest = new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",new DefaultFileRenamePolicy());
+		String filepath = mRequest.getFilesystemName("file");
 		
-		FreeNoticeService fservice = new FreeNoticeService();
-		FreeNoticePageData fnpd = fservice.selectFreeNoticeList(reqPage);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/freenotice/freeNoticeList.jsp");
-		request.setAttribute("flist", fnpd.getFlist());
-		request.setAttribute("freePageNavi", fnpd.getFreePageNavi());
-		view.forward(request, response);
+		//3. 비즈니스로직(없음) = 서버에 먼저 올려놓는게 먼저임
+		//4. 결과처리
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("/upload/editor/"+filepath);
 	}
 
 	/**
