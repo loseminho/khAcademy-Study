@@ -1,0 +1,6 @@
+package kr.or.iei.controller;
+
+public interface Controller {
+	public String request();
+	
+}

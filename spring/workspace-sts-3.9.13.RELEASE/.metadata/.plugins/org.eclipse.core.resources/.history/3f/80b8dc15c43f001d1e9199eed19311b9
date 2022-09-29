@@ -1,0 +1,15 @@
+package kr.or.iei.test;
+
+import org.springframework.stereotype.Component;
+
+public class TestClass1 {
+	
+	@Component
+	public TestClass1() {
+		super();
+		System.out.println("TestClass1 객체 생성 완료@@");
+		
+	}
+	
+	
+}

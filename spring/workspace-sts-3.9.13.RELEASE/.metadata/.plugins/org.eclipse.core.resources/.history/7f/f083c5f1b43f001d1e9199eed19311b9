@@ -1,0 +1,16 @@
+package kr.or.iei.vo;
+
+public class LgTV implements TV {
+	public void turnOn() {
+		System.out.println("Lg ------ 전원을 켠다.");
+	}
+	public void turnOff() {
+		System.out.println("Lg ------ 전원을 끈다.");
+	}
+	public void SoundUp() {
+		System.out.println("Lg ------ 소리를 높인다.");
+	}
+	public void SoundDown() {
+		System.out.println("Lg ------ 소리를 내린다.");
+	}
+}
