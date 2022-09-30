@@ -1,0 +1,12 @@
+package kr.or.member.model.vo;
+
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class MemberRowmapper implements RowMapper {
+	@Override
+	public Object mapRow(Resultset rset, int rowNum) throws SQLException{
+		
+	}
+}

@@ -1,0 +1,30 @@
+package kr.or.member.model.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import kr.or.member.model.vo.Member;
+
+@Repository
+public class MemberDao {
+	
+	//autowired : 스프링이 만든 객체중에 선언된 변수와 이름이 일치하는 타입을 찾아서 값을 대입
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	public MemberDao() {
+		super();
+		System.out.println("DAO 생성!");
+	}
+	public int insertMember(Member m) {
+		// 1. PreparedStatement 방식으로 쿼리문 작성
+		String query = "insert into member_tbl values(member_seq.nextval,?,?,?,?,?)";
+		// 2. 위치홀더가 1개라도 있는 경우(없으면 2번은 생략)
+		Object[] params = {m.getMemberId(), m.getMemberPw(), m.getMemberName(), m.getPhone(), m.getEmail()};
+		// 3. 쿼리문, 2번에서 만든 위치홀더에 들어갈 값을 이용해서 쿼리문 실행
+		// insert/update/delete 인 경우 update() 메소드 사용
+		int result = jdbcTemplate.update(query,params);
+		return 0;
+	}
+	
+}

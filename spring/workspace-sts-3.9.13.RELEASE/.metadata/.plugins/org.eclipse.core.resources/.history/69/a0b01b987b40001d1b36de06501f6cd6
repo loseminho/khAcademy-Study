@@ -1,0 +1,48 @@
+package kr.or.member.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.or.member.model.service.MemberService;
+import kr.or.member.model.vo.Member;
+
+@Controller
+public class MemberController {
+	//autowired : 스프링이 만든 객체중에 선언된 변수와 이름이 일치하는 타입을 찾아서 값을 대입
+	@Autowired
+	private MemberService service;
+	public MemberController() {
+		super();
+		System.out.println("컨트롤러 생성!");
+	}
+	
+	@RequestMapping(value="/joinFrm.do")
+	public String loginFrm() {
+		return "member/joinFrm";
+	}
+	
+	//String memberId, String memberPw, String memberName, String phone, String email --> input의 name으로 호출, Member.vo와 변수명이 같다면 Member 타입으로 직접적으로 호출해도 됨.
+	@RequestMapping(value="join.do")
+	public String login(Member m) {
+		int result = service.insertMember(m);
+		if(result>0) {
+			return "member/joinSuccess";
+		}else {
+			return "member/joinFail";
+		}
+	}
+	@RequestMapping(value="/login.do")
+	public String login(Member m, HttpServletRequest request) {
+		Member member = service.selectOneMember(m);
+		if(member != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("m", m);
+		}
+		return null;
+	}
+	
+}

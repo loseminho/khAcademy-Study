@@ -1,0 +1,18 @@
+package kr.or.member.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import kr.or.member.model.service.MemberService;
+
+@Controller
+public class MemberController {
+	//autowired : 스프링이 만든 객체중에 선언된 변수와 이름이 일치하는 타입을 찾아서 값을 대입
+	@Autowired
+	private MemberService service;
+	public MemberController() {
+		super();
+		System.out.println("컨트롤러 생성!");
+	}
+	
+}

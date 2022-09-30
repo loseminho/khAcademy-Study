@@ -1,0 +1,33 @@
+package kr.or.member.model.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.member.model.dao.MemberDao;
+import kr.or.member.model.vo.Member;
+
+@Service
+public class MemberService {
+	
+	//autowired : 스프링이 만든 객체중에 선언된 변수와 이름이 일치하는 타입을 찾아서 값을 대입
+	@Autowired
+	private MemberDao dao;
+	public MemberService() {
+		super();
+		System.out.println("Service 생성!");
+	}
+	public int insertMember(Member m) {
+		int result = dao.insertMember(m);
+		System.out.println(m);
+		return result;
+	}
+	public Member selectOneMember(Member m) {
+		Member member = dao.selectOneMember(m);
+		System.out.println(m+"이다!");
+		return member;
+	}
+	public Member seelctOneMember(String searchId) {
+		return dao.selectOenMember(searchId);
+	}
+
+}
