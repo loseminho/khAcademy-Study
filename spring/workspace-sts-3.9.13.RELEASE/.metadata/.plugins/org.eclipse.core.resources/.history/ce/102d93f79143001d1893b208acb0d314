@@ -1,0 +1,54 @@
+package kr.or.board.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.or.board.model.service.BoardService;
+import kr.or.board.model.vo.Board;
+
+@Controller
+public class BoardController {
+	@Autowired
+	private BoardService service;
+	public BoardController() {
+		super();
+		System.out.println("board컨트롤러 생성");
+	}
+	
+	@RequestMapping(value="/boardList.do")
+	public String boardList(Model model) {
+		ArrayList<Board> list = service.selectAllBoard();
+		model.addAttribute("list",list);
+		return "board/boardList";
+	}
+	
+	@RequestMapping(value="/boardWriteFrm.do")
+	public String boardWriteFrm() {
+		return "board/boardWriteFrm";
+	}
+	@RequestMapping(value="/boardWrite.do")
+	public String boardWrite(Board b) {
+		int result = service.insertBoard(b);
+		if(result>0) {
+			return "board/boardWriteSuccess";
+		}else {
+			return "board/boardWriteFail";
+		}
+	}
+	@RequestMapping(value="/boardView.do")
+	public String boardView(int boardNo) {
+		Board b = service.boardView(boardNo);
+		if(b == null) {
+			return "redirect:/";
+		}else {
+			return "board/"
+		}
+	}
+//	@RequestMapping(value="/boardUpdateFrm.do")
+//	@RequestMapping(value="/boardUpdate.do")
+//	@RequestMapping(value="/boardDelete.do")
+}

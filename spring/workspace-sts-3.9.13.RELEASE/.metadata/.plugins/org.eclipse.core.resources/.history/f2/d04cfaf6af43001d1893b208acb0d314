@@ -1,0 +1,12 @@
+package kr.or.board.model.vo;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class FileRowMapper implements RowMapper {
+	@Override
+	public Object mapRow(ResultSet rset, int rowNum) throws SQLException{
+		FileVO file = new FileVO();
+		file.setBoardNo(rset.getInt("board_no");
+	}
+}

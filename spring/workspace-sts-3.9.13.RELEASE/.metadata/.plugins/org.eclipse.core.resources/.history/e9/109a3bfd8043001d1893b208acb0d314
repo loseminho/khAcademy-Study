@@ -1,0 +1,27 @@
+package kr.or.board.model.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import kr.or.board.model.vo.Board;
+import kr.or.board.model.vo.BoardRowmapper;
+
+@Repository
+public class BoardDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	public BoardDao() {
+		super();
+	}
+	public ArrayList<Board> selectAllBoard() {
+		String query="select * from board";
+		
+		List list = jdbcTemplate.query(query, new BoardRowmapper());
+		return null;
+	}
+	
+}

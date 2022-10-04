@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>연습용 페이지입니다</h1>
+	<hr>
+	값을 받아보자! <input type="text" name="mainText">
+	값을 이용해서 데이터베이스와 함께 할 수 있는
+</body>
+</html>

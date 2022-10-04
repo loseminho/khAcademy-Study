@@ -33,6 +33,7 @@
 			<h3><a href="/searchAllMember.do">전체회원 조회</a></h3>
 			<h3><a href="/myPage.do">마이페이지</a></h3>
 			<h3><a href="/deleteMember.do?memberNo=${sessionScope.m.memberNo}">회원탈퇴</a></h3>
+			<h3><a href="/boardList.do">게시판 목록</a></h3>
 		</c:otherwise>
 	</c:choose>
 	
