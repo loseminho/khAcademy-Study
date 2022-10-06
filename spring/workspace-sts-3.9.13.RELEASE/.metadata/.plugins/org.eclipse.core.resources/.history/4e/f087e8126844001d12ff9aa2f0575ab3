@@ -1,0 +1,7 @@
+package common;
+
+public class FileRename {
+	public String fileRename(String path,  String filename) {
+		
+	}
+}

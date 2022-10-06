@@ -5,6 +5,8 @@ C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.ecl
 \firstProject\src\main\java
 C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3864239469.index
 \02_SpringMVC_CRUD\src\main\java
+C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\426199209.index
+\03_Spring_Mybatis\src\main\java
 C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2430227496.index
 \01_SpringMVC\src\main\java
 C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\496730623.index
@@ -21,3 +23,5 @@ C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.ecl
 \02_SpringMVC_CRUD\src\main\java
 C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3303047340.index
 \02_SpringMVC_CRUD_TEST\src\main\java
+C:\Users\jinyh\Documents\workspace-sts-3.9.13.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2133207379.index
+\03_Spring_Mybatis\src\main\java

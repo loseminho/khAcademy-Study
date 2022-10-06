@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import kr.or.board.model.vo.Board;
 import kr.or.board.model.vo.BoardRowmapper;
+import kr.or.board.model.vo.BoardViewData;
+import kr.or.board.model.vo.FileRowMapper;
 import kr.or.board.model.vo.FileVO;
 import kr.or.member.model.vo.MemberRowmapper;
 
@@ -50,6 +52,46 @@ public class BoardDao {
 	public int insertFile(FileVO fileVO) {
 		String query = "insert into file_tbl values(file_seq.nextval,?,?,?)";
 		Object[] params = {fileVO.getBoardNo(),fileVO.getFilename(),fileVO.getFilepath()};
+		int result = jdbcTemplate.update(query,params);
+		return result;
+	}
+
+	public ArrayList<FileVO> selectFileList(int boardNo) {
+	      // TODO Auto-generated method stub
+	      String query = "select * from file_tbl where board_no =?";
+	      Object[] params = {boardNo};
+	      List list = jdbcTemplate.query(query, params, new FileRowMapper());
+	      if(list.isEmpty()) {
+	         return null;
+	      }else {
+	         return (ArrayList<FileVO>)list;
+	      }
+	   }
+	public FileVO boardFilePath(int fileNo) {
+		String query = "select * from file_tbl where file_no= ?";
+		Object[] params = {fileNo};
+		List list = jdbcTemplate.query(query, params, new FileRowMapper());
+		if(list.isEmpty()) {
+	         return null;
+	      }else {
+	         return (FileVO)list.get(0);
+	      }
+	}
+	public int updateBoard(Board b) {
+		String query = "update board set board_title=?, board_content=? where board_no = ?";
+		Object[] params= {b.getBoardTitle(),b.getBoardContent(),b.getBoardNo()};
+		int result = jdbcTemplate.update(query,params);
+		return result;
+	}
+	public int deleteFile(int fileNo) {
+		String query = "delete from file_tbl where file_no=?";
+		Object[] params = {fileNo};
+		int result = jdbcTemplate.update(query,params);
+		return result;
+	}
+	public int deleteBoard(int boardNo) {
+		String query = "delete from board where board_no = ?";
+		Object[] params = {boardNo};
 		int result = jdbcTemplate.update(query,params);
 		return result;
 	}

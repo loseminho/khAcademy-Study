@@ -1,0 +1,8 @@
+package kr.or.board.model.vo;
+
+import java.util.ArrayList;
+
+public class BoardViewData {
+	private Board b;
+	private ArrayList<FileVO> list;
+}

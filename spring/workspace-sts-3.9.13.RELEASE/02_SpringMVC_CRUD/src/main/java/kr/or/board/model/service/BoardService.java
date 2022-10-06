@@ -1,5 +1,6 @@
 package kr.or.board.model.service;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.or.board.model.dao.BoardDao;
 import kr.or.board.model.vo.Board;
+import kr.or.board.model.vo.BoardViewData;
 import kr.or.board.model.vo.FileVO;
 
 @Service
@@ -45,9 +47,46 @@ public class BoardService {
 		}
 		return result;
 	}
-	public Board boardView(int boardNo) {
+	public Board selectOneBoard(int boardNo) {
 		Board b = dao.boardView(boardNo);
+		ArrayList<FileVO> fileList = dao.selectFileList(boardNo);
+		b.setFileList(fileList);
 		return b;
 	}
-	
+	public FileVO boardFilePath(int fileNo) {
+		FileVO fv = dao.boardFilePath(fileNo); 
+		return fv;
+	}
+	public int boardUpdate(Board b, int[] fileNoList) {
+		//1. board 테이블 수정(제목, 내용)
+		int result = dao.updateBoard(b);
+		if(result >0) {
+			//2. 새 첨부 파일이 있으면 insert
+			for(FileVO fv : b.getFileList()) {
+				fv.setBoardNo(b.getBoardNo());
+				result += dao.insertFile(fv);
+			}
+			//3. 삭제한 파일이 있으면 delete
+			if(fileNoList != null) {
+				for(int fileNo : fileNoList) {
+					result += dao.deleteFile(fileNo);
+				}				
+			}
+		}
+		
+		return result;
+	}
+	public ArrayList<FileVO> boardDelete(int boardNo) {
+		ArrayList<FileVO> fileList = dao.selectFileList(boardNo);
+		//만약 fileTBL 조건에 종속 조건을 달지 않은 경우에는,
+		//fileTBL에서 해당하는 파일을  삭제 하거나,
+		//board테이블에서 삭제 해야 함
+		int result  = dao.deleteBoard(boardNo);
+		if(result>0) {
+			return fileList;
+		}else {
+			return null;
+		}
+	}
+
 }

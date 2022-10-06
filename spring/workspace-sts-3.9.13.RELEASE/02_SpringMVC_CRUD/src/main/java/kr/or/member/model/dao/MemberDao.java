@@ -22,6 +22,7 @@ public class MemberDao {
 		super();
 		System.out.println("DAO 생성!");
 	}
+	
 	public int insertMember(Member m) {
 		// 1. PreparedStatement 방식으로 쿼리문 작성
 		String query = "insert into member_tbl values(member_seq.nextval,?,?,?,?,?)";
@@ -76,3 +77,4 @@ public class MemberDao {
 	}
 	
 }
+
