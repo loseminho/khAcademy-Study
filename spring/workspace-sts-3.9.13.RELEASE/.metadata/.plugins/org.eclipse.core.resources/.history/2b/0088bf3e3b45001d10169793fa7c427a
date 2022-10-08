@@ -1,0 +1,16 @@
+package kr.or.member.model.dao;
+
+import org.springframework.stereotype.Repository;
+
+import kr.or.member.model.vo.Member;
+
+@Repository
+public class MemberDao {
+
+	public Member selectOneMember(Member member) {
+		
+		return null;
+	}
+	
+	
+}

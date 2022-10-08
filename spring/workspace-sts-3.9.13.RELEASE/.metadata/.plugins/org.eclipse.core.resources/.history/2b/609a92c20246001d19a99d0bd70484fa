@@ -1,0 +1,6 @@
+package kr.or.board.model.vo;
+
+public class FileVO {
+	private int fileNo;
+	private int file
+}

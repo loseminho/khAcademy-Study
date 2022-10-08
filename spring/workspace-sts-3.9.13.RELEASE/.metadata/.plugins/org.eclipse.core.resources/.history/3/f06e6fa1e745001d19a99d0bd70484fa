@@ -1,0 +1,67 @@
+package kr.or.member.model.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.member.model.dao.MemberDao;
+import kr.or.member.model.vo.Member;
+
+@Service
+public class MemberService {
+	@Autowired
+	private MemberDao dao;
+
+	public Member selectOneMember(Member member) {
+		Member m = dao.selectOneMember(member);
+		return m;
+	}
+
+	public ArrayList<Member> selectAllMember() {
+		return dao.selectAllMember();
+	}
+
+	public int insertMember(Member m) {
+		return dao.insertMember(m);
+	}
+
+	public Member selectOneMember(String memberId) {
+		return dao.selectOneMember(memberId);
+	}
+
+	public int deleteMember(String memberId) {
+		return dao.deleteMember(memberId);
+	}
+
+	public Member updateInfo(Member member) {
+		int result =  dao.updateInfo(member);
+		if(result>0) {
+			Member m = dao.selectOneMember(member.getMemberId());
+			return m;
+		}else {
+			return null;
+		}
+	}
+
+	public ArrayList<Member> searchMemberName(String memberName) {
+		return dao.searchMemberName(memberName);
+	}
+	public ArrayList<Member> searchMember1(String type, String keyword) {
+	      // TODO Auto-generated method stub
+	      HashMap<String, Object> map = new HashMap<String, Object>();
+	      map.put("type", type);
+	      map.put("keyword",keyword);
+	      ArrayList<Member> list = dao.searchMember1(map);
+	      return list;
+	   }
+
+	public ArrayList<Member> searchMember2(String memberId, String memberName) {
+		HashMap<String, Object> map = new HashMap<String, object>();
+		map.put("memberId",memberId);
+		map.put("memberName",memberName);
+		ArrayList<Member> list = dao.seachMember2(map);
+		return list;
+	}
+}

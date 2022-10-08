@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+  <select id="selectOneMember" parameterType="m" resultType="m">
+	  select 
+	  	member_no as memberNo,
+	  	member_id as memberId,
+	  	member_pw as memberPw,
+	  	member_name as memberName,
+	  	phone,
+	  	email
+	  from member_tbl where member_id=#{memberId} and member_pw=#{memberPw}
+  </select>
+  <select id="selectAllMember" resultType="m">
+	select 
+	  	member_no as memberNo,
+	  	member_id as memberId,
+	  	member_pw as memberPw,
+	  	member_name as memberName,
+	  	phone,
+	  	email
+	from member_tbl
+  </select>
+  <insert id="insertMember" parameterType="m">
+  	insert 
+  		into member_tbl 
+  		values(member_seq.nextval,#{memberId},#{memberPw},#{memberName},#{phone},#{email})
+  </insert>
+  <select id="selectOneMemberId" resultType="m" parameterType="string">
+ 	 	select 
+		  	member_no as memberNo,
+		  	member_id as memberId,
+		  	member_pw as memberPw,
+		  	member_name as memberName,
+		  	phone,
+		  	email
+	  	from member_tbl where member_id=#{_parameter}
+  </select>
+  <delete id="deleteMember" parameterType="string">
+  	delete from member_tbl
+  	where member_id=#{_parameter}
+  </delete>
+  <update id="updateInfo" parameterType="m">
+  	update member_tbl set
+  	 member_pw=#{memberPw}, phone=#{phone}, email=#{email} where member_name = #{memberName}
+  </update>
+</mapper>

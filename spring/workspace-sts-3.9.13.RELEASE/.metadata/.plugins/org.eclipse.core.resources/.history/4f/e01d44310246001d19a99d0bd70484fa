@@ -1,0 +1,10 @@
+package kr.or.board.model.vo;
+
+public class Board {
+	private int boardNo;
+	private String boardTitle;
+	private String boardWriter;
+	private String boardContent;
+	private String boardTitle;
+	private String boardTitle;
+}

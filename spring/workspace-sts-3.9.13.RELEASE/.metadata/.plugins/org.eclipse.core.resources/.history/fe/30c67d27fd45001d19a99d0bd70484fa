@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+  <select id="selectOneMember" parameterType="m" resultType="m">
+	  select 
+	  	member_no as memberNo,
+	  	member_id as memberId,
+	  	member_pw as memberPw,
+	  	member_name as memberName,
+	  	phone,
+	  	email
+	  from member_tbl where member_id=#{memberId} and member_pw=#{memberPw}
+  </select>
+  <select id="selectAllMember" resultType="m">
+	select 
+	  	member_no as memberNo,
+	  	member_id as memberId,
+	  	member_pw as memberPw,
+	  	member_name as memberName,
+	  	phone,
+	  	email
+	from member_tbl
+  </select>
+  <insert id="insertMember" parameterType="m">
+  	insert 
+  		into member_tbl 
+  		values(member_seq.nextval,#{memberId},#{memberPw},#{memberName},#{phone},#{email})
+  </insert>
+  <select id="selectOneMemberId" resultType="m" parameterType="string">
+ 	 	select 
+		  	member_no as memberNo,
+		  	member_id as memberId,
+		  	member_pw as memberPw,
+		  	member_name as memberName,
+		  	phone,
+		  	email
+	  	from member_tbl where member_id=#{_parameter}
+  </select>
+  <delete id="deleteMember" parameterType="string">
+  	delete from member_tbl
+  	where member_id=#{_parameter}
+  </delete>
+  <update id="updateInfo" parameterType="m">
+  	update member_tbl set
+  	 	member_id=#{memberId}, 
+  	 	member_pw=#{memberPw}, 
+  	 	phone=#{phone}, 
+  	 	email=#{email} 
+  	 where member_name = #{memberName}
+  </update>
+  <select id="searchMemberName" parameterType="string" resultType="m">
+  	select 
+	  	member_no as memberNo,
+	  	member_id as memberId,
+	  	member_pw as memberPw,
+	  	member_name as memberName,
+	  	phone,
+	  	email
+	from member_tbl where member_name like '%'||#{_parameter}||'%'
+  </select>
+  <select id="selectSearchName" parameterType="String"
+      resultType="m">
+      select
+	      member_no as memberNo,
+	      member_id as memberId,
+	      member_pw as memberPw,
+	      member_name as memberName,
+	      phone,
+	      email
+      from
+      	member_tbl
+      where member_name like '%'||#{_parameter}||'%'
+   </select>
+   <select id="searchMember1" parameterType="map" resultType="m">
+      select
+	      member_no as memberNo,
+	      member_id as memberId,
+	      member_pw as
+	      memberPw,
+	      member_name as memberName,
+	      phone,
+	      email
+      from
+      	member_tbl
+      <choose>
+         <when test="type.equals('id')">
+            where
+            member_id = #{keyword}
+         </when>
+         <when test="type.equals('name')">
+            where
+            member_name like '%'||#{keyword}||'%'
+         </when>
+      </choose>
+   </select>
+   <select id="member.searchMember2" parameterType="m" resultType="m">
+   	select
+	      member_no as memberNo,
+	      member_id as memberId,
+	      member_pw as memberPw,
+	      member_name as memberName,
+	      phone,
+	      email
+      from
+      	member_tbl
+      	
+      	<!-- 조건 중 하나라도 성립이 된다면, prefix 안에 값이 붙음  //prefixOverrides : 만약 처음 시작이 ""라면 그 값은 없애고 실행-->
+      	<trim prefix="where" prefixOverrides="and|or">
+      		<if test="!memberId.equals('')">
+      			member_id like '%'||#{memberId}||'%' 
+      		</if>
+      		<if test="!memberName.equals('')">
+      			and member_name like '%'||#{memberName}||'%'
+      		</if>
+      	</trim>
+      
+      <!-- 
+      <choose>
+      	<when test="!memberId.equals('') and memberName.equals('')">
+      		where member_id like '%'||#{memberId}||'%'
+      	</when>
+      	<when test="memberId.equals('') and !memberName.equals('')">
+      		where member_name like '%'||#{memberName}||'%'
+      	</when>
+      	<when test="!memberId.equals('') and !memberName.equals('')">
+      		where member_id like '%'||#{memberId}||'%'
+      		and where member_name like '%'||#{memberName}||'%'
+      	</when>
+      </choose>
+       -->
+   </select>
+   <select id="seachMember3" resultType="m" parameterType="">
+   		select
+	      member_no as memberNo,
+	      member_id as memberId,
+	      member_pw as memberPw,
+	      member_name as memberName,
+	      phone,
+	      email
+      from
+      	member_tbl
+      where
+   </select>
+</mapper>
