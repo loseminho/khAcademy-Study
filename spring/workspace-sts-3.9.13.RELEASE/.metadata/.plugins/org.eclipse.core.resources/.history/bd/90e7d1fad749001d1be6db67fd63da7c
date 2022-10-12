@@ -1,0 +1,9 @@
+package kr.or.common;
+
+public class SHA256Util {
+	
+	public String encData(String data) throws Exception{
+		//매개변수로 받은 값을 sha-256으로 암호화해서 문자열로 리턴하는 메소드
+		
+	}
+}

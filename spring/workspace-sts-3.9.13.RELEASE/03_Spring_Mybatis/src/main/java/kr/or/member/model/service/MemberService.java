@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.member.model.dao.MemberDao;
 import kr.or.member.model.vo.Member;
@@ -23,7 +24,9 @@ public class MemberService {
 		return dao.selectAllMember();
 	}
 
+	@Transactional
 	public int insertMember(Member m) {
+		dao.insertMember(m);
 		return dao.insertMember(m);
 	}
 
@@ -31,10 +34,12 @@ public class MemberService {
 		return dao.selectOneMember(memberId);
 	}
 
+	@Transactional
 	public int deleteMember(String memberId) {
 		return dao.deleteMember(memberId);
 	}
 
+	@Transactional
 	public Member updateInfo(Member member) {
 		int result =  dao.updateInfo(member);
 		if(result>0) {

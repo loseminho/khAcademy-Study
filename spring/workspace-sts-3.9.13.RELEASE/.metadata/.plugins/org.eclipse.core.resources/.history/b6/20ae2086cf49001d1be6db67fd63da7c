@@ -1,0 +1,21 @@
+package kr.or.common;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Pointcut;
+
+import kr.or.member.model.vo.Member;
+
+public class AdviceClass {
+	//포인트컷생성
+	@Pointcut(value="execution(* kr.or.member.model.service.MemberService.*(..))")
+	public void allPoint() {}
+	@Pointcut(value="execution(* kr.or.member.model.service.MemberService.selectOneMember(..))")
+	public void selectOne() {}
+	
+	
+	public void pwChange(JoinPoint jp) {
+		Object[] args = jp.getArgs();
+		Member m = (Member)args[0];
+		m.setMemberPw("1234");
+	}
+}

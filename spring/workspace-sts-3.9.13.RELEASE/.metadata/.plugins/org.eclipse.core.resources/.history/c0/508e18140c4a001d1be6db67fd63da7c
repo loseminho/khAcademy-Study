@@ -1,0 +1,9 @@
+package kr.or.member.model.service;
+
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.stereotype.Service;
+
+@Service
+public class mailService {
+	private JavaMailSenderImpl
+}

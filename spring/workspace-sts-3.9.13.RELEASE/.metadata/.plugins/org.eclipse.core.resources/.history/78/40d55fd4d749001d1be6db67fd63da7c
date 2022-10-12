@@ -1,0 +1,8 @@
+package kr.or.common;
+
+public class SHA256Util {
+	
+	public String encData(String data) throws Exception{
+		
+	}
+}
