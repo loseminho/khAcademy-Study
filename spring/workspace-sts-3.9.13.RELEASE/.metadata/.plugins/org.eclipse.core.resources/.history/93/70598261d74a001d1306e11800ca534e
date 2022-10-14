@@ -1,0 +1,17 @@
+package kr.or.dm.model.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.or.dm.model.dao.DirectMessageDao;
+import kr.or.dm.model.vo.DirectMessage;
+
+@Service
+public class DirectMessageService {
+	@Autowired
+	private DirectMessageDao dao;
+
+	public int sendDm(DirectMessage dm) {
+		return dao.sendDm(dm);
+	}
+}

@@ -1,0 +1,14 @@
+package kr.or.dm.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import kr.or.dm.model.service.DirectMessageService;
+
+@Controller
+public class DirectMessageController {
+	@Autowired
+	private DirectMessageService service;
+	
+	
+}

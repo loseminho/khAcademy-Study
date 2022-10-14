@@ -1,0 +1,11 @@
+package kr.or.dm.model.service;
+
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+public class DirectMessageHandler extends TextWebSocketHandler{
+	
+	@Override
+	public void afterConnectionEstalished(WebSocket) {
+		
+	}
+}

@@ -1,0 +1,27 @@
+package kr.or.dm.model.service;
+
+import java.util.HashMap;
+
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+public class DirectMessageHandler extends TextWebSocketHandler{
+	
+	@Override
+	public void afterConnectionEstablished(WebSocketSession session) throws Exception{
+		//쪽지 소켓에 접속한 회원 정보를 저장할 Map(key:id, value:접속 세션)
+		HashMap<String, WebSocketSession> connectionMembers;
+		
+	}
+	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception{
+		
+	}
+	@Override
+	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception{
+		
+	}
+	
+}

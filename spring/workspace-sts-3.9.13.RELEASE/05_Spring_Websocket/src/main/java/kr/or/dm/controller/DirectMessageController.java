@@ -1,0 +1,46 @@
+package kr.or.dm.controller;
+
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.SessionScope;
+
+import com.google.gson.Gson;
+
+import kr.or.dm.model.service.DirectMessageService;
+import kr.or.dm.model.vo.DirectMessage;
+import kr.or.member.model.vo.Member;
+
+@Controller
+public class DirectMessageController {
+	@Autowired
+	private DirectMessageService service;
+	
+	@RequestMapping(value="/dmMain.do")
+	public String dmMain() {
+		return "dm/dmMain";
+	}
+	@ResponseBody
+	@RequestMapping(value="/insertDm.do")
+	public String insertDm(DirectMessage dm) {
+		int result = service.insertDm(dm);
+		return String.valueOf(result);
+	}
+	@ResponseBody
+	@RequestMapping(value="/myDmList.do",produces = "application/json;charset=utf-8")
+	public String myDmList(DirectMessage dm) {
+		ArrayList<DirectMessage> list = service.myDmList(dm);
+		return new Gson().toJson(list);
+	}
+	@ResponseBody
+	@RequestMapping(value="/dmDetail.do",produces = "application/json;charset=utf-8")
+	public String deDetail(int dmNo) {
+		DirectMessage dm = service.selectOneDm(dmNo);
+		return new Gson().toJson(dm);
+	}
+}

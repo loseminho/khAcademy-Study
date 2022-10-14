@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;05_Spring_Websocket/src/main/resources/mapper/directMessage.xml&apos; to &apos;directMessageSQL.xml&apos;" description="Rename resource &apos;directMessage.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/mapper/directMessage.xml" name="directMessageSQL.xml" stamp="1665653948350" updateReferences="true"/>
+</session>

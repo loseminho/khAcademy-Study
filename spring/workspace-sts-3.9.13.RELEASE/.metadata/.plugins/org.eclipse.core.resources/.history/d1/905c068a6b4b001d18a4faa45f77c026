@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+	<h1>내 쪽지함</h1>
+	<hr>
+	<button onclick="sendDmModal();">쪽지보내기</button>
+	<div id="sendDm-modal" class="modal-wrapper">
+		<div class="modal">
+			<div class="modal-header">
+				<h2>쪽지 보내기</h2>
+			</div>
+			<hr>
+			<div class="modal-content">
+				<div class="sendDmFrm">
+					<label>수신자 : </label>
+					<select name="receiver"></select>
+					<textarea name="dmContent"></textarea>
+					<button onclick="dmSend();">쪽지보내기</button>
+					<button onclick="closeModal();">닫기</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<fieldset>
+			<legend>쪽지 보내기</legend>
+			<table border="1">
+				<tr><th>받는 사람</th></tr>
+				<tr><td><input type="text" id="receiver2"></td></tr>
+				<tr><th>내용</th></tr>
+				<tr><td><textarea id="dmContent2"></textarea></td></tr>
+				<tr><td><button class="btn bc11" id ="bc11" onclick="sendDm('${sessionScope.m.memberId}')">쪽지 보내기</button></td></tr>
+			</table>
+		</fieldset>
+	<hr>
+	<h3>받은 쪽지함</h3>
+	<table border="1" class="receiveDmTbl">
+		<tr>
+			<th>보낸사람</th>
+			<th>내용</th>
+			<th>시간</th>
+			<th>읽음 여부</th>
+		</tr>
+		<tr>
+		
+		</tr>
+	</table>
+	<hr>
+	<h3>보낸 쪽지함</h3>
+	<table border="1" class="sendDmTbl">
+		<tr>
+			<th>보낸사람</th>
+			<th>내용</th>
+			<th>시간</th>
+			<th>읽음 여부</th>
+		</tr>
+		<tr>
+		
+		</tr>
+	</table>
+	<script>
+		function sendDm(params){
+			const receiver = $("#receiver2").val();
+			const dmContent = $("#dmContent2").val();
+			$.ajax({
+					url : "/sendDm.do",
+					type : "post",
+					data : {receiver : receiver, dmContent : dmContent, sender:params},
+					success : function(){
+						console.log("쪽지 전송 완료!");					
+					},
+					error : function(){
+						console.log("쪽지 전송 실패!");
+					}
+				});
+		});
+		
+		function sendDmModal(){
+			
+		}
+	</script>
+</body>
+</html>
